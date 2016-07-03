@@ -11,18 +11,22 @@ Bean.discoverById('654ca680ca394a679e181c8b4a8c8a2a', (bean) => {
   connectedBean = bean;
   process.on('SIGINT', process.exit);
 
+  bean.on('serial', function(data){
+    console.log(data.toString());
+  });
+
+  bean.on('accell', function(x, y, z, valid){
+    var status = valid ? 'valid' : 'invalid';
+    console.log('Received ' + status + ' accell\tx:\t' + x + '\ty:\t' + y + '\tz:\t' + z );
+  });
+
+  bean.on('disconnect', function(){
+    process.exit();
+  });
 
   bean.connectAndSetup(function(){
 
     console.log('Bean connected and setup.');
-
-    bean.on("serial", function(data){
-      console.log(data.toString());
-    });
-
-    bean.on("disconnect", function(){
-      process.exit();
-    });
 
   });
 
@@ -33,9 +37,19 @@ process.stdin.setEncoding('utf8');
 process.stdin.on('readable', () => {
   var chunk = process.stdin.read();
   if (chunk !== null) {
-    if (chunk === 'buzz' || 'z' || 'Z') {
+
+    var trimmed = chunk.trim();
+
+    if (trimmed === 'buzz' || trimmed === 'z' || trimmed === 'Z') {
       console.log('Write to bean');
       connectedBean.write(Buffer.from([90]));
+    }
+
+    if (trimmed == 'a'){
+      connectedBean.requestAccell(
+        function(){
+          console.log('Accell request sent.');
+        });
     }
     process.stdout.write(`data: ${chunk}`);
   }
