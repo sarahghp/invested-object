@@ -1,0 +1,22 @@
+{
+  "name": "invested-object",
+  "version": "0.0.1",
+  "description": "Thesis codes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahgp/invested-object.git"
+  },
+  "author": "Sarah Groff Hennigh-Palermo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahgp/invested-object/issues"
+  },
+  "homepage": "https://github.com/sarahgp/invested-object#readme",
+  "dependencies": {
+    "ble-bean": "^2.1.1"
+  }
+}
