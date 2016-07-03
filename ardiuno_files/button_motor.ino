@@ -35,6 +35,8 @@ void loop() {
 
   if(Serial.available() > 0){
     incomingByte = Serial.read();
+    Serial.print("Bite received: ");
+    Serial.println(incomingByte);
 
     if (incomingByte == 66 || incomingByte == 98 || incomingByte == 90 || incomingByte == 122) {
       motor = true;
@@ -69,6 +71,7 @@ void wakeUpBean(){
 }
 
 void buzzMotor(){
+    Serial.println("Motor");
     digitalWrite(motorPin, HIGH);
     delay(1000);
     digitalWrite(motorPin, LOW);
