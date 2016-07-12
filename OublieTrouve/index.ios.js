@@ -7,6 +7,7 @@
  * @flow
  */
 
+// Tools
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -16,18 +17,17 @@ import {
 } from 'react-native';
 import shorthand from 'react-native-styles-shorthand';
 
+// Components
+import Title from './components/Title_Screen';
+import ButtonBar from './components/Button_Bar';
+
 
 class OublieTrouve extends Component {
   render() {
-    return (
+    return ( 
       <View style={styles.container}>
-        <Text style={styles.title}>
-          <Text style={styles.O}>
-            O/
-          <Text style={styles.t}>
-            t
-          </Text></Text>
-        </Text>
+        <Title />
+        <ButtonBar />
       </View>
     );
   }
@@ -39,22 +39,6 @@ const styles = StyleSheet.create(shorthand({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#aefaea',
-  },
-  title: {
-    color: '#fff',
-    margin: '-150 0 0 -20',
-    letterSpacing: -35,
-  },
-  O: {
-    fontSize: 220,
-    fontFamily: 'Futura',
-    textAlign: 'center',
-  },
-  t: {
-    fontSize: 140,
-    fontFamily: 'PT Serif',
-    fontWeight: 'bold',
-    textAlign: 'center',
   }
 }));
 
