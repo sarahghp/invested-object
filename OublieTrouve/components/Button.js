@@ -23,6 +23,13 @@ const styles = StyleSheet.create(shorthand({
     borderRadius: 40, // eventually make size prop?
     width: 80, // eventually make size prop?
     backgroundColor: '#fff',
-    margin: 20
+    margin: 20,
+    shadowColor: "#4d4d4d",
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    shadowOffset: {
+      height: 0,
+      width: 0
+    }
   }
 }));
