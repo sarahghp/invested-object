@@ -13,9 +13,9 @@ export default class ButtonBar extends Component {
   render() {
     return (
       <View style={styles.buttonContainer}>
-        <Button />
-        <Button />
-        <Button />
+        <Button icon='moment' />
+        <Button size='large' icon='report' />
+        <Button icon='conx'/>
       </View>
     );
   }
@@ -26,5 +26,6 @@ const styles = StyleSheet.create(shorthand({
     flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
   },
 }));
