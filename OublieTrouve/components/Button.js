@@ -33,11 +33,15 @@ const icons = {
 };
 
 export default class Button extends Component {
+  setNativeProps (nativeProps) {
+    this._root.setNativeProps(nativeProps);
+  }
+  
   render() {
     let styleSize = this.props.size === 'large' ? styles.large : styles.standard;
     
     return (
-      <View style={[styles.button, styleSize]}>
+      <View style={[styles.button, styleSize]} ref={component => this._root = component} >
         {icons[this.props.icon]}
       </View>
     )

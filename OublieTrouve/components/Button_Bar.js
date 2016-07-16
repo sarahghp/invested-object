@@ -1,21 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   Text,
+  TouchableOpacity,
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
 
-import Button from './Button.js';
+// Components
+import Button   from './Button';
+import ListView from './Moments_List';
 
 export default class ButtonBar extends Component {
+
+  toList() {
+    this.props.navigator.push({
+      name: 'Moments List',
+      component: ListView,
+      passProps: {
+        test: 'test string',
+        navigator: this.props.navigator.pop
+      }
+    })
+  }
+
+  setNativeProps (nativeProps) {
+    this._root.setNativeProps(nativeProps);
+  }
+
   render() {
     return (
-      <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer} ref={component => this._root = component} >
         <Button icon='moment' />
         <Button size='large' icon='report' />
-        <Button icon='conx'/>
+        <TouchableOpacity onPress={this.toList.bind(this)}>
+          <Button icon='conx'/>
+        </TouchableOpacity>
       </View>
     );
   }
