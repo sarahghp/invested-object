@@ -5,7 +5,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>PTSerif.ttc</string>
-		<string>InputMonoCondensed-Light.ttf</string>
+		<string>InputMono-Regular.ttf</string>
+		<string>InputMono-Thin.ttf</string>
+		<string>InputMono-ThinItalic.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

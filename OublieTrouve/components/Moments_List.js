@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
 import { 
-  ListView, 
+  ListView,
+  PixelRatio, 
+  StyleSheet,
   Text, 
   View
 } from 'react-native';
+
+import shorthand from 'react-native-styles-shorthand';
 
 export default class MemoryList extends Component {
 
@@ -26,15 +30,36 @@ export default class MemoryList extends Component {
     this.props.navigator.pop();
   }
 
+  renderRow(rowData) {
+    return (
+        <View>
+          <View style={styles.row}>
+            <Text style={styles.text}>
+              {rowData}
+            </Text>
+          </View>
+        </View>
+    );
+  }
+
   render() {
     return (
       <View style={{paddingTop: 22}}>
-        <Text onPress={this.back.bind(this)}> « Back {this.props.test} </Text>
+        <Text style={styles.text} onPress={this.back.bind(this)}> « Back </Text>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+          renderRow={this.renderRow}
         />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create(shorthand({
+  text: {
+    padding: '6 6 6 18',
+    fontSize: 14,
+    fontFamily: 'Input Mono',
+    fontWeight: 'normal',
+  }
+}));

@@ -19,7 +19,6 @@ export default class ButtonBar extends Component {
       name: 'Moments List',
       component: ListView,
       passProps: {
-        test: 'test string',
         navigator: this.props.navigator.pop
       }
     })

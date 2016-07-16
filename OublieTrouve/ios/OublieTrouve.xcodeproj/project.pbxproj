@@ -23,8 +23,11 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		17D70B055B91456EB2BA4665 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 256BA69127D8419EA7166040 /* libRNSVG.a */; };
+		4F1AD1171D39D7C400859328 /* InputMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1161D39D7C400859328 /* InputMono-Regular.ttf */; };
+		4F1AD1271D39D8F500859328 /* InputMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1251D39D8F500859328 /* InputMono-Thin.ttf */; };
+		4F1AD1281D39D8F500859328 /* InputMono-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1261D39D8F500859328 /* InputMono-ThinItalic.ttf */; };
 		4F7BB39C1D3573EB00E579E6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BB39B1D3573EB00E579E6 /* Media.xcassets */; };
-		4FF821D51D34674C0054E837 /* InputMonoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FF821D41D34674C0054E837 /* InputMonoCondensed-Light.ttf */; };
+		4FF6D1671D39D4A4006A9C9E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		4FF821D71D3467A20054E837 /* PTSerif.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4FF821D61D3467A20054E837 /* PTSerif.ttc */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
@@ -138,8 +141,10 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		256BA69127D8419EA7166040 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		44982C6519714B48AB72E06B /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		4F1AD1161D39D7C400859328 /* InputMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InputMono-Regular.ttf"; sourceTree = "<group>"; };
+		4F1AD1251D39D8F500859328 /* InputMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InputMono-Thin.ttf"; sourceTree = "<group>"; };
+		4F1AD1261D39D8F500859328 /* InputMono-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InputMono-ThinItalic.ttf"; sourceTree = "<group>"; };
 		4F7BB39B1D3573EB00E579E6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		4FF821D41D34674C0054E837 /* InputMonoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InputMonoCondensed-Light.ttf"; path = "../../../../Library/Fonts/InputMonoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		4FF821D61D3467A20054E837 /* PTSerif.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSerif.ttc; path = ../../../../../../Library/Fonts/PTSerif.ttc; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -282,7 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				4FF821D61D3467A20054E837 /* PTSerif.ttc */,
-				4FF821D41D34674C0054E837 /* InputMonoCondensed-Light.ttf */,
+				4F1AD1251D39D8F500859328 /* InputMono-Thin.ttf */,
+				4F1AD1261D39D8F500859328 /* InputMono-ThinItalic.ttf */,
+				4F1AD1161D39D7C400859328 /* InputMono-Regular.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -555,8 +562,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1AD1281D39D8F500859328 /* InputMono-ThinItalic.ttf in Resources */,
+				4F1AD1271D39D8F500859328 /* InputMono-Thin.ttf in Resources */,
 				4F7BB39C1D3573EB00E579E6 /* Media.xcassets in Resources */,
-				4FF821D51D34674C0054E837 /* InputMonoCondensed-Light.ttf in Resources */,
+				4F1AD1171D39D7C400859328 /* InputMono-Regular.ttf in Resources */,
+				4FF6D1671D39D4A4006A9C9E /* Info.plist in Resources */,
 				4FF821D71D3467A20054E837 /* PTSerif.ttc in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
