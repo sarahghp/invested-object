@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {
+import  Native, {
   AppRegistry,
   Navigator,
   StyleSheet,
@@ -13,7 +13,20 @@ import shorthand from 'react-native-styles-shorthand';
 import Title      from './Title_Screen';
 import ButtonBar  from './Button_Bar';
 
+// Turn bluetooth features on & off (only works on device)
+const BLE_ON = false;
+
 export default class FrontPage extends Component {
+
+  componentDidMount(){
+    
+    if (BLE_ON) {
+      Native.NativeModules.Bean.initBean();
+    }
+    
+    console.dir(Native.NativeModules.Bean);
+    
+  }
 
   render(){
     return (

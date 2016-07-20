@@ -26,10 +26,13 @@
 		4F1AD1171D39D7C400859328 /* InputMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1161D39D7C400859328 /* InputMono-Regular.ttf */; };
 		4F1AD1271D39D8F500859328 /* InputMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1251D39D8F500859328 /* InputMono-Thin.ttf */; };
 		4F1AD1281D39D8F500859328 /* InputMono-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1261D39D8F500859328 /* InputMono-ThinItalic.ttf */; };
+		4F6DC62E1D3E9C80006ABF26 /* Bean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6DC62D1D3E9C80006ABF26 /* Bean.swift */; };
+		4F6DC63B1D3E9CB0006ABF26 /* BeanBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6DC63A1D3E9CB0006ABF26 /* BeanBridge.m */; };
 		4F7BB39C1D3573EB00E579E6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BB39B1D3573EB00E579E6 /* Media.xcassets */; };
 		4FF6D1671D39D4A4006A9C9E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		4FF821D71D3467A20054E837 /* PTSerif.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4FF821D61D3467A20054E837 /* PTSerif.ttc */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		EC68055DF3321AFBC09C0138 /* Pods_OublieTrouve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967E75FF063F9DDADDC2D828 /* Pods_OublieTrouve.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,13 +144,19 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		256BA69127D8419EA7166040 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		44982C6519714B48AB72E06B /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		477451A5E13520480E6E9D14 /* Pods-OublieTrouve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OublieTrouve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OublieTrouve/Pods-OublieTrouve.debug.xcconfig"; sourceTree = "<group>"; };
 		4F1AD1161D39D7C400859328 /* InputMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InputMono-Regular.ttf"; sourceTree = "<group>"; };
 		4F1AD1251D39D8F500859328 /* InputMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InputMono-Thin.ttf"; sourceTree = "<group>"; };
 		4F1AD1261D39D8F500859328 /* InputMono-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InputMono-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4F6DC62C1D3E9C80006ABF26 /* OublieTrouve-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OublieTrouve-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F6DC62D1D3E9C80006ABF26 /* Bean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bean.swift; sourceTree = "<group>"; };
+		4F6DC63A1D3E9CB0006ABF26 /* BeanBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeanBridge.m; sourceTree = "<group>"; };
 		4F7BB39B1D3573EB00E579E6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4FF821D61D3467A20054E837 /* PTSerif.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSerif.ttc; path = ../../../../../../Library/Fonts/PTSerif.ttc; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		967E75FF063F9DDADDC2D828 /* Pods_OublieTrouve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OublieTrouve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A49909ED23290A0D2DC742 /* Pods-OublieTrouve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OublieTrouve.release.xcconfig"; path = "Pods/Target Support Files/Pods-OublieTrouve/Pods-OublieTrouve.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +183,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				17D70B055B91456EB2BA4665 /* libRNSVG.a in Frameworks */,
+				EC68055DF3321AFBC09C0138 /* Pods_OublieTrouve.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +273,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				4F6DC62D1D3E9C80006ABF26 /* Bean.swift */,
+				4F6DC62C1D3E9C80006ABF26 /* OublieTrouve-Bridging-Header.h */,
+				4F6DC63A1D3E9CB0006ABF26 /* BeanBridge.m */,
 			);
 			name = OublieTrouve;
 			sourceTree = "<group>";
@@ -337,6 +350,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* OublieTrouveTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				F318651807B0496771D55593 /* Pods */,
+				CA2657F29EC451C65C15D69E /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -349,6 +364,23 @@
 				00E356EE1AD99517003FC87E /* OublieTrouveTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CA2657F29EC451C65C15D69E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				967E75FF063F9DDADDC2D828 /* Pods_OublieTrouve.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F318651807B0496771D55593 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				477451A5E13520480E6E9D14 /* Pods-OublieTrouve.debug.xcconfig */,
+				A6A49909ED23290A0D2DC742 /* Pods-OublieTrouve.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,10 +408,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "OublieTrouve" */;
 			buildPhases = (
+				C1FF404DD75FF3D22FF3ECED /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				7AFDFE93D89382F550D9F887 /* [CP] Embed Pods Frameworks */,
+				CB5243423634485EEB57B8B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,6 +431,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -590,6 +626,51 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		7AFDFE93D89382F550D9F887 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OublieTrouve/Pods-OublieTrouve-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1FF404DD75FF3D22FF3ECED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CB5243423634485EEB57B8B8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OublieTrouve/Pods-OublieTrouve-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -607,6 +688,8 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				4F6DC63B1D3E9CB0006ABF26 /* BeanBridge.m in Sources */,
+				4F6DC62E1D3E9C80006ABF26 /* Bean.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,8 +755,10 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 477451A5E13520480E6E9D14 /* Pods-OublieTrouve.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -689,13 +774,17 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = OublieTrouve;
+				SWIFT_OBJC_BRIDGING_HEADER = "OublieTrouve-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A49909ED23290A0D2DC742 /* Pods-OublieTrouve.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -710,6 +799,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = OublieTrouve;
+				SWIFT_OBJC_BRIDGING_HEADER = "OublieTrouve-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -753,7 +843,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -794,7 +884,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
