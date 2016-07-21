@@ -5,7 +5,6 @@
 //  Created by breakers on 7/19/16.
 //
 
-import Foundation
 import Bean_iOS_OSX_SDK
 
 @objc(Bean)
