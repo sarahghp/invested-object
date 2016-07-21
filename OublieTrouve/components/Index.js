@@ -14,7 +14,7 @@ import Title      from './Title_Screen';
 import ButtonBar  from './Button_Bar';
 
 // Turn bluetooth features on & off (only works on device)
-const BLE_ON = false;
+const BLE_ON = true;
 
 export default class FrontPage extends Component {
 

@@ -9,6 +9,7 @@ Bean.discoverById('654ca680ca394a679e181c8b4a8c8a2a', (bean) => {
   console.log('Bean discovered.')
   
   connectedBean = bean;
+  console.log(bean);
   process.on('SIGINT', process.exit);
 
   bean.on('serial', function(data){

@@ -21,23 +21,23 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   // Call from JS when app is opened to begin looking for Bean
   @objc func initBean() {
     
-    beanManager = try PTDBeanManager()
+    beanManager = PTDBeanManager()
     beanManager!.delegate = self
-    startScanning()
-        
-//    do {
-//      beanManager = try PTDBeanManager()
-//      beanManager!.delegate = self
-//      startScanning()
-//    } catch {
-//      print("Init error")
-//    }
+    delay(1000){
+      self.startScanning()
+    }
     
     print("Bean init called.")
   }
   
+  func delay(delay:Double, closure:()->()) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
+  }
+  
   func beanManagerDidUpdateState(beanManager: PTDBeanManager!) {
     var scanError: NSError?
+    
+    print("called didUpdateState")
     
     if beanManager!.state == BeanManagerState.PoweredOn {
       startScanning()
@@ -62,9 +62,9 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
       if let e = error {
         print(e)
       }
-      
       print("Found a Bean: \(bean.name)")
-      if bean.name == "Talisbean" {
+      print(bean)
+      if bean.name == "Talisbean🐚" {
         yourBean = bean
         connectToBean(yourBean!)
       }
