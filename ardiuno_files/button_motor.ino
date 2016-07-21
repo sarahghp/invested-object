@@ -4,7 +4,6 @@ bool button;
 
 const int buttonPin = 0;
 const int motorPin = 5;
-int incomingByte = 0;
 
 void putBeanToSleep();
 void wakeUpBean();
@@ -32,19 +31,20 @@ void loop() {
  if(connected) {
    wakeUpBean();
    button = !digitalRead(0);
+   Serial.println("Connected");
 
-  if(Serial.available() > 0){
-    incomingByte = Serial.read();
-    Serial.print("Bite received: ");
-    Serial.println(incomingByte);
-
-    if (incomingByte == 66 || incomingByte == 98 || incomingByte == 90 || incomingByte == 122) {
-      motor = true;
+  while(Serial.available() > 0){
+    Serial.println("In but not read");
+    char data = Serial.read();
+    if (data == 1){
+      Serial.print("Yes, I am here");
     }
+    motor = true;
 
   }
 
   if(motor){
+    Bean.setLed(0, 0, 255);
     buzzMotor();
   }
 

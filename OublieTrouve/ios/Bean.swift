@@ -78,12 +78,14 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   // Send buzz when triggered
   @objc func buzzBean(){
     print("Buzz called")
-    sendSerialString("z")
+    var state: Bool = true;
+    let data = NSData(bytes: &state, length: sizeof(Bool))
+    sendSerialData(data)
   }
   
-  func sendSerialString(message: String) {
+  func sendSerialData(message: NSData) {
     print("Send serial data \(message)")
-    yourBean?.sendSerialString(message)
+    yourBean?.sendSerialData(message)
   }
   
   func bean(bean: PTDBean!, serialDataReceived data: NSData!) {
