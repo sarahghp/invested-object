@@ -65,6 +65,7 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
       print("Found a Bean: \(bean.name)")
       if bean.name == "Talisbean" {
         yourBean = bean
+        yourBean!.delegate = self
         connectToBean(yourBean!)
       }
   }
@@ -77,13 +78,17 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   // Send buzz when triggered
   @objc func buzzBean(){
     print("Buzz called")
-    let str = "z"
-    let data: NSData = str.dataUsingEncoding(NSUTF8StringEncoding)!
-    sendSerialData(data)
+    sendSerialString("z")
   }
   
-  func sendSerialData(message: NSData) {
+  func sendSerialString(message: String) {
     print("Send serial data \(message)")
-    yourBean?.sendSerialData(message)
+    yourBean?.sendSerialString(message)
   }
+  
+  func bean(bean: PTDBean!, serialDataReceived data: NSData!) {
+    var receivedMessage = NSString(data: data, encoding: NSUTF8StringEncoding)
+    print("From serial: \(receivedMessage!)")
+  }
+  
 }
