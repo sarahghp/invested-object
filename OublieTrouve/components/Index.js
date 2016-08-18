@@ -22,10 +22,9 @@ export default class FrontPage extends Component {
     
     if (BLE_ON) {
       Native.NativeModules.Bean.initBean();
+      console.dir(Native.NativeModules.Bean);
     }
-    
-    console.dir(Native.NativeModules.Bean);
-    
+      
   }
 
   render(){
