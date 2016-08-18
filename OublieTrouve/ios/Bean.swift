@@ -33,6 +33,11 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
   }
   
+  func beanManager(beanManager: PTDBeanManager!, didConnectBean bean: PTDBean!, error: NSError!) {
+    print("did connect")
+    yourBean!.delegate = self
+  }
+  
   func beanManagerDidUpdateState(beanManager: PTDBeanManager!) {
     var scanError: NSError?
     
@@ -64,7 +69,6 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
       print("Found a Bean: \(bean.name)")
       if bean.name == "Talisbean" {
         yourBean = bean
-        yourBean!.delegate = self
         connectToBean(yourBean!)
       }
   }
