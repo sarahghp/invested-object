@@ -9,22 +9,34 @@ import {
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
+import SimpleStore from 'react-native-simple-store';
 
+// Data
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
+// Component
 export default class MemoryList extends Component {
 
-  // Hardcoded data for now
   constructor(props) {
-
     super(props);
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
     this.state = {
-      dataSource: ds.cloneWithRows([
-        'Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.'
-      ])
-    };
+      dataSource: ds.cloneWithRows([''])
+    }
   }
+
+
+  componentWillMount() {
+    SimpleStore.get('all_moments')
+    .then((data) => {
+      let titles = _.map(data, 'title');
+      this.setState({dataSource: ds.cloneWithRows(titles)});
+    })
+    .catch(error => {
+      console.error(error.message);
+    });
+  }
+
 
   back() {
     this.props.navigator.pop();

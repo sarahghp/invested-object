@@ -9,6 +9,30 @@ import {
 } from 'react-native';
 import shorthand from 'react-native-styles-shorthand';
 
+// Datas
+import SimpleStore from 'react-native-simple-store';
+import seed from './data_seed.js';
+
+SimpleStore.get('all_moments')
+  .then((data) => {
+    if (!data){
+      console.log('Reloaded data');
+      SimpleStore.save('all_moments', seed)
+        .then(() => SimpleStore.get('all_moments'))
+        .then(data => {
+          // console.log(data);
+        })
+        .catch(error => {
+          console.error(error.message);
+        });
+    } else {
+      console.log('Data was already loaded.');
+    }
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
+
 // Components
 import Title      from './Title_Screen';
 import ButtonBar  from './Button_Bar';
