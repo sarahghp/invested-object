@@ -13,6 +13,9 @@ import shorthand from 'react-native-styles-shorthand';
 import SimpleStore from 'react-native-simple-store';
 import seed from './data_seed.js';
 
+// SimpleStore.delete('all_moments');
+
+
 SimpleStore.get('all_moments')
   .then((data) => {
     if (!data){

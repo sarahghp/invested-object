@@ -1,10 +1,22 @@
 import _ from 'lodash';
 
-let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.'];
+let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
 let lipsum = "Lorem ipsum dolor sit amet, nostro tritani in ius, at mundi vivendo sed, nec illum discere constituto at. Ferri probatus forensibus sed te, purto animal no qui. Nam ex nibh inani mollis, sed magna semper tibique ei, in pro alia errem dicant. Dicta tacimates ea his, in feugait mnesarchum quo. Ad nobis persecuti definitiones sea, eu quis alia agam usu, at per cibo eleifend sadipscing. Alienum corpora cu eam, ea etiam minim vel, stet ignota abhorreant et ius. Pri velit urbanitas ut."
 
+function moreTitles() {
+
+  _.times(100, function(){
+
+    let date = new Date(_.random(0, Date.now())),
+        cleaned = date.toString().split(' ').slice(0, 5).join(', ');
+
+    titles.push(cleaned);
+  });
+
+}
 
 function seed(){
+  moreTitles();
   let momentsArr = _.map(titles, function(title){
     let obj = {};
     obj.title = title;

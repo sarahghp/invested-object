@@ -55,9 +55,17 @@ export default class MemoryList extends Component {
           underlayColor={base.lightSeafoam}
           onPress={this._onPressLink.bind(this)}>
             
-              <Text style={styles.text}>
-                {rowData}
-              </Text>
+            <View style={styles.textWapper}>
+            <Text style={styles.text}>
+              {rowData}
+            </Text>
+
+            <Text style={styles.text}>
+              »
+            </Text>
+            </View>
+            
+
             
           </TouchableHighlight>
 
@@ -66,11 +74,15 @@ export default class MemoryList extends Component {
 
   render() {
     return (
-      <View style={{paddingTop: 22}}>
-        <Text style={styles.text} onPress={this.back.bind(this)}> « Back </Text>
+      <View style={styles.container}>
+        <Text style={styles.text, {paddingLeft: 18}} onPress={this.back.bind(this)}> 
+          « Back 
+        </Text>
         <ListView
+          style={styles.list}
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
+          initialListSize={13}
         />
       </View>
     );
@@ -78,8 +90,22 @@ export default class MemoryList extends Component {
 }
 
 const styles = StyleSheet.create(shorthand({
+  container: {
+    paddingTop: 44,
+    flex: 1,
+  },
   text: groups.bodyFontGroup,
+  textWapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   row: {
-      padding: '6 6 6 18',
+      padding: '18',
+      height: 44,
+      borderBottomWidth: 1,
+      borderBottomColor: base.lightSeafoam,
+  },
+  list: {
+    marginTop: 18,
   }
 }));
