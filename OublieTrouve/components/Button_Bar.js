@@ -9,15 +9,15 @@ import {
 import shorthand from 'react-native-styles-shorthand';
 
 // Components
-import Button   from './Button';
-import ListView from './Moments_List';
+import Button      from './Button';
+import MomentsList from './Moments_List';
 
 export default class ButtonBar extends Component {
 
   toList() {
     this.props.navigator.push({
       name: 'Moments List',
-      component: ListView,
+      component: MomentsList,
       passProps: {
         navigator: this.props.navigator.pop
       }
