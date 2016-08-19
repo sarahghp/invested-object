@@ -30,6 +30,7 @@ SimpleStore.get('all_moments')
         });
     } else {
       console.log('Data was already loaded.');
+      // console.log(data);
     }
   })
   .catch(error => {

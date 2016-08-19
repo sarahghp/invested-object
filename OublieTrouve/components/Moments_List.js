@@ -13,6 +13,8 @@ import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 
+import DetailView from './Detail.js';
+
 // Data
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
@@ -40,7 +42,7 @@ export default class MemoryList extends Component {
   }
 
 
-  back() {
+  _back() {
     this.props.navigator.pop();
   }
 
@@ -48,24 +50,34 @@ export default class MemoryList extends Component {
     console.log("You tapped the link!");
   }
 
+  _toDetail() {
+    console.log("You tapped the link!");
+    
+    this.props.navigator.push({
+      name: 'Detail',
+      component: DetailView,
+      passProps: {
+        navigator: this.props.navigator.pop
+      }
+    })
+  }
+
   renderRow(rowData) {
     return (
         <TouchableHighlight 
           style={styles.row} 
           underlayColor={base.lightSeafoam}
-          onPress={this._onPressLink.bind(this)}>
+          onPress={this._toDetail.bind(this)}>
             
             <View style={styles.textWapper}>
-            <Text style={styles.text}>
-              {rowData}
-            </Text>
+              <Text style={styles.text}>
+                {rowData}
+              </Text>
 
-            <Text style={styles.text}>
-              »
-            </Text>
+              <Text style={styles.text}>
+                »
+              </Text>
             </View>
-            
-
             
           </TouchableHighlight>
 
@@ -75,7 +87,7 @@ export default class MemoryList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text, {paddingLeft: 18}} onPress={this.back.bind(this)}> 
+        <Text style={styles.text, {paddingLeft: 18}} onPress={this._back.bind(this)}> 
           « Back 
         </Text>
         <ListView
