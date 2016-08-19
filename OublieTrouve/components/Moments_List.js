@@ -4,11 +4,13 @@ import {
   ListView,
   PixelRatio, 
   StyleSheet,
+  TouchableHighlight,
   Text, 
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
+import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 
 // Data
@@ -42,15 +44,23 @@ export default class MemoryList extends Component {
     this.props.navigator.pop();
   }
 
+  _onPressLink() {
+    console.log("You tapped the link!");
+  }
+
   renderRow(rowData) {
     return (
-        <View>
-          <View style={styles.row}>
-            <Text style={styles.text}>
-              {rowData}
-            </Text>
-          </View>
-        </View>
+        <TouchableHighlight 
+          style={styles.row} 
+          underlayColor={base.lightSeafoam}
+          onPress={this._onPressLink.bind(this)}>
+            
+              <Text style={styles.text}>
+                {rowData}
+              </Text>
+            
+          </TouchableHighlight>
+
     );
   }
 
@@ -60,7 +70,7 @@ export default class MemoryList extends Component {
         <Text style={styles.text} onPress={this.back.bind(this)}> « Back </Text>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
         />
       </View>
     );
@@ -68,10 +78,8 @@ export default class MemoryList extends Component {
 }
 
 const styles = StyleSheet.create(shorthand({
-  text: {
-    padding: '6 6 6 18',
-    fontSize: 14,
-    fontFamily: 'Input Mono',
-    fontWeight: 'normal',
+  text: groups.bodyFontGroup,
+  row: {
+      padding: '6 6 6 18',
   }
 }));
