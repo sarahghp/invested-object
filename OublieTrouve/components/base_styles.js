@@ -4,11 +4,11 @@ let base = {
   lightSeafoam:   '#c5fbf0',
   darkSeafoam:    '#163939',
 
-  primaryGray: '#53535c',
+  primaryGray:    '#53535c',
 
-  primaryShadow: '#4d4d4d',
+  primaryShadow:  '#4d4d4d',
 
-  bodyfontSize: 14,
+  bodyfontSize:    14,
   bodyFontFamily: 'Input Mono',
   bodyFontWeight: 'normal',
 
@@ -24,4 +24,4 @@ let groups = {
   }
 }
 
-export {base, groups};
+export { base, groups };
