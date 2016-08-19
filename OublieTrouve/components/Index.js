@@ -8,13 +8,13 @@ import {
   View
 } from 'react-native';
 import shorthand from 'react-native-styles-shorthand';
+import { base } from './base_styles';
 
 // Datas
 import SimpleStore from 'react-native-simple-store';
 import seed from './data_seed.js';
 
 // SimpleStore.delete('all_moments');
-
 
 SimpleStore.get('all_moments')
   .then((data) => {
@@ -57,6 +57,6 @@ const styles = StyleSheet.create(shorthand({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#aefaea',
+    backgroundColor: base.primarySeafoam,
   }
 }));

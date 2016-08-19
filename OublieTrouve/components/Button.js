@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
+import { base } from './base_styles';
 
 import Lighthouse from './icons/lighthouse';
 import Signpost   from './icons/signpost';
@@ -14,13 +15,13 @@ import Gem        from './icons/gem';
 
 const svgStyles = {
   standard: {
-    stroke: '#163939',
+    stroke: base.darkSeafoam,
     strWidth: '0.8',
     size: '36' // svg expects strings
   },
 
   large: {
-    stroke: '#163939',
+    stroke: base.darkSeafoam,
     strWidth: '0.8',
     size: '48' // svg expects strings
   }
@@ -54,7 +55,7 @@ const styles = StyleSheet.create(shorthand({
     justifyContent: 'center',
     backgroundColor: '#fff',
     margin: 16,
-    shadowColor: '#4d4d4d',
+    shadowColor: base.primaryShadow,
     shadowOpacity: 0.3,
     shadowRadius: 4,
     shadowOffset: {
