@@ -46,18 +46,15 @@ export default class MemoryList extends Component {
     this.props.navigator.pop();
   }
 
-  _onPressLink() {
-    console.log("You tapped the link!");
-  }
-
-  _toDetail() {
+  _toDetail(data) {
     console.log("You tapped the link!");
     
     this.props.navigator.push({
       name: 'Detail',
       component: DetailView,
       passProps: {
-        navigator: this.props.navigator.pop
+        navigator: this.props.navigator.pop,
+        title: data, 
       }
     })
   }
@@ -67,7 +64,7 @@ export default class MemoryList extends Component {
         <TouchableHighlight 
           style={styles.row} 
           underlayColor={base.lightSeafoam}
-          onPress={this._toDetail.bind(this)}>
+          onPress={this._toDetail.bind(this, rowData)}>
             
             <View style={styles.textWapper}>
               <Text style={styles.text}>

@@ -11,9 +11,11 @@ import {
 
 import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
-import SimpleStore from 'react-native-simple-store';
 
-// Component
+// Components
+import Button     from './Button';
+import MomentText from './Moment_Text';
+
 export default class Detail extends Component {
 
   constructor(props) {
@@ -32,9 +34,14 @@ export default class Detail extends Component {
         <Text style={styles.text, {paddingLeft: 18}} onPress={this._back.bind(this)}> 
           « Back 
         </Text>
-        <View style={styles.imageWrapper}><Image style={styles.image} source={require('./img/icon-buddies.png')} /></View>
-        {/*moment button*/}
-        {/*list*/}
+        <View style={styles.imageWrapper}>
+          <Image style={styles.image} source={require('./img/icon-buddies.png')} />
+        </View>
+        <MomentText title={this.props.title} />
+        <View style={styles.buttonWrapper}>
+          <Button style={styles.button} size='large' bkg='#a8ffee' opc={0.85} icon='report' />
+        </View>
+        
 
       </View>
 
@@ -50,6 +57,12 @@ const styles = StyleSheet.create(shorthand({
   },
   text: groups.bodyFontGroup,
   imageWrapper: {
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 2,
+  },  
+  buttonWrapper: {
+    position: 'absolute',
+    bottom: 22,
+    right: 22,
   }
 }));

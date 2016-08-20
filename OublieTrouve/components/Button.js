@@ -39,10 +39,13 @@ export default class Button extends Component {
   }
   
   render() {
-    let styleSize = this.props.size === 'large' ? styles.large : styles.standard;
+    let styleSize = this.props.size === 'large' ? styles.large : styles.standard,
+        bkg = this.props.bkg ? this.props.bkg : '#fff',
+        opc = this.props.opc ? this.props.opc : 1; 
     
     return (
-      <View style={[styles.button, styleSize]} ref={component => this._root = component} >
+      <View style={[styles.button, styleSize, {backgroundColor: bkg, opacity: opc}]} 
+            ref={component => this._root = component} >
         {icons[this.props.icon]}
       </View>
     )
@@ -53,8 +56,8 @@ const styles = StyleSheet.create(shorthand({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
     margin: 16,
+    // opacity: 0.9,
     shadowColor: base.primaryShadow,
     shadowOpacity: 0.3,
     shadowRadius: 4,
