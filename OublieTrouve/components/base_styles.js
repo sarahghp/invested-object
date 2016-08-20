@@ -5,6 +5,7 @@ let base = {
   darkSeafoam:    '#163939',
 
   primaryGray:    '#53535c',
+  darkGray:       '#35353b',
 
   primaryShadow:  '#4d4d4d',
 
@@ -12,6 +13,7 @@ let base = {
   bodyFontFamily: 'Input Mono',
   bodyFontWeight: 'normal',
 
+  padding: 18,
 
 }
 
@@ -21,6 +23,7 @@ let groups = {
     fontFamily: base.bodyFontFamily,
     fontWeight: base.bodyFontWeight,
     color: base.primaryGray,
+    padding: base.padding
   }
 }
 

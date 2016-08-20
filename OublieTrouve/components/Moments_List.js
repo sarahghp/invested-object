@@ -109,10 +109,9 @@ const styles = StyleSheet.create(shorthand({
     justifyContent: 'space-between'
   },
   row: {
-      padding: '18',
-      height: 44,
-      borderBottomWidth: 1,
-      borderBottomColor: base.lightSeafoam,
+    height: 44,
+    borderBottomWidth: 1,
+    borderBottomColor: base.lightSeafoam,
   },
   list: {
     marginTop: 18,

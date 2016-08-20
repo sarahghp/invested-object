@@ -43,33 +43,34 @@ export default class MomentText extends Component {
 
   render() {
     
-    return (
-      
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>{this.props.title} </Text>
-        <Text style={styles.para}>{this.state.details.description} </Text>
-      </ScrollView>
-  
+    let date = new Date(this.state.details.posted);
 
+    return (
+      <ScrollView style={styles.container}>
+        <Text style={[styles.text, styles.title]}>{this.props.title} </Text>
+        <Text style={[styles.text, styles.para]}>{this.state.details.description} </Text>
+        <Text style={[styles.text, styles.small]}>posted at: {date.toString()} </Text>
+      </ScrollView>
     )
   }
-
 }
 
 const styles = StyleSheet.create(shorthand({
   container: {
-    paddingTop: 44,
+    marginTop: 44,
     flex: 4,
   },
+  text: groups.bodyFontGroup,
   title: {
-    fontFamily: base.bodyFontFamily,
     fontSize: 22,
-    padding: 18,
   },
   para: {
     flex: 1,
-    fontFamily: base.bodyFontFamily,
-    padding: 18,
     lineHeight: 21,
+  },
+  small:{
+    fontSize: 12,
+    fontStyle: 'italic',
+    color: base.darkGray,
   },
 }));
