@@ -30,12 +30,14 @@ export default class Detail extends Component {
 
   render() {
 
-    let lower;
+    let img, lower;
 
     if (this.props.detailKind === 'text') {
+      img = <Image style={styles.image} source={require('./img/icon-buddies.png')} />
       lower = <MomentText title={this.props.title} />
     } else if (this.props.detailKind === 'list') {
-     lower = <MomentList navigator={this.props.navigator} /> 
+      img = <Image style={styles.image} source={require('./img/fake-graph.png')} />
+      lower = <MomentList navigator={this.props.navigator} /> 
     }
 
     return (
@@ -44,7 +46,7 @@ export default class Detail extends Component {
 
         <TopNav navigator={this.props.navigator} />
         <View style={styles.imageWrapper}>
-          <Image style={styles.image} source={require('./img/icon-buddies.png')} />
+          {img}
         </View>
 
         {lower}
