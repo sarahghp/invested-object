@@ -12,7 +12,7 @@ import { base } from './base_styles';
 
 // Datas
 import SimpleStore from 'react-native-simple-store';
-import seed from './data_seed.js';
+import seed from './helpers/data_seed.js';
 
 // SimpleStore.delete('all_moments');
 
