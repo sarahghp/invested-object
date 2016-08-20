@@ -54,7 +54,8 @@ export default class MemoryList extends Component {
       component: DetailView,
       passProps: {
         navigator: this.props.navigator.pop,
-        title: data, 
+        title: data,
+        detailKind: 'list' 
       }
     })
   }

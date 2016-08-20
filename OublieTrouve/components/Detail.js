@@ -15,6 +15,7 @@ import { base, groups } from './base_styles';
 // Components
 import Button     from './Button';
 import MomentText from './Moment_Text';
+import MomentList from './Moments_List';
 
 export default class Detail extends Component {
 
@@ -27,6 +28,15 @@ export default class Detail extends Component {
   }
 
   render() {
+
+    let lower;
+
+    if (this.props.detailKind === 'text') {
+      lower = <MomentText title={this.props.title} />
+    } else if (this.props.detailKind === 'list') {
+     lower = <MomentList /> 
+    }
+
     return (
 
       <View style={styles.container}>
@@ -37,7 +47,10 @@ export default class Detail extends Component {
         <View style={styles.imageWrapper}>
           <Image style={styles.image} source={require('./img/icon-buddies.png')} />
         </View>
-        <MomentText title={this.props.title} />
+
+        {lower}
+
+        
         <View style={styles.buttonWrapper}>
           <Button style={styles.button} size='large' bkg='#a8ffee' opc={0.85} icon='report' />
         </View>
