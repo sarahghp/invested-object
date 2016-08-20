@@ -13,6 +13,7 @@ import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 
+// Components
 import DetailView from './Detail.js';
 
 // Data
@@ -42,10 +43,6 @@ export default class MemoryList extends Component {
   }
 
 
-  _back() {
-    this.props.navigator.pop();
-  }
-
   _toDetail(data) {
     console.log("You tapped the link!");
     
@@ -55,7 +52,7 @@ export default class MemoryList extends Component {
       passProps: {
         navigator: this.props.navigator.pop,
         title: data,
-        detailKind: 'list' 
+        detailKind: 'text',
       }
     })
   }
@@ -84,26 +81,16 @@ export default class MemoryList extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text, {paddingLeft: 18}} onPress={this._back.bind(this)}> 
-          « Back 
-        </Text>
         <ListView
           style={styles.list}
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
-          initialListSize={13}
         />
-      </View>
     );
   }
 }
 
 const styles = StyleSheet.create(shorthand({
-  container: {
-    paddingTop: 44,
-    flex: 1,
-  },
   text: groups.bodyFontGroup,
   textWapper: {
     flexDirection: 'row',
@@ -116,5 +103,6 @@ const styles = StyleSheet.create(shorthand({
   },
   list: {
     marginTop: 18,
+    flex: 4,
   }
 }));

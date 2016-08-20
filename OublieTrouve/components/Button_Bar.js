@@ -10,14 +10,14 @@ import shorthand from 'react-native-styles-shorthand';
 
 // Components
 import Button      from './Button';
-import MomentsList from './Moments_List';
+import ListPage    from './Lists';
 
 export default class ButtonBar extends Component {
 
   toList() {
     this.props.navigator.push({
-      name: 'Moments List',
-      component: MomentsList,
+      name: 'List Page',
+      component: ListPage,
       passProps: {
         navigator: this.props.navigator.pop
       }

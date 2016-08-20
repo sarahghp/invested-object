@@ -13,6 +13,7 @@ import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 
 // Components
+import TopNav     from './TopNav';
 import Button     from './Button';
 import MomentText from './Moment_Text';
 import MomentList from './Moments_List';
@@ -34,23 +35,20 @@ export default class Detail extends Component {
     if (this.props.detailKind === 'text') {
       lower = <MomentText title={this.props.title} />
     } else if (this.props.detailKind === 'list') {
-     lower = <MomentList /> 
+     lower = <MomentList navigator={this.props.navigator} /> 
     }
 
     return (
 
       <View style={styles.container}>
 
-        <Text style={styles.text, {paddingLeft: 18}} onPress={this._back.bind(this)}> 
-          « Back 
-        </Text>
+        <TopNav navigator={this.props.navigator} />
         <View style={styles.imageWrapper}>
           <Image style={styles.image} source={require('./img/icon-buddies.png')} />
         </View>
 
         {lower}
 
-        
         <View style={styles.buttonWrapper}>
           <Button style={styles.button} size='large' bkg='#a8ffee' opc={0.85} icon='report' />
         </View>
@@ -77,5 +75,5 @@ const styles = StyleSheet.create(shorthand({
     position: 'absolute',
     bottom: 22,
     right: 22,
-  }
+  },
 }));
