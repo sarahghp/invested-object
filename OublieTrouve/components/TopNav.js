@@ -28,7 +28,8 @@ export default class TopNav extends Component {
           <SegmentedControlIOS 
             tintColor={base.textSeafoam}
             values={['Concordances', 'All Moments']} 
-            selectedIndex={1} />
+            selectedIndex={1}
+            onValueChange={this._onValueChange} />
         </View>
         {/* This is a super hacky way to get the spacing how I want it in the flexbox. It is a terrible idea. */}
         <View>
