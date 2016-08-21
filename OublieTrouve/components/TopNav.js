@@ -18,27 +18,18 @@ export default class TopNav extends Component {
 
     render() {
       return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.text} onPress={this._back.bind(this)} > 
-            « Back 
-          </Text>  
+        <View style={styles.container}>
+            <Text style={styles.text} onPress={this._back.bind(this)} > 
+              « Back 
+            </Text>
+            <Text style={styles.text}>
+              {this.props.sectionTitle}
+            </Text>
+            {/* This is a super hacky way to get the spacing how I want it in the flexbox. It is a terrible idea. */}
+            <Text style={styles.text}> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            </Text>  
         </View>
-        <View style={styles.control}>
-          <SegmentedControlIOS 
-            tintColor={base.textSeafoam}
-            values={['Concordances', 'All Moments']} 
-            selectedIndex={1}
-            onValueChange={this._onValueChange} />
-        </View>
-        {/* This is a super hacky way to get the spacing how I want it in the flexbox. It is a terrible idea. */}
-        <View>
-          <Text style={styles.text}> 
-              &nbsp;&nbsp;&nbsp;&nbsp;
-          </Text>  
-        </View>
-
-      </View> 
     );
   }
 }
@@ -47,8 +38,9 @@ const styles = StyleSheet.create(shorthand({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     paddingTop: 9,
+    paddingBottom: 11,
     borderBottomColor: base.textSeafoam,
     borderBottomWidth: 1,
   },
@@ -57,10 +49,5 @@ const styles = StyleSheet.create(shorthand({
     color: base.textSeafoam,
     fontSize: 16,
     paddingLeft: 18,
-    paddingBottom: 11,
-  },
-  control: {
-    width: 220,
-    paddingBottom: 11,
   },
 }));

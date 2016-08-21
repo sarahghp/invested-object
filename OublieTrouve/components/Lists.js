@@ -10,7 +10,7 @@ import {
 import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 
-// import TopNav from './TopNav.js';
+// Components
 import MemoryList from './Moments_List';
 import ConxList   from './Conx_List'; 
 
@@ -83,17 +83,16 @@ const styles = StyleSheet.create(shorthand({
     alignItems: 'center',
     paddingTop: 9,
     borderBottomColor: base.textSeafoam,
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
+    paddingBottom: 9,
   },
   navText: {
     // fontFamily: base.bodyFontFamily,
     color: base.textSeafoam,
     fontSize: 16,
     paddingLeft: 18,
-    paddingBottom: 11,
   },
   navControl: {
-    width: 220,
-    paddingBottom: 11,
+    width: 220,  
   },
 }));
