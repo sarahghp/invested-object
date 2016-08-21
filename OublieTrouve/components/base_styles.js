@@ -25,6 +25,12 @@ let groups = {
     fontWeight: base.bodyFontWeight,
     color: base.primaryGray,
     padding: base.padding
+  },
+  bodyFontGroupUnpadded : {
+    fontSize: base.bodyfontSize,
+    fontFamily: base.bodyFontFamily,
+    fontWeight: base.bodyFontWeight,
+    color: base.primaryGray,
   }
 }
 

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { 
   Image,
-  ListView, 
+  ListView,
+  ScrollView, 
   StyleSheet,
   TouchableHighlight,
   Text, 
@@ -41,21 +42,21 @@ export default class Detail extends Component {
     }
 
     return (
-
       <View style={styles.container}>
-
         <TopNav navigator={this.props.navigator} />
-        <View style={styles.imageWrapper}>
-          {img}
-        </View>
 
-        {lower}
+        <ScrollView style={styles.scrollContainer}>
 
+          <View style={styles.imageWrapper}>
+            {img}
+          </View>
+
+          {lower}
+
+        </ScrollView>
         <View style={styles.buttonWrapper}>
           <Button style={styles.button} size='large' bkg='#a8ffee' opc={0.85} icon='report' />
         </View>
-        
-
       </View>
 
     )
@@ -65,13 +66,20 @@ export default class Detail extends Component {
 
 const styles = StyleSheet.create(shorthand({
   container: {
-    paddingTop: 44,
+    paddingTop: 22,
     flex: 1,
+    backgroundColor: base.lightSeafoam,
+  },
+  scrollContainer: {
+    paddingTop: 44,
+    flex: 4,
+    backgroundColor: '#fff',
   },
   text: groups.bodyFontGroup,
   imageWrapper: {
     alignItems: 'center',
     flex: 2,
+    backgroundColor: '#fff',
   },  
   buttonWrapper: {
     position: 'absolute',

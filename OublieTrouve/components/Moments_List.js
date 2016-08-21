@@ -91,18 +91,20 @@ export default class MemoryList extends Component {
 }
 
 const styles = StyleSheet.create(shorthand({
-  text: groups.bodyFontGroup,
+  text: groups.bodyFontGroupUnpadded,
   textWapper: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   row: {
     height: 44,
     borderBottomWidth: 1,
     borderBottomColor: base.lightSeafoam,
+    justifyContent: 'space-around',
+    padding: base.padding,
   },
   list: {
-    marginTop: 18,
     flex: 4,
+    backgroundColor: '#fff',
   }
 }));

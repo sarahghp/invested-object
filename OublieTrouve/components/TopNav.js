@@ -47,13 +47,19 @@ const styles = StyleSheet.create(shorthand({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingTop: 9,
+    borderBottomColor: base.darkSeafoam,
+    borderBottomWidth: 1,
   },
   text: {
     // fontFamily: base.bodyFontFamily,
     color: base.primaryGray,
+    fontSize: 16,
     paddingLeft: 18,
+    paddingBottom: 11,
   },
   control: {
     width: 220,
+    paddingBottom: 11,
   },
 }));

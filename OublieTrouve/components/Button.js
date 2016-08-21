@@ -57,7 +57,6 @@ const styles = StyleSheet.create(shorthand({
     alignItems: 'center',
     justifyContent: 'center',
     margin: 16,
-    // opacity: 0.9,
     shadowColor: base.primaryShadow,
     shadowOpacity: 0.3,
     shadowRadius: 4,

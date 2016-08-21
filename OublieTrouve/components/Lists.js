@@ -25,7 +25,8 @@ export default class Lists extends Component {
 
 const styles = StyleSheet.create(shorthand({
   container: {
-    paddingTop: 44,
+    paddingTop: 22,
     flex: 1,
+    backgroundColor: base.lightSeafoam,
   },
 }));
