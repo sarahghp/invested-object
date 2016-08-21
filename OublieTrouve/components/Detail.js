@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import { 
   Image,
-  ListView,
-  ScrollView, 
+  ListView, 
   StyleSheet,
   TouchableHighlight,
   Text, 
@@ -16,8 +15,8 @@ import { base, groups } from './base_styles';
 // Components
 import TopNav     from './TopNav';
 import Button     from './Button';
-import MomentText from './Moment_Text';
-import MomentList from './Moments_List';
+import TextDetail from './Text_Detail';
+import ListDetail from './Conx_Detail';
 
 export default class Detail extends Component {
 
@@ -31,29 +30,20 @@ export default class Detail extends Component {
 
   render() {
 
-    let img, lower;
+    let lower;
 
     if (this.props.detailKind === 'text') {
-      img = <Image style={styles.image} source={require('./img/icon-buddies.png')} />
-      lower = <MomentText title={this.props.title} />
+      lower = <TextDetail title={this.props.title} />
     } else if (this.props.detailKind === 'list') {
-      img = <Image style={styles.image} source={require('./img/fake-graph.png')} />
-      lower = <MomentList navigator={this.props.navigator} /> 
+      lower = <ListDetail navigator={this.props.navigator} /> 
     }
 
     return (
       <View style={styles.container}>
         <TopNav navigator={this.props.navigator} />
 
-        <ScrollView style={styles.scrollContainer}>
+        {lower}
 
-          <View style={styles.imageWrapper}>
-            {img}
-          </View>
-
-          {lower}
-
-        </ScrollView>
         <View style={styles.buttonWrapper}>
           <Button style={styles.button} size='large' bkg='#a8ffee' opc={0.85} icon='report' />
         </View>
