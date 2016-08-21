@@ -20,8 +20,8 @@ export default class Lists extends Component {
     super(props);
 
     this.state = {
-      currentListIdx: 0,
-      lists: [<MemoryList navigator={this.props.navigator} />, <ConxList navigator={this.props.navigator} />],
+      currentListIdx: 1,
+      lists: [<ConxList navigator={this.props.navigator} />, <MemoryList navigator={this.props.navigator} />],
       values: ['Concordances', 'All Moments'],
     }
   }
@@ -37,8 +37,6 @@ export default class Lists extends Component {
   }
 
   render(){
-    // let list = <MemoryList navigator={this.props.navigator} />;
-    // let list = this.state.currentList;
 
     console.log('in render');
 
@@ -55,7 +53,7 @@ export default class Lists extends Component {
             <SegmentedControlIOS 
               tintColor={base.textSeafoam}
               values={this.state.values} 
-              selectedIndex={1}
+              selectedIndex={this.state.currentListIdx}
               onValueChange={this._onValueChange.bind(this)} />
           </View>
           {/* This is a super hacky way to get the spacing how I want it in the flexbox. It is a terrible idea. */}
