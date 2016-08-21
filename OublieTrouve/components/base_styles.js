@@ -3,6 +3,7 @@ let base = {
   primarySeafoam: '#aefaea',
   lightSeafoam:   '#c5fbf0',
   darkSeafoam:    '#163939',
+  textSeafoam:    '#0cb691',
 
   primaryGray:    '#53535c',
   darkGray:       '#35353b',
