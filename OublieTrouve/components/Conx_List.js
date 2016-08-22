@@ -84,5 +84,6 @@ const styles = StyleSheet.create(shorthand({
   list: {
     backgroundColor: '#fff',
     paddingTop: 9,
+    flex: 4,
   }
 }));

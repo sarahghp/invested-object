@@ -12,7 +12,8 @@ import { base, groups } from './base_styles';
 
 // Components
 import MemoryList from './Moments_List';
-import ConxList   from './Conx_List'; 
+import ConxList   from './Conx_List';
+import Button     from './Record_Now_Button'; 
 
 export default class Lists extends Component {
 
@@ -63,6 +64,8 @@ export default class Lists extends Component {
         </View> 
 
         {this.state.lists[this.state.currentListIdx]}
+
+        <Button />
 
       </View>
     )

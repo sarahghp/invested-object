@@ -14,7 +14,7 @@ import { base, groups } from './base_styles';
 
 // Components
 import TopNav     from './TopNav';
-import Button     from './Button';
+import Button     from './Record_Now_Button';
 import TextDetail from './Text_Detail';
 import ListDetail from './Conx_Detail';
 
@@ -46,9 +46,7 @@ export default class Detail extends Component {
 
         {lower}
 
-        <View style={styles.buttonWrapper}>
-          <Button style={styles.button} size='large' bkg='#a8ffee' opc={0.85} icon='report' />
-        </View>
+        <Button />
       </View>
 
     )
@@ -72,10 +70,5 @@ const styles = StyleSheet.create(shorthand({
     alignItems: 'center',
     flex: 2,
     backgroundColor: '#fff',
-  },  
-  buttonWrapper: {
-    position: 'absolute',
-    bottom: 22,
-    right: 22,
-  },
+  }, 
 }));

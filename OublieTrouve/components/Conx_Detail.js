@@ -47,10 +47,5 @@ const styles = StyleSheet.create(shorthand({
     alignItems: 'center',
     flex: 2,
     backgroundColor: '#fff',
-  },  
-  buttonWrapper: {
-    position: 'absolute',
-    bottom: 22,
-    right: 22,
   },
 }));
