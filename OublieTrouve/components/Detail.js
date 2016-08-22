@@ -37,7 +37,7 @@ export default class Detail extends Component {
       section = 'Moment';
     } else if (this.props.detailKind === 'list') {
       lower = <ListDetail navigator={this.props.navigator} />;
-      section = 'Distance (2 mi) Concordance';
+      section = this.props.title;
     }
 
     return (

@@ -28,7 +28,7 @@ export default class MemoryList extends Component {
   }
 
 
-  _toDetail(data) {
+  _toDetail(type, modifier) {
     console.log("You tapped the link!");
     
     this.props.navigator.push({
@@ -36,7 +36,7 @@ export default class MemoryList extends Component {
       component: DetailView,
       passProps: {
         navigator: this.props.navigator.pop,
-        title: 'What will we do about this?',
+        title: type + ': ' + modifier,
         detailKind: 'list',
       }
     })
@@ -61,7 +61,7 @@ export default class MemoryList extends Component {
         <View key={idx}>
         <TouchableHighlight 
           underlayColor={base.lightSeafoam}
-          onPress={this._toDetail.bind(this)}>
+          onPress={this._toDetail.bind(this, card.type, card.modifier)}>
           
           <Card card={card} />  
             

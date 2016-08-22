@@ -6,22 +6,22 @@ let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kat
 let conxList = [
   {
     type: 'Elevation',
-    modifier: 'sea level',
+    modifier: 'Sea Level',
     members: [],
   },
   {
     type: 'Elevation',
-    modifier: 'up a hill',
+    modifier: 'Up a Hill',
     members: [],
   },
   {
     type: 'Elevation',
-    modifier: 'up a mountain',
+    modifier: 'Up a Mountain',
     members: [],
   },
   {
     type: 'Elevation',
-    modifier: 'in the air',
+    modifier: 'In the Air',
     members: [],
   },
 ];
@@ -44,7 +44,7 @@ let seed = (function(){
     let obj = {};
     obj.title = title;
     obj.description =  new LibroIpsum(source).generate(120);
-    obj.elevation = _.random(0, 20000);
+    obj.elevation = _.random(1, 10) > 8 ? _.random(0, 1500) : _.random(0, 20000);
     obj.location = undefined;
     obj.distance_from_home = _.random(2, 200);
     obj.temp = _.random(0, 100, true);
