@@ -38,6 +38,7 @@ export default class MemoryList extends Component {
         navigator: this.props.navigator.pop,
         title: type + ': ' + modifier,
         detailKind: 'list',
+        filter: modifier,
       }
     })
   }

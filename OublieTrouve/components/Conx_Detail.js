@@ -29,7 +29,7 @@ export default class Detail extends Component {
           <Image style={styles.image} source={require('./img/fake-graph.png')} />
         </View>
 
-        <MomentList navigator={this.props.navigator} /> 
+        <MomentList navigator={this.props.navigator} filter={this.props.filter}/> 
         
       </View>
     )

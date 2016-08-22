@@ -21,7 +21,7 @@ export default class Lists extends Component {
 
     this.state = {
       currentListIdx: 0,
-      lists: [<ConxList navigator={this.props.navigator} />, <MemoryList navigator={this.props.navigator} />],
+      lists: [<ConxList navigator={this.props.navigator} />, <MemoryList navigator={this.props.navigator} filter={null} />],
       values: ['Concordances', 'All Moments'],
     }
   }

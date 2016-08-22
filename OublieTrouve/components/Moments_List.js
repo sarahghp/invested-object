@@ -32,14 +32,29 @@ export default class MemoryList extends Component {
 
 
   componentWillMount() {
-    SimpleStore.get('all_moments')
-    .then((data) => {
-      let titles = _.map(data, 'title');
-      this.setState({dataSource: ds.cloneWithRows(titles)});
-    })
-    .catch(error => {
-      console.error(error.message);
-    });
+
+    if (this.props.filter !== null) {
+
+      SimpleStore.get('all_conx')
+      .then((data) => {
+        let found = _.find(data,['modifier', this.props.filter]);
+        let titles = _.map(found.members, 'title');
+        this.setState({dataSource: ds.cloneWithRows(titles)});
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+    } else {
+
+      SimpleStore.get('all_moments')
+      .then((data) => {
+        let titles = _.map(data, 'title');
+        this.setState({dataSource: ds.cloneWithRows(titles)});
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+    }
   }
 
 

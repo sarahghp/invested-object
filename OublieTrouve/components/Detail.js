@@ -36,7 +36,7 @@ export default class Detail extends Component {
       lower = <TextDetail title={this.props.title} />;
       section = 'Moment';
     } else if (this.props.detailKind === 'list') {
-      lower = <ListDetail navigator={this.props.navigator} />;
+      lower = <ListDetail navigator={this.props.navigator} filter={this.props.filter ? this.props.filter : null}/>;
       section = this.props.title;
     }
 
