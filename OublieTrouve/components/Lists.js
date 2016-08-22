@@ -20,7 +20,7 @@ export default class Lists extends Component {
     super(props);
 
     this.state = {
-      currentListIdx: 1,
+      currentListIdx: 0,
       lists: [<ConxList navigator={this.props.navigator} />, <MemoryList navigator={this.props.navigator} />],
       values: ['Concordances', 'All Moments'],
     }
@@ -37,9 +37,7 @@ export default class Lists extends Component {
   }
 
   render(){
-
-    console.log('in render');
-
+    
     return (
       <View style={styles.container}>
 
@@ -87,7 +85,6 @@ const styles = StyleSheet.create(shorthand({
     paddingBottom: 9,
   },
   navText: {
-    // fontFamily: base.bodyFontFamily,
     color: base.textSeafoam,
     fontSize: 16,
     paddingLeft: 18,

@@ -11,31 +11,12 @@ import shorthand from 'react-native-styles-shorthand';
 import { base } from './base_styles';
 
 // Datas
-import SimpleStore from 'react-native-simple-store';
-import seed from './helpers/data_seed.js';
+import ts             from './helpers/test_and_save';
+import { seed, conx } from './helpers/data_seed';
 
-// SimpleStore.delete('all_moments');
+_.each([{name: 'all_moments', data: seed}, {name: 'all_conx', data: conx}], 
+  (e) => { ts(e.name, e.data) });
 
-SimpleStore.get('all_moments')
-  .then((data) => {
-    if (!data){
-      console.log('Reloaded data');
-      SimpleStore.save('all_moments', seed)
-        .then(() => SimpleStore.get('all_moments'))
-        .then(data => {
-          // console.log(data);
-        })
-        .catch(error => {
-          console.error(error.message);
-        });
-    } else {
-      console.log('Data was already loaded.');
-      // console.log(data);
-    }
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
 
 // Components
 import Title      from './Title_Screen';

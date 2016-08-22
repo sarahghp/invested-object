@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import { 
-  ListView,
-  PixelRatio, 
+  ScrollView,
   StyleSheet,
   TouchableHighlight,
   Text, 
@@ -14,10 +13,8 @@ import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 
 // Components
-import DetailView from './Detail.js';
-
-// Data
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+import DetailView from './Detail';
+import Card from './Conx_Card';
 
 // Component
 export default class MemoryList extends Component {
@@ -26,20 +23,8 @@ export default class MemoryList extends Component {
     super(props);
 
     this.state = {
-      dataSource: ds.cloneWithRows([''])
-    }
-  }
-
-
-  componentWillMount() {
-    SimpleStore.get('all_moments')
-    .then((data) => {
-      let titles = _.map(data, 'title');
-      this.setState({dataSource: ds.cloneWithRows(titles)});
-    })
-    .catch(error => {
-      console.error(error.message);
-    });
+      cards: []
+    };
   }
 
 
@@ -51,60 +36,52 @@ export default class MemoryList extends Component {
       component: DetailView,
       passProps: {
         navigator: this.props.navigator.pop,
-        title: data,
+        title: 'What will we do about this?',
         detailKind: 'list',
       }
     })
   }
 
-  renderRow(rowData) {
-    return (
-        <TouchableHighlight 
-          style={styles.row} 
-          underlayColor={base.lightSeafoam}
-          onPress={this._toDetail.bind(this, rowData)}>
-            
-            <View style={styles.textWapper}>
-              <Text style={styles.text}>
-                {rowData}
-              </Text>
-
-              <Text style={styles.text}>
-                »
-              </Text>
-            </View>
-            
-          </TouchableHighlight>
-
-    );
+  componentWillMount() {
+    SimpleStore.get('all_conx')
+      .then((data) => {
+        this.setState({
+          cards: data
+        })
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
   }
 
   render() {
+
+    let cardsList = this.state.cards.map((card, idx) => {
+      return (
+        <View key={idx}>
+        <TouchableHighlight 
+          underlayColor={base.lightSeafoam}
+          onPress={this._toDetail.bind(this)}>
+          
+          <Card card={card} />  
+            
+            
+        </TouchableHighlight>
+        </View>
+      )
+    });
+
     return (
-        <ListView
-          style={styles.list}
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow.bind(this)}
-        />
+      <ScrollView style={styles.list}>
+        {cardsList}
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create(shorthand({
-  text: groups.bodyFontGroupUnpadded,
-  textWapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  row: {
-    height: 44,
-    borderBottomWidth: 1,
-    borderBottomColor: base.lightSeafoam,
-    justifyContent: 'space-around',
-    padding: base.padding,
-  },
   list: {
-    flex: 4,
     backgroundColor: '#fff',
+    paddingTop: 9,
   }
 }));

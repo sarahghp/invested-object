@@ -45,7 +45,6 @@ const styles = StyleSheet.create(shorthand({
     borderBottomWidth: 1,
   },
   text: {
-    // fontFamily: base.bodyFontFamily,
     color: base.textSeafoam,
     fontSize: 16,
     paddingLeft: 18,

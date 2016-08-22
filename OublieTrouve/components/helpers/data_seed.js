@@ -3,10 +3,28 @@ import source from './source_text';
 import LibroIpsum from 'libroipsum';
 
 let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
-// let lipsum = "Lorem ipsum dolor sit amet, nostro tritani in ius, at mundi vivendo sed, nec illum discere constituto at. Ferri probatus forensibus sed te, purto animal no qui. Nam ex nibh inani mollis, sed magna semper tibique ei, in pro alia errem dicant. Dicta tacimates ea his, in feugait mnesarchum quo. Ad nobis persecuti definitiones sea, eu quis alia agam usu, at per cibo eleifend sadipscing. Alienum corpora cu eam, ea etiam minim vel, stet ignota abhorreant et ius. Pri velit urbanitas ut."
-
-
-// console.log(lipsum);
+let conxList = [
+  {
+    type: 'Elevation',
+    modifier: 'sea level',
+    members: [],
+  },
+  {
+    type: 'Elevation',
+    modifier: 'up a hill',
+    members: [],
+  },
+  {
+    type: 'Elevation',
+    modifier: 'up a mountain',
+    members: [],
+  },
+  {
+    type: 'Elevation',
+    modifier: 'in the air',
+    members: [],
+  },
+];
 
 function moreTitles() {
 
@@ -20,7 +38,7 @@ function moreTitles() {
 
 }
 
-function seed(){
+let seed = (function(){
   moreTitles();
   let momentsArr = _.map(titles, function(title){
     let obj = {};
@@ -36,6 +54,32 @@ function seed(){
   });
 
   return momentsArr;
-} 
+})();
 
-export default seed();
+let conx = (function(cx){
+   _.each(seed, function(s){
+
+    switch(true) {
+      case (s.elevation <= 100):
+        cx[0].members.push(s);
+        break;
+      case (s.elevation > 100 && s.elevation <= 1000):
+        cx[1].members.push(s);
+        break;
+      case (s.elevation > 1000 && s.elevation <= 10000):
+        cx[2].members.push(s);
+        break;
+      case (s.elevation > 10000):
+        cx[3].members.push(s);
+        break;
+      default:
+        console.log('Nonmatching item: ', s);
+    }
+
+  });
+
+  return cx;
+
+})(conxList);
+
+export { seed, conx };

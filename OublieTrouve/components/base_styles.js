@@ -1,6 +1,7 @@
 let base = {
 
   primarySeafoam: '#aefaea',
+  lightestSeafoam:'#ebfffa',
   lightSeafoam:   '#c5fbf0',
   darkSeafoam:    '#163939',
   textSeafoam:    '#0cb691',
