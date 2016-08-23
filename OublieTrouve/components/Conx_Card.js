@@ -30,7 +30,7 @@ export default class Card extends Component {
     return (
       <View style={styles.container} ref={component => this._root = component}>
         <View style={styles.imageWrapper}>
-          <Image style={styles.image} source={require('./img/fake-graph-half.png')} />
+          <Image style={styles.image} source={require('./img/fake-graph.png')} />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{this.props.card.type}: {this.props.card.modifier}</Text>
