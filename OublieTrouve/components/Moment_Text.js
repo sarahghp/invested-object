@@ -14,7 +14,10 @@ import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 import events from './Events';
 
-// Component
+// Components
+import PlainText from './Moment_Text_Plain';
+import EditText from './Moment_Text_Edit';
+
 export default class MomentText extends Component {
 
   constructor(props) {
@@ -31,6 +34,8 @@ export default class MomentText extends Component {
         posted: 0, 
       },
       editable: false,
+      titleHeight: 0,
+      paraHeight: 0,
     }
   }
 
@@ -49,52 +54,23 @@ export default class MomentText extends Component {
   _makeEditable(){
     this.setState({editable: true});
   }
-
-  _updateDetailState(text, updateMe){
-    let newDetail = update(this.state.details, {$merge: {[updateMe]: text} });
-    this.setState({details: newDetail});
-  }
           
 
   render() {
     
     let date = new Date(this.state.details.posted)
-        editOn = this.state.editable;
+        editOn = this.state.editable,
+        plain = <PlainText details={this.state.details} date={date.toString()} />,
+        edit = <EditText details={this.state.details} date={date.toString()} />;
 
     return (
       <View>
-        <TextInput
-           style={[styles.text, styles.title]}
-           onChangeText={(text) => this._updateDetailState.call(this, text, 'title')}
-           value={this.state.details.title}
-           multiline={true}
-           editable={editOn}
-           />
-        <TextInput
-           style={[styles.text, styles.para]}
-           onChangeText={(text) => this._updateDetailState.call(this, text, 'description')}
-           value={this.state.details.description}
-           multiline={true}
-           editable={editOn}
-           />
-        <Text style={[styles.text, styles.small]}>posted at: {date.toString()} </Text>
+        {editOn ? edit : plain}
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create(shorthand({
-  text: groups.bodyFontGroup,
-  title: {
-    fontSize: 22,
-  },
-  para: {
-    flex: 1,
-    lineHeight: 21,
-  },
-  small: {
-    fontSize: 12,
-    fontStyle: 'italic',
-    color: base.darkGray,
-  },
+
 }));
