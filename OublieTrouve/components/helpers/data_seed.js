@@ -40,7 +40,7 @@ function moreTitles() {
 
 let seed = (function(){
   moreTitles();
-  let momentsArr = _.map(titles, function(title){
+  let momentsArr = _.map(titles, function(title, idx){
     let obj = {};
     obj.title = title;
     obj.description =  new LibroIpsum(source).generate(120);
@@ -50,6 +50,7 @@ let seed = (function(){
     obj.temp = _.random(0, 100, true);
     obj.humidity = _.random(0, 100, true);
     obj.posted = _.random(0, Date.now());
+    obj.id = idx;
     return obj;
   });
 

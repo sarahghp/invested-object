@@ -29,6 +29,7 @@ export default class EditLink extends Component {
     } else {
       console.log(eventName + 'Saved');
       events.emit(eventName + 'Saved');
+      this.setState({editingInProgress: false });
     }
   }
 

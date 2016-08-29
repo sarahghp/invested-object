@@ -27,7 +27,8 @@ export default class MomentTextEdit extends Component {
         distance_from_home: 0,
         temp: 75,
         humidity: 22.5,
-        posted: 0, 
+        posted: 0,
+        id: 0, 
       },
 
       titleHeight: 0,
@@ -35,8 +36,32 @@ export default class MomentTextEdit extends Component {
     }
   }
 
+  componentWillMount(){
+    events.addListener('makeDetailTextEditableSaved', this._saveToStore.bind(this));
+  }
+
   componentDidMount(){
     this.setState({details: this.props.details});
+  }
+
+  _saveToStore(){
+    let idx;
+
+    SimpleStore.get('all_moments')
+    .then((data) => {
+       idx = _.findIndex(data, { id: this.props.details.id });
+       data[idx].title = this.state.details.title;
+       data[idx].description = this.state.details.description;
+       SimpleStore.save('all_moments', data);
+       events.emit('refreshData');
+    })
+    .then(() => SimpleStore.get('all_moments'))
+    .then((data) => {
+      console.log('gotten', data[idx]);
+    })
+    .catch(error => {
+      console.error(error.message);
+    });
   }
 
   _updateDetailState(text, updateMe){

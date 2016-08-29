@@ -30,7 +30,7 @@ export default class Detail extends Component {
             <Image style={styles.image} source={require('./img/icon-buddies.png')} />
           </View>
 
-          <MomentText title={this.props.title} />
+          <MomentText title={this.props.title} id={this.props.id}/>
 
         </ScrollView>
     )

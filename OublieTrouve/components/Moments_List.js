@@ -12,6 +12,8 @@ import {
 import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
+import events from './Events';
+import update from 'react-addons-update';
 
 // Components
 import DetailView from './Detail.js';
@@ -26,47 +28,69 @@ export default class MemoryList extends Component {
     super(props);
 
     this.state = {
-      dataSource: ds.cloneWithRows([''])
+      dataSource: ds.cloneWithRows(['']),
+      idMap: {},
     }
   }
 
 
   componentWillMount() {
+    this._getAndSetData.call(this);
+    events.addListener('refreshData', this._getAndSetData.bind(this));
+  }
 
-    if (this.props.filter !== null) {
+  _getAndSetData(){
 
+    if (this.props.filter !== null) { 
+      // TBD: Update conx when moments update ... take care of when implementing more than
+      // dummy conx
       SimpleStore.get('all_conx')
       .then((data) => {
         let found = _.find(data,['modifier', this.props.filter]);
         let titles = _.map(found.members, 'title');
         this.setState({dataSource: ds.cloneWithRows(titles)});
+
+        _.each(data, (datum) => {
+          this._createMap.call(this, datum.members);
+        });
+        
       })
       .catch(error => {
         console.error(error.message);
       });
     } else {
-
       SimpleStore.get('all_moments')
       .then((data) => {
         let titles = _.map(data, 'title');
+        this._createMap.call(this, data);
         this.setState({dataSource: ds.cloneWithRows(titles)});
       })
       .catch(error => {
         console.error(error.message);
-      });
+      }); 
     }
   }
 
+  _createMap(data) {
+    let tempMap = {};
+    
+    _.each(data, (d) => {
+      tempMap[d.title] = d.id;
+    });
+
+    let newMap = update(this.state.idMap, {$merge: tempMap });
+    this.setState({idMap: newMap});
+  }
 
   _toDetail(data) {
-    console.log("You tapped the link!");
     
     this.props.navigator.push({
       name: 'Detail',
       component: DetailView,
       passProps: {
-        navigator: this.props.navigator.pop,
+        navigator: this.props.navigator,
         title: data,
+        id: this.state.idMap[data],
         detailKind: 'text',
       }
     })
