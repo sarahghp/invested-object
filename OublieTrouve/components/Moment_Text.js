@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 
 import { 
-  ScrollView,
   StyleSheet,
-  Text,
-  TextInput, 
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 import events from './Events';
 
@@ -89,5 +85,5 @@ export default class MomentText extends Component {
 }
 
 const styles = StyleSheet.create(shorthand({
-
+  // Styles go here or delete in the end
 }));

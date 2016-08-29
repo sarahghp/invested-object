@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  Navigator,
   StyleSheet,
-  Text,
-  TouchableHighlight,
   View
 } from 'react-native';
 import shorthand from 'react-native-styles-shorthand';

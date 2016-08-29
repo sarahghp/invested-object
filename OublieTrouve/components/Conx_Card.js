@@ -12,8 +12,6 @@ import {
 import shorthand from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 
-import SimpleStore from 'react-native-simple-store';
-
 // Components
 export default class Card extends Component {
 

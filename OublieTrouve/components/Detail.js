@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
-import { 
-  Image,
-  ListView, 
-  StyleSheet,
-  TouchableHighlight,
-  Text, 
+import {  
+  StyleSheet, 
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base } from './base_styles';
 
 // Components
 import TopNav     from './TopNav';
@@ -60,16 +56,5 @@ const styles = StyleSheet.create(shorthand({
     paddingTop: 22,
     flex: 1,
     backgroundColor: base.lightSeafoam,
-  },
-  scrollContainer: {
-    paddingTop: 44,
-    flex: 4,
-    backgroundColor: '#fff',
-  },
-  text: groups.bodyFontGroup,
-  imageWrapper: {
-    alignItems: 'center',
-    flex: 2,
-    backgroundColor: '#fff',
   }, 
 }));

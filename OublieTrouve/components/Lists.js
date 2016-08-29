@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
 import { 
-  SegmentedControlIOS,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 
 import shorthand        from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base } from './base_styles';
 import events           from './Events';
 
 // Components
@@ -62,19 +60,5 @@ const styles = StyleSheet.create(shorthand({
     paddingTop: 22,
     flex: 1,
     backgroundColor: base.lightSeafoam,
-  },
-  navContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingTop: 9,
-    borderBottomColor: base.textSeafoam,
-    borderBottomWidth: 2,
-    paddingBottom: 9,
-  },
-  navText: {
-    color: base.textSeafoam,
-    fontSize: 16,
-    paddingLeft: 18,
   },
 }));

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 import {  
-  SegmentedControlIOS,
   StyleSheet,
   Text, 
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base } from './base_styles';
 
 // Components
 import ListSelector from './List_Selector';

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
-  Text,
   TouchableOpacity,
   View
 } from 'react-native';

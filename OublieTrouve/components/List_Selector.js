@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {  
   SegmentedControlIOS,
   StyleSheet,
-  Text, 
   View
 } from 'react-native';
 

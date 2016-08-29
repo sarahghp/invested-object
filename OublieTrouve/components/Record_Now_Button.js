@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 
 import { 
-  Image,
-  ListView, 
   StyleSheet,
-  TouchableHighlight,
-  Text, 
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
 
 // Components
 import Button     from './Button';

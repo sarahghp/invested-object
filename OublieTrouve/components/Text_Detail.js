@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { groups } from './base_styles';
 
 // Components
 import MomentText from './Moment_Text';
@@ -44,7 +44,6 @@ const styles = StyleSheet.create(shorthand({
     flex: 4,
     backgroundColor: '#fff',
   },
-  text: groups.bodyFontGroup,
   imageWrapper: {
     alignItems: 'center',
     flex: 2,

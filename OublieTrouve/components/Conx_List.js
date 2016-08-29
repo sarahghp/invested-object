@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import { 
   ScrollView,
   StyleSheet,
-  TouchableHighlight,
-  Text, 
+  TouchableHighlight, 
   View
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base } from './base_styles';
 import SimpleStore from 'react-native-simple-store';
 
 // Components
