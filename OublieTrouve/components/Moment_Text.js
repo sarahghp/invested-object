@@ -49,10 +49,15 @@ export default class MomentText extends Component {
     });
 
     events.addListener('makeDetailTextEditable', this._makeEditable.bind(this));
+    events.addListener('makeDetailTextEditableSaved', this._makePlain.bind(this));
   }
 
   _makeEditable(){
     this.setState({editable: true});
+  }
+
+  _makePlain(){
+    this.setState({editable: false});
   }
           
 

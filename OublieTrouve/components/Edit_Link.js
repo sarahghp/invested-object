@@ -13,21 +13,36 @@ import events    from './Events';
 
 export default class EditLink extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      editingInProgress: false
+    }
+  }
+
   _onEditPress(eventName){
-    console.log(eventName);
-    events.emit(eventName);
+    if (!this.state.editingInProgress) {
+      console.log(eventName);
+      events.emit(eventName);
+      this.setState({editingInProgress: true });
+    } else {
+      console.log(eventName + 'Saved');
+      events.emit(eventName + 'Saved');
+    }
   }
 
   render() {
     
-    let op = this.props.invisible ? 0.0 : 1.0; 
+    let op   = this.props.invisible ? 0.0 : 1.0,
+        text = this.state.editingInProgress ? 'Save' : 'Edit'; 
 
     return (
       <TouchableWithoutFeedback 
         disabled={this.props.invisible} 
         onPress={this._onEditPress.bind(this, this.props.eventName)}>
         <View>
-          <Text style={[styles.text, {opacity: op}]}> Edit </Text>
+          <Text style={[styles.text, {opacity: op}]}> {text} </Text>
         </View>
       </TouchableWithoutFeedback>
     )
