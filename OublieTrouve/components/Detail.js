@@ -30,11 +30,12 @@ export default class Detail extends Component {
 
   render() {
 
-    let lower, section;
+    let lower, section, edit;
 
     if (this.props.detailKind === 'text') {
       lower = <TextDetail title={this.props.title} />;
       section = 'Moment';
+      edit = true;
     } else if (this.props.detailKind === 'list') {
       lower = <ListDetail navigator={this.props.navigator} filter={this.props.filter ? this.props.filter : null}/>;
       section = this.props.title;
@@ -42,7 +43,7 @@ export default class Detail extends Component {
 
     return (
       <View style={styles.container}>
-        <TopNav navigator={this.props.navigator} sectionTitle={section} />
+        <TopNav navigator={this.props.navigator} sectionTitle={section} edit={edit} />
 
         {lower}
 
