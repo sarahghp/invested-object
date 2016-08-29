@@ -35,7 +35,7 @@ export default class Detail extends Component {
     if (this.props.detailKind === 'text') {
       lower = <TextDetail title={this.props.title} />;
       section = 'Moment';
-      edit = true;
+      edit = { eventName: 'makeDetailTextEditable' };
     } else if (this.props.detailKind === 'list') {
       lower = <ListDetail navigator={this.props.navigator} filter={this.props.filter ? this.props.filter : null}/>;
       section = this.props.title;

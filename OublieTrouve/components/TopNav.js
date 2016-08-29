@@ -12,6 +12,7 @@ import { base, groups } from './base_styles';
 
 // Components
 import ListSelector from './List_Selector';
+import EditLink from './Edit_Link';
 
 export default class TopNav extends Component { 
 
@@ -21,10 +22,11 @@ export default class TopNav extends Component {
 
     render() {
 
-      let sectionTitle = <Text style={styles.text}> {this.props.sectionTitle ? this.props.sectionTitle : ''} </Text>,
-          edit = <Text style={[styles.text, {paddingRight: 9}]}> Edit </Text>,
+      let sectionTitle = <Text style={styles.text}> {this.props.sectionTitle || ''} </Text>,
+          editEvent = this.props.edit ? this.props.edit.eventName : null,
+          edit = <EditLink invisible={false} eventName={editEvent} />,
           /* This is a super hacky way to get the spacing how I want it in the flexbox. It is a terrible idea. */
-          invisibleEdit = <Text style={[styles.text, {paddingRight: 9, opacity: 0.0}]}> Edit </Text>,
+          invisibleEdit = <EditLink invisible={true} />,
           selector = <ListSelector lists={this.props.lists} values={this.props.values} />;
 
       return (
