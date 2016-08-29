@@ -7,11 +7,11 @@ import {
   View
 } from 'react-native';
 
-import shorthand from 'react-native-styles-shorthand';
-import update from 'react-addons-update';
+import shorthand        from 'react-native-styles-shorthand';
+import update           from 'react-addons-update';
 import { base, groups } from './base_styles';
-import SimpleStore from 'react-native-simple-store';
-import events from './Events';
+import SimpleStore      from 'react-native-simple-store';
+import events           from './Events';
 
 // Component
 export default class MomentTextEdit extends Component {

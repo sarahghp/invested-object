@@ -5,9 +5,9 @@ import {
   View
 } from 'react-native';
 
-import shorthand        from 'react-native-styles-shorthand';
-import { base } from './base_styles';
-import events           from './Events';
+import shorthand   from 'react-native-styles-shorthand';
+import { base }    from './base_styles';
+import events      from './Events';
 
 // Components
 import Nav        from './TopNav';

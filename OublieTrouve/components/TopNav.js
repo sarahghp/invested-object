@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 
-import shorthand from 'react-native-styles-shorthand';
-import { base } from './base_styles';
+import shorthand    from 'react-native-styles-shorthand';
+import { base }     from './base_styles';
 
 // Components
 import ListSelector from './List_Selector';
-import EditLink from './Edit_Link';
+import EditLink     from './Edit_Link';
 
 export default class TopNav extends Component { 
 

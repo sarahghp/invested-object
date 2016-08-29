@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-import shorthand from 'react-native-styles-shorthand';
+import shorthand        from 'react-native-styles-shorthand';
 import { base, groups } from './base_styles';
 
 // Component

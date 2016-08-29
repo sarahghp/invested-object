@@ -7,13 +7,13 @@ import {
   View
 } from 'react-native';
 
-import shorthand from 'react-native-styles-shorthand';
-import { base } from './base_styles';
-import SimpleStore from 'react-native-simple-store';
+import shorthand    from 'react-native-styles-shorthand';
+import { base }     from './base_styles';
+import SimpleStore  from 'react-native-simple-store';
 
 // Components
-import DetailView from './Detail';
-import Card from './Conx_Card';
+import DetailView   from './Detail';
+import Card         from './Conx_Card';
 
 // Component
 export default class MemoryList extends Component {

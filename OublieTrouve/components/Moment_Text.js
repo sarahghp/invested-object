@@ -5,13 +5,13 @@ import {
   View
 } from 'react-native';
 
-import shorthand from 'react-native-styles-shorthand';
-import SimpleStore from 'react-native-simple-store';
-import events from './Events';
+import shorthand    from 'react-native-styles-shorthand';
+import SimpleStore  from 'react-native-simple-store';
+import events       from './Events';
 
 // Components
-import PlainText from './Moment_Text_Plain';
-import EditText from './Moment_Text_Edit';
+import PlainText    from './Moment_Text_Plain';
+import EditText     from './Moment_Text_Edit';
 
 export default class MomentText extends Component {
 
