@@ -18,7 +18,7 @@ export default class ButtonBar extends Component {
       name: 'List Page',
       component: ListPage,
       passProps: {
-        navigator: this.props.navigator.pop
+        navigator: this.props.navigator
       }
     })
   }

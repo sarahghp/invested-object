@@ -43,7 +43,7 @@ export default class Detail extends Component {
 
         {lower}
 
-        <Button />
+        <Button navigator={this.props.navigator} />
       </View>
 
     )

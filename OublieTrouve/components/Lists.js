@@ -49,7 +49,7 @@ export default class Lists extends Component {
       <View style={styles.container}>
         <Nav kind='list' lists={lists} values={this.props.values} navigator={this.props.navigator}/>
         {lists[this.state.currentListIdx]}
-        <Button />
+        <Button navigator={this.props.navigator} />
       </View>
     )
   }
