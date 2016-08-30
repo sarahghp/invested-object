@@ -69,31 +69,46 @@ export default class MomentTextEdit extends Component {
     let date = new Date();
 
     return (
-      <View>
+      <View style={styles.container}>
         <TopNav navigator={this.props.navigator} sectionTitle='Record Moment Now' />
-        <Text>Title</Text>
-        <TextInput
-           style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
-           onChangeText={(text) => this._updateDetailState.call(this, text, 'title')}
-           placeholder={date.toString()}
-           value={this.state.details.title}
-           multiline={true}
-           />
-        <Text>Notes</Text>
-        <TextInput
-           style={[styles.text, styles.para, {height: Math.max(260, this.state.titleHeight)}]}
-           onChangeText={(text) => this._updateDetailState.call(this, text, 'description')}
-           placeholder='Optional notes'
-           value={this.state.details.description}
-           multiline={true}
-           />
+        <View style={styles.textContainer}>
+          <Text style={[styles.text, styles.label]}>Title</Text>
+          <TextInput
+             style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
+             onChangeText={(text) => this._updateDetailState.call(this, text, 'title')}
+             placeholder={date.toString()}
+             value={this.state.details.title}
+             multiline={true}
+             />
+          <Text style={[styles.text, styles.label]}>Notes</Text>
+          <TextInput
+             style={[styles.text, styles.para, {height: Math.max(260, this.state.titleHeight)}]}
+             onChangeText={(text) => this._updateDetailState.call(this, text, 'description')}
+             placeholder='Optional notes'
+             value={this.state.details.description}
+             multiline={true}
+             />
+        </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create(shorthand({
-  text: groups.bodyFontGroup,
+  container: {
+    paddingTop: 22,
+    flex: 1,
+    backgroundColor: base.lightSeafoam,
+  },
+  label: {
+    color: base.textSeafoam,
+  }, 
+  textContainer: {
+    backgroundColor: '#fff',
+    flex: 1,
+    padding: '36 18 0 18',
+  },
+  text: groups.bodyFontGroupUnpadded,
   title: {
     fontSize: 22,
   },
