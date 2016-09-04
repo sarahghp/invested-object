@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import { 
+import {
   StyleSheet,
   Text,
   TextInput, 
+  TouchableHighlight,
   View
 } from 'react-native';
 
@@ -38,20 +39,23 @@ export default class MomentTextEdit extends Component {
     }
   }
 
-  _saveToStore(){
-    let idx;
+  componentWillMount() {
+    events.addListener('newMomentSaved', this._addToStore.bind(this));
+  }
+
+  _addToStore(){
 
     SimpleStore.get('all_moments')
     .then((data) => {
-       idx = _.findIndex(data, { id: this.props.details.id });
-       data[idx].title = this.state.details.title;
-       data[idx].description = this.state.details.description;
+       let idx = data.length;
+       let newEntry = update(this.state.details, { $merge: {id: idx} });
+       data.push(newEntry);
        SimpleStore.save('all_moments', data);
        events.emit('refreshData');
     })
     .then(() => SimpleStore.get('all_moments'))
     .then((data) => {
-      console.log('gotten', data[idx]);
+      console.log('gotten', data[data.length - 1]);
     })
     .catch(error => {
       console.error(error.message);
@@ -66,11 +70,13 @@ export default class MomentTextEdit extends Component {
 
   render() {
     
-    let date = new Date();
+    let date = new Date(),
+        colorStyle = { color: this.state.buttonActive ? '#fff' : base.primaryGray, };
 
     return (
       <View style={styles.container}>
-        <TopNav navigator={this.props.navigator} sectionTitle='Record Moment Now' />
+        <TopNav navigator={this.props.navigator} sectionTitle='Record Moment Now' 
+                saveFirst={true} edit={{eventName: 'newMoment'}} />
         <View style={styles.textContainer}>
           <Text style={[styles.text, styles.label]}>Title</Text>
           <TextInput
@@ -82,7 +88,7 @@ export default class MomentTextEdit extends Component {
              />
           <Text style={[styles.text, styles.label]}>Notes</Text>
           <TextInput
-             style={[styles.text, styles.para, {height: Math.max(260, this.state.titleHeight)}]}
+             style={[styles.text, styles.para, {height: Math.max(160, this.state.paraHeight)}]}
              onChangeText={(text) => this._updateDetailState.call(this, text, 'description')}
              placeholder='Optional notes'
              value={this.state.details.description}

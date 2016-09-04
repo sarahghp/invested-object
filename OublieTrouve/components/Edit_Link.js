@@ -33,6 +33,10 @@ export default class EditLink extends Component {
     }
   }
 
+  componentWillMount(){
+    this.props.saveFirst && this.setState({editingInProgress: true});
+  }
+
   render() {
     
     let op   = this.props.invisible ? 0.0 : 1.0,

@@ -23,7 +23,7 @@ export default class TopNav extends Component {
 
       let sectionTitle = <Text style={styles.text}> {this.props.sectionTitle || ''} </Text>,
           editEvent = this.props.edit ? this.props.edit.eventName : null,
-          edit = <EditLink invisible={false} eventName={editEvent} />,
+          edit = <EditLink invisible={false} saveFirst={this.props.saveFirst} eventName={editEvent} />,
           /* This is a super hacky way to get the spacing how I want it in the flexbox. It is a terrible idea. */
           invisibleEdit = <EditLink invisible={true} />,
           selector = <ListSelector lists={this.props.lists} values={this.props.values} />;
