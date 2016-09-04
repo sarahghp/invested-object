@@ -18,7 +18,7 @@ const _addToStore = function() {
   .then((data) => {
      let idx = data.length;
      let newEntry = update(this.state.details, { $merge: {id: idx} });
-     data.push(newEntry);
+     data.unshift(newEntry);
      SimpleStore.save('all_moments', data);
      events.emit('refreshData');
   })

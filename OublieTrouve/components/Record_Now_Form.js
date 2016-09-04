@@ -24,15 +24,17 @@ export default class MomentTextEdit extends Component {
   constructor(props) {
     super(props);
 
+    let date = new Date();
+
     this.state = {
       details: {
-        title: '',
+        title: date.toString().split(' ').slice(0, 5).join(', '),
         description: '',
         elevation: _.random(1, 10) > 8 ? _.random(0, 1500) : _.random(0, 20000),
         distance_from_home: _.random(2, 200),
         temp:  _.random(0, 100, true),
         humidity: _.random(0, 100, true),
-        posted: 0,
+        posted: date,
         id: 1000, 
       },
 
@@ -47,7 +49,7 @@ export default class MomentTextEdit extends Component {
 
   render() {
     
-    let date = new Date(),
+    let 
         colorStyle = { color: this.state.buttonActive ? '#fff' : base.primaryGray, };
 
     return (
@@ -59,7 +61,6 @@ export default class MomentTextEdit extends Component {
           <TextInput
              style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
              onChangeText={(text) => _updateDetailState.call(this, text, 'title')}
-             placeholder={date.toString()}
              value={this.state.details.title}
              multiline={true}
              />
