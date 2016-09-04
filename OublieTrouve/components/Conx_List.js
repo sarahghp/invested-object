@@ -82,7 +82,7 @@ export default class MemoryList extends Component {
 const styles = StyleSheet.create(shorthand({
   list: {
     backgroundColor: '#fff',
-    paddingTop: 9,
+    paddingTop: base.padding(0.5),
     flex: 4,
   }
 }));

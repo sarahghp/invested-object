@@ -59,6 +59,6 @@ const styles = StyleSheet.create(shorthand({
   text: {
     color: base.textSeafoam,
     fontSize: 16,
-    padding: '0 9',
+    padding: `0 ${base.padding(0.5)}`,
   },
 }));

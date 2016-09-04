@@ -8,11 +8,11 @@ import {
   View
 } from 'react-native';
 
-import shorthand  from 'react-native-styles-shorthand';
-import { groups } from './helpers/base_styles';
+import shorthand        from 'react-native-styles-shorthand';
+import { base, groups } from './helpers/base_styles';
 
 // Components
-import MomentText from './Moment_Text';
+import MomentText       from './Moment_Text';
 
 export default class Detail extends Component {
 
@@ -40,7 +40,7 @@ export default class Detail extends Component {
 
 const styles = StyleSheet.create(shorthand({
   scrollContainer: {
-    paddingTop: 44,
+    paddingTop: base.rowSpacing(2),
     flex: 4,
     backgroundColor: '#fff',
   },

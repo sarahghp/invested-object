@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
+import { base }  from './helpers/base_styles';
 
 // Components
 import Button    from './Button';
@@ -38,7 +39,7 @@ export default class RecordNow extends Component {
 const styles = StyleSheet.create(shorthand({
   buttonWrapper: {
     position: 'absolute',
-    bottom: 22,
-    right: 22,
+    bottom: base.rowSpacing(1),
+    right: base.rowSpacing(1),
   },
 }));

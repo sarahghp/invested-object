@@ -135,11 +135,11 @@ const styles = StyleSheet.create(shorthand({
     justifyContent: 'space-between',
   },
   row: {
-    height: 44,
+    height: base.rowSpacing(2),
     borderBottomWidth: 1,
     borderBottomColor: base.lightSeafoam,
     justifyContent: 'space-around',
-    padding: base.padding,
+    padding: base.padding(1),
   },
   list: {
     flex: 4,

@@ -44,7 +44,7 @@ const styles = StyleSheet.create(shorthand({
   container: {
     flex: 1,
     backgroundColor:'#fff',
-    margin: '9 9',
+    margin: `${base.padding(0.5)}`,
     shadowColor: base.primaryShadow,
     shadowOpacity: 0.3,
     shadowRadius: 2,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create(shorthand({
   },
   textContainer: {
     backgroundColor: base.lightestSeafoam,
-    padding: '18',
+    padding: `${base.padding(1)}`,
   },
   text: groups.bodyFontGroupUnpadded,
   small: {

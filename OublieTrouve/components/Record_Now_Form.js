@@ -80,7 +80,7 @@ export default class MomentTextEdit extends Component {
 
 const styles = StyleSheet.create(shorthand({
   container: {
-    paddingTop: 22,
+    paddingTop: base.rowSpacing(1),
     flex: 1,
     backgroundColor: base.lightSeafoam,
   },
@@ -90,7 +90,7 @@ const styles = StyleSheet.create(shorthand({
   textContainer: {
     backgroundColor: '#fff',
     flex: 1,
-    padding: '36 18 0 18',
+    padding: `${base.padding(2)} ${base.padding(1)} 0 ${base.padding(1)}`,
   },
   text: groups.bodyFontGroupUnpadded,
   title: {

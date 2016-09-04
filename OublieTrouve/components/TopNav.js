@@ -45,14 +45,14 @@ const styles = StyleSheet.create(shorthand({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 9,
-    paddingBottom: 11,
+    paddingTop: base.padding(0.5),
+    paddingBottom: base.rowSpacing(0.5),
     borderBottomColor: base.textSeafoam,
     borderBottomWidth: 1,
   },
   text: {
     color: base.textSeafoam,
     fontSize: 16,
-    paddingLeft: 9,
+    paddingLeft: base.padding(0.5),
   },
 }));

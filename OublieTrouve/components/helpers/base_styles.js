@@ -15,7 +15,8 @@ let base = {
   bodyFontFamily: 'Input Mono',
   bodyFontWeight: 'normal',
 
-  padding: 18,
+  padding:          (x) => x * 18,
+  rowSpacing:       (y) => y * 22,
 
 }
 
