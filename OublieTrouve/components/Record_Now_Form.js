@@ -8,10 +8,12 @@ import {
   View
 } from 'react-native';
 
-import shorthand        from 'react-native-styles-shorthand';
-import update           from 'react-addons-update';
+import { _addToStore,
+        _updateDetailState }  from './helpers/data_actions';
+
 import { base, groups } from './base_styles';
-import SimpleStore      from 'react-native-simple-store';
+import shorthand        from 'react-native-styles-shorthand';
+import update           from 'react-addons-update';;
 import events           from './Events';
 
 // Component
@@ -40,33 +42,8 @@ export default class MomentTextEdit extends Component {
   }
 
   componentWillMount() {
-    events.addListener('newMomentSaved', this._addToStore.bind(this));
+    events.addListener('newMomentSaved', _addToStore.bind(this));
   }
-
-  _addToStore(){
-
-    SimpleStore.get('all_moments')
-    .then((data) => {
-       let idx = data.length;
-       let newEntry = update(this.state.details, { $merge: {id: idx} });
-       data.push(newEntry);
-       SimpleStore.save('all_moments', data);
-       events.emit('refreshData');
-    })
-    .then(() => SimpleStore.get('all_moments'))
-    .then((data) => {
-      console.log('gotten', data[data.length - 1]);
-    })
-    .catch(error => {
-      console.error(error.message);
-    });
-  }
-
-  _updateDetailState(text, updateMe){
-    let newDetail = update(this.state.details, {$merge: {[updateMe]: text} });
-    this.setState({details: newDetail});
-  }
-          
 
   render() {
     
@@ -81,7 +58,7 @@ export default class MomentTextEdit extends Component {
           <Text style={[styles.text, styles.label]}>Title</Text>
           <TextInput
              style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
-             onChangeText={(text) => this._updateDetailState.call(this, text, 'title')}
+             onChangeText={(text) => _updateDetailState.call(this, text, 'title')}
              placeholder={date.toString()}
              value={this.state.details.title}
              multiline={true}
@@ -89,7 +66,7 @@ export default class MomentTextEdit extends Component {
           <Text style={[styles.text, styles.label]}>Notes</Text>
           <TextInput
              style={[styles.text, styles.para, {height: Math.max(160, this.state.paraHeight)}]}
-             onChangeText={(text) => this._updateDetailState.call(this, text, 'description')}
+             onChangeText={(text) => _updateDetailState.call(this, text, 'description')}
              placeholder='Optional notes'
              value={this.state.details.description}
              multiline={true}

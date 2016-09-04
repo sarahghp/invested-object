@@ -7,10 +7,12 @@ import {
   View
 } from 'react-native';
 
+import { _saveToStore,
+        _updateDetailState }  from './helpers/data_actions';
+
 import shorthand        from 'react-native-styles-shorthand';
 import update           from 'react-addons-update';
 import { base, groups } from './base_styles';
-import SimpleStore      from 'react-native-simple-store';
 import events           from './Events';
 
 // Component
@@ -37,38 +39,12 @@ export default class MomentTextEdit extends Component {
   }
 
   componentWillMount(){
-    events.addListener('makeDetailTextEditableSaved', this._saveToStore.bind(this));
+    events.addListener('makeDetailTextEditableSaved', _saveToStore.bind(this));
   }
 
   componentDidMount(){
     this.setState({details: this.props.details});
   }
-
-  _saveToStore(){
-    let idx;
-
-    SimpleStore.get('all_moments')
-    .then((data) => {
-       idx = _.findIndex(data, { id: this.props.details.id });
-       data[idx].title = this.state.details.title;
-       data[idx].description = this.state.details.description;
-       SimpleStore.save('all_moments', data);
-       events.emit('refreshData');
-    })
-    .then(() => SimpleStore.get('all_moments'))
-    .then((data) => {
-      console.log('gotten', data[idx]);
-    })
-    .catch(error => {
-      console.error(error.message);
-    });
-  }
-
-  _updateDetailState(text, updateMe){
-    let newDetail = update(this.state.details, {$merge: {[updateMe]: text} });
-    this.setState({details: newDetail});
-  }
-          
 
   render() {
     
@@ -78,14 +54,14 @@ export default class MomentTextEdit extends Component {
       <View>
         <TextInput
            style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
-           onChangeText={(text) => this._updateDetailState.call(this, text, 'title')}
+           onChangeText={(text) => _updateDetailState.call(this, text, 'title')}
            value={this.state.details.title}
            multiline={true}
            editable={editOn}
            />
         <TextInput
            style={[styles.text, styles.para, {height: Math.max(260, this.state.titleHeight)}]}
-           onChangeText={(text) => this._updateDetailState.call(this, text, 'description')}
+           onChangeText={(text) => _updateDetailState.call(this, text, 'description')}
            value={this.state.details.description}
            multiline={true}
            editable={editOn}
