@@ -27,8 +27,14 @@ class OublieTrouve extends Component {
     return ( 
       <Navigator
         initialRoute={{name: 'Index', component: Index}}
-        configureScene={() => {
-          return Navigator.SceneConfigs.FloatFromRight;
+        configureScene={(route) => {
+          console.log('route:', route);
+          if (route.name === 'Moments Form') {
+            return Navigator.SceneConfigs.FloatFromBottom;
+          } else {
+            return Navigator.SceneConfigs.FloatFromRight;
+          }
+          
         }}
         
         renderScene={(route, navigator) => {
