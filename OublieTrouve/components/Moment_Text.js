@@ -38,15 +38,19 @@ export default class MomentText extends Component {
   componentWillMount() {
     this._getAndSetData.call(this);
 
-    events.addListener('makeDetailTextEditable', this._makeEditable.bind(this));
-    events.addListener('makeDetailTextEditableSaved', this._makePlain.bind(this));
-    events.addListener('refreshData', this._getAndSetData.bind(this));
+    this._makeEditable  = this._makeEditable.bind(this);
+    this._makePlain     = this._makePlain.bind(this);
+    this._getAndSetData = this._getAndSetData.bind(this);
+
+    events.addListener('makeDetailTextEditable', this._makeEditable);
+    events.addListener('makeDetailTextEditableSaved', this._makePlain);
+    events.addListener('refreshData', this._getAndSetData);
   }
 
   componentWillUnmount() {
-   events.removeListener('makeDetailTextEditable', this._makeEditable.bind(this));
-   events.removeListener('makeDetailTextEditableSaved', this._makePlain.bind(this));
-   events.removeListener('refreshData', this._getAndSetData.bind(this)); 
+   events.removeListener('makeDetailTextEditable', this._makeEditable);
+   events.removeListener('makeDetailTextEditableSaved', this._makePlain);
+   events.removeListener('refreshData', this._getAndSetData); 
   }
 
   _getAndSetData(){

@@ -44,14 +44,16 @@ export default class MomentTextEdit extends Component {
   }
 
   componentWillMount() {
-    events.addListener('newMomentSaved', _addToStore.bind(this));
+    this._addToStore = this._addToStore.bind(this);
+    events.addListener('newMomentSaved', this._addToStore);
+  }
+
+  componentWillUnmount() {
+    events.removeListener('newMomentSaved', this._addToStore);
   }
 
   render() {
     
-    let 
-        colorStyle = { color: this.state.buttonActive ? '#fff' : base.primaryGray, };
-
     return (
       <View style={styles.container}>
         <TopNav navigator={this.props.navigator} sectionTitle='Record Moment Now' 

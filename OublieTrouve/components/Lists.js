@@ -32,7 +32,12 @@ export default class Lists extends Component {
   }
 
   componentWillMount() {
-    events.addListener('listNavChanged', this._onListChange.bind(this));
+    this._onListChange = this._onListChange.bind(this);
+    events.addListener('listNavChanged', this._onListChange);
+  }
+
+  componentWillUnmount() {
+    events.addListener('listNavChanged', this._onListChange);
   }
 
   _onListChange(args) {

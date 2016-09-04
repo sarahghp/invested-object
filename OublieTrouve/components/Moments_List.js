@@ -35,7 +35,12 @@ export default class MemoryList extends Component {
 
   componentWillMount() {
     this._getAndSetData.call(this);
-    events.addListener('refreshData', this._getAndSetData.bind(this));
+    this._getAndSetData = this._getAndSetData.bind(this);
+    events.addListener('refreshData', this._getAndSetData);
+  }
+
+  componentWillUnmount() {
+    events.removeListener('refreshData', this._getAndSetData);
   }
 
   _getAndSetData(){

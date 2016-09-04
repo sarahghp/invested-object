@@ -39,7 +39,12 @@ export default class MomentTextEdit extends Component {
   }
 
   componentWillMount(){
-    events.addListener('makeDetailTextEditableSaved', _saveToStore.bind(this));
+    this._saveToStore = _saveToStore.bind(this);
+    events.addListener('makeDetailTextEditableSaved', this._saveToStore);
+  }
+
+  componentWillUnmount(){
+    events.removeListener('makeDetailTextEditableSaved', this._saveToStore);
   }
 
   componentDidMount(){
