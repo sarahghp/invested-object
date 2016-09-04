@@ -11,7 +11,7 @@ import {
 import { _addToStore,
         _updateDetailState }  from './helpers/data_actions';
 
-import { base, groups } from './base_styles';
+import { base, groups } from './helpers/base_styles';
 import shorthand        from 'react-native-styles-shorthand';
 import update           from 'react-addons-update';;
 import events           from './Events';

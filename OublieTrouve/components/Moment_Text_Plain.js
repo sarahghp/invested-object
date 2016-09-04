@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import shorthand        from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base, groups } from './helpers/base_styles';
 
 // Component
 export default class MomentTextPlain extends Component {

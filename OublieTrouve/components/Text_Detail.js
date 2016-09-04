@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
-import { groups } from './base_styles';
+import { groups } from './helpers/base_styles';
 
 // Components
 import MomentText from './Moment_Text';

@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import shorthand        from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base, groups } from './helpers/base_styles';
 
 // Components
 export default class Card extends Component {

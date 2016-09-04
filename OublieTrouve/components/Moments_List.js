@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import shorthand        from 'react-native-styles-shorthand';
-import { base, groups } from './base_styles';
+import { base, groups } from './helpers/base_styles';
 import SimpleStore      from 'react-native-simple-store';
 import events           from './Events';
 import update           from 'react-addons-update';

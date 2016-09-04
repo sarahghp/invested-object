@@ -12,7 +12,7 @@ import { _saveToStore,
 
 import shorthand        from 'react-native-styles-shorthand';
 import update           from 'react-addons-update';
-import { base, groups } from './base_styles';
+import { base, groups } from './helpers/base_styles';
 import events           from './Events';
 
 // Component

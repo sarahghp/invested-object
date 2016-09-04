@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
-import { base }   from './base_styles';
+import { base }   from './helpers/base_styles';
 
 import Lighthouse from './icons/lighthouse';
 import Signpost   from './icons/signpost';

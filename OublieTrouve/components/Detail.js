@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
-import { base }   from './base_styles';
+import { base }   from './helpers/base_styles';
 
 // Components
 import TopNav     from './TopNav';
