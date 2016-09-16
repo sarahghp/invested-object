@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
-  Image,
   View
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
+import { base }   from './helpers/base_styles';
 
 import Lighthouse from './icons/lighthouse';
 import Signpost   from './icons/signpost';
@@ -14,13 +13,13 @@ import Gem        from './icons/gem';
 
 const svgStyles = {
   standard: {
-    stroke: '#163939',
+    stroke: base.darkSeafoam,
     strWidth: '0.8',
     size: '36' // svg expects strings
   },
 
   large: {
-    stroke: '#163939',
+    stroke: base.darkSeafoam,
     strWidth: '0.8',
     size: '48' // svg expects strings
   }
@@ -38,10 +37,13 @@ export default class Button extends Component {
   }
   
   render() {
-    let styleSize = this.props.size === 'large' ? styles.large : styles.standard;
+    let styleSize = this.props.size === 'large' ? styles.large : styles.standard,
+        bkg = this.props.bkg ? this.props.bkg : '#fff',
+        opc = this.props.opc ? this.props.opc : 1; 
     
     return (
-      <View style={[styles.button, styleSize]} ref={component => this._root = component} >
+      <View style={[styles.button, styleSize, {backgroundColor: bkg, opacity: opc}]} 
+            ref={component => this._root = component} >
         {icons[this.props.icon]}
       </View>
     )
@@ -52,9 +54,8 @@ const styles = StyleSheet.create(shorthand({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
     margin: 16,
-    shadowColor: '#4d4d4d',
+    shadowColor: base.primaryShadow,
     shadowOpacity: 0.3,
     shadowRadius: 4,
     shadowOffset: {

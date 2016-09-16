@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Native, {
   StyleSheet,
-  Text,
   TouchableOpacity,
   View
 } from 'react-native';
@@ -9,17 +8,28 @@ import Native, {
 import shorthand from 'react-native-styles-shorthand';
 
 // Components
-import Button   from './Button';
-import ListView from './Moments_List';
+import Button      from './Button';
+import ListPage    from './Lists';
+import Form        from './Record_Now_Form';
 
 export default class ButtonBar extends Component {
 
-  toList() {
+  _toForm(){
     this.props.navigator.push({
-      name: 'Moments List',
-      component: ListView,
+      name: 'Moments Form',
+      component: Form,
       passProps: {
-        navigator: this.props.navigator.pop
+        navigator: this.props.navigator
+      }
+    })
+  }
+
+  _toList() {
+    this.props.navigator.push({
+      name: 'List Page',
+      component: ListPage,
+      passProps: {
+        navigator: this.props.navigator
       }
     })
   }
@@ -38,8 +48,10 @@ export default class ButtonBar extends Component {
         <TouchableOpacity onPress={this.sendBuzz.bind(this)}>
           <Button icon='moment' />
         </TouchableOpacity>
-        <Button size='large' icon='report' />
-        <TouchableOpacity onPress={this.toList.bind(this)}>
+        <TouchableOpacity onPress={this._toForm.bind(this)}>
+          <Button size='large' icon='report' />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this._toList.bind(this)}>
           <Button icon='conx'/>
         </TouchableOpacity>
       </View>

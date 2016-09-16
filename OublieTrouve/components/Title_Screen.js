@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import {
+  Image,
   StyleSheet,
-  Text,
   View, 
-  Image
 } from 'react-native';
 
 import shorthand from 'react-native-styles-shorthand';
-import Lighthouse from './icons/lighthouse';
-
 
 export default class Title extends Component {
   render() {
