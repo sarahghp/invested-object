@@ -23,11 +23,27 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     beanManager = PTDBeanManager()
     beanManager!.delegate = self
     delay(1000){
-      self.startScanning()
+      var scanError: NSError?
+      self.startScanning(&scanError)
     }
     
     print("Bean init called.")
   }
+  
+//  @objc func initBean() {
+//    
+//    beanManager = PTDBeanManager()
+//    beanManager!.delegate = self
+//
+//    dispatch_async(dispatch_get_main_queue()){
+//      var scanError: NSError?
+//      self.startScanning(&scanError)
+//    }
+//    
+//    print("Bean init called.")
+//  }
+  
+
   
   func delay(delay:Double, closure:()->()) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
@@ -44,8 +60,8 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     print("called didUpdateState")
     
     if beanManager!.state == BeanManagerState.PoweredOn {
-      startScanning()
-      if var e = scanError {
+      startScanning(&scanError)
+      if let e = scanError {
         print(e)
       } else {
         print("Please turn on your Bluetooth")
@@ -53,10 +69,9 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     }
   }
   
-  func startScanning() {
-    var error: NSError?
-    beanManager!.startScanningForBeans_error(&error)
-    if let e = error {
+  func startScanning(inout scanError: NSError?) {
+    beanManager!.startScanningForBeans_error(&scanError)
+    if let e = scanError {
       print(e)
     }
   }
@@ -78,21 +93,26 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     beanManager?.connectToBean(bean, error: &error)
   }
   
-  // Send buzz when triggered
+
+  
   @objc func buzzBean(){
     print("Buzz called")
     var state: Bool = true;
     let data = NSData(bytes: &state, length: sizeof(Bool))
-    sendSerialData(data)
+    
+    dispatch_async(dispatch_get_main_queue()){
+      self.sendSerialData(data)
+    }
+    
   }
-  
+
   func sendSerialData(message: NSData) {
     print("Send serial data \(message)")
     yourBean?.sendSerialData(message)
   }
   
   func bean(bean: PTDBean!, serialDataReceived data: NSData!) {
-    var receivedMessage = NSString(data: data, encoding: NSUTF8StringEncoding)
+    let receivedMessage = NSString(data: data, encoding: NSUTF8StringEncoding)
     print("From serial: \(receivedMessage!)")
   }
   

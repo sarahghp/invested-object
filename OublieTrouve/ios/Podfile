@@ -6,7 +6,7 @@ target 'OublieTrouve' do
   use_frameworks!
 
   inherit! :search_paths
-    pod 'Bean-iOS-OSX-SDK', '~> 2.1.0'
+    pod 'Bean-iOS-OSX-SDK'
 
   # Pods for OublieTrouve
 
