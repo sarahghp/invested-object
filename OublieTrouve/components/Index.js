@@ -23,7 +23,15 @@ const BLE_ON = true;
 
 export default class FrontPage extends Component {
 
+  _getPosition(){
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log('Position:', position);
+    });
+  }
+
   componentDidMount(){
+    let _getPosition = this._getPosition.bind(this);
+
     if (BLE_ON) {
       Native.NativeModules.Bean.initBean();
       console.dir(Native.NativeModules.Bean);
@@ -34,6 +42,7 @@ export default class FrontPage extends Component {
         () => {
             console.log('EVENT');
             console.log('Button in React!');
+            _getPosition();
         }
     );
   }
