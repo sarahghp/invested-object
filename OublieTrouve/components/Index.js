@@ -28,6 +28,14 @@ export default class FrontPage extends Component {
       Native.NativeModules.Bean.initBean();
       console.dir(Native.NativeModules.Bean);
     }
+
+    Native.NativeAppEventEmitter.addListener(
+        'ButtonPushed',
+        () => {
+            console.log('EVENT');
+            console.log('Button in React!');
+        }
+    );
   }
 
   render(){

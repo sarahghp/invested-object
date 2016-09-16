@@ -30,21 +30,6 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     print("Bean init called.")
   }
   
-//  @objc func initBean() {
-//    
-//    beanManager = PTDBeanManager()
-//    beanManager!.delegate = self
-//
-//    dispatch_async(dispatch_get_main_queue()){
-//      var scanError: NSError?
-//      self.startScanning(&scanError)
-//    }
-//    
-//    print("Bean init called.")
-//  }
-  
-
-  
   func delay(delay:Double, closure:()->()) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
   }
@@ -114,6 +99,7 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   func bean(bean: PTDBean!, serialDataReceived data: NSData!) {
     let receivedMessage = NSString(data: data, encoding: NSUTF8StringEncoding)
     print("From serial: \(receivedMessage!)")
+    self.bridge.eventDispatcher().sendAppEventWithName("ButtonPushed", body: "true")
   }
   
 }
