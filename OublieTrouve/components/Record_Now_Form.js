@@ -30,7 +30,6 @@ export default class MomentTextEdit extends Component {
       details: {
         title: date.toString().split(' ').slice(0, 5).join(', '),
         description: '',
-        elevation: _.random(1, 10) > 8 ? _.random(0, 1500) : _.random(0, 20000),
         distance_from_home: _.random(2, 200),
         temp:  _.random(0, 100, true),
         humidity: _.random(0, 100, true),
@@ -46,6 +45,14 @@ export default class MomentTextEdit extends Component {
   componentWillMount() {
     this._addToStore = _addToStore.bind(this);
     events.addListener('newMomentSaved', this._addToStore);
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let alt = position.coords.altitude;
+      let newDetail = update(this.state.details,  {$merge: {elevation: alt} });
+      this.setState({details: newDetail});
+    });
   }
 
   componentWillUnmount() {
