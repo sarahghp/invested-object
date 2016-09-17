@@ -11,6 +11,8 @@ import {
 import update           from 'react-addons-update';
 import SimpleStore      from 'react-native-simple-store';
 import events           from '../Events';
+import BaseMoment       from './base_moment';
+
 
 const _addToStore = function() {
 
@@ -34,18 +36,8 @@ const _addToStore = function() {
 const _addFromButton = function(location){
   SimpleStore.get('all_moments')
   .then((data) => {
-    let date = new Date(),
-      newEntry = {
-      title: date.toString().split(' ').slice(0, 5).join(', '),
-      description: '',
-      elevation: location.coords.altitude,
-      distance_from_home: _.random(2, 200),
-      temp:  _.random(0, 100, true),
-      humidity: _.random(0, 100, true),
-      posted: date,
-      id: data.length, 
-    }
-    
+    let newEntry = new BaseMoment();
+    newEntry.id = data.length;
     data.unshift(newEntry);
     SimpleStore.save('all_moments', data);
     events.emit('refreshData');

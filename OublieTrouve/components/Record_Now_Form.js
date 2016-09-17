@@ -18,25 +18,15 @@ import events           from './Events';
 
 // Component
 import TopNav           from './TopNav';
+import BaseMoment       from './helpers/base_moment';
 
 export default class MomentTextEdit extends Component {
 
   constructor(props) {
     super(props);
 
-    let date = new Date();
-
     this.state = {
-      details: {
-        title: date.toString().split(' ').slice(0, 5).join(', '),
-        description: '',
-        distance_from_home: _.random(2, 200),
-        temp:  _.random(0, 100, true),
-        humidity: _.random(0, 100, true),
-        posted: date,
-        id: 1000, 
-      },
-
+      details: new BaseMoment(),
       titleHeight: 0,
       paraHeight: 0,
     }
