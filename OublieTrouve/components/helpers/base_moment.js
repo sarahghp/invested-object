@@ -1,4 +1,6 @@
 import PromisedLocation from 'promised-location';
+import { weatherID }    from './credentials';
+
 
 export default class BaseMoment {
   constructor(){
@@ -9,8 +11,6 @@ export default class BaseMoment {
     this.description = '';
 
     this.distance_from_home = _.random(2, 200);
-    this.temp =  _.random(0, 100, true);
-    this.humidity = _.random(0, 100, true);
     this.posted = date;
     this.id = 9999;
     this.complete = false;
@@ -21,7 +21,22 @@ export default class BaseMoment {
       .then((position) => {
         console.log('locator', position.coords);
         this.elevation = position.coords.altitude;
-        return true;
+        return position.coords;
+      })
+      .then((coords) => {
+        return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${weatherID}`)
+          .then((response) => response.json())
+          .then((responseJson) => {
+              console.log('populate', responseJson);
+              this.temp = responseJson.main.temp;
+              this.humidity = responseJson.main.humidity;
+              this.weather = responseJson.weather[0];
+              this.complete = true;
+              return responseJson;
+            })
+          .catch((error) => {
+            console.error(error);
+          });
       });
   }
 
@@ -33,14 +48,6 @@ export default class BaseMoment {
     };
      
     let locator = new PromisedLocation(options);
-    // locator
-    //   .then(function (position) {
-    //     console.log('locator', position.coords);
-    //     this.elevation = position.coords.altitude;
-    //   })
-    //   .catch(function (err) {
-    //     console.error('Position Error ', err.toString());
-    //   });
 
     locator
       .catch(function (err) {
@@ -49,8 +56,5 @@ export default class BaseMoment {
 
     return locator;
   }
-
-
-
 
 }

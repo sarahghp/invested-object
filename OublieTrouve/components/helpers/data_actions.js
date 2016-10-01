@@ -12,8 +12,9 @@ import update           from 'react-addons-update';
 import SimpleStore      from 'react-native-simple-store';
 import events           from '../Events';
 import BaseMoment       from './base_moment';
+import { weatherID }    from './credentials';
 
-
+// This will need to be rewritten to match the _addFromButton construction eventually
 const _addToStore = function() {
 
   SimpleStore.get('all_moments')
@@ -33,8 +34,7 @@ const _addToStore = function() {
   });
 }
 
-// rewrite this to use promise.all to resolve the async calls
-// and then saving to database
+
 const _addFromButton = function(location){
 
   let newEntry = new BaseMoment();
@@ -62,6 +62,7 @@ const _addFromButton = function(location){
     });
 }
 
+// This will need to be rewritten to match the _addFromButton construction eventually
 const _saveToStore = function(){
     let idx;
 
