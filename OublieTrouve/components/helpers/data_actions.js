@@ -33,22 +33,33 @@ const _addToStore = function() {
   });
 }
 
+// rewrite this to use promise.all to resolve the async calls
+// and then saving to database
 const _addFromButton = function(location){
-  SimpleStore.get('all_moments')
-  .then((data) => {
-    let newEntry = new BaseMoment();
-    newEntry.id = data.length;
-    data.unshift(newEntry);
-    SimpleStore.save('all_moments', data);
-    events.emit('refreshData');
-  })
-  .then(() => SimpleStore.get('all_moments'))
-  .then((data) => {
-    console.log('gotten', data[0]);
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
+
+  let newEntry = new BaseMoment();
+
+  Promise.all([newEntry.populate(), SimpleStore.get('all_moments')])
+    .then(values => {
+      console.log('values', values);
+      // set ID now that we have the data length
+      let data = values[1];
+      newEntry.id = data.length;
+      console.log(newEntry);
+      return data;
+    })
+    .then((data) => {
+      data.unshift(newEntry);
+      SimpleStore.save('all_moments', data);
+      events.emit('refreshData');
+    })
+    .then(() => SimpleStore.get('all_moments'))
+    .then((data) => {
+      console.log('gotten', data[0]);
+    })
+    .catch(error => {
+      console.error(error.message);
+    });
 }
 
 const _saveToStore = function(){
