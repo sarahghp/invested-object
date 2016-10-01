@@ -17,27 +17,7 @@ import { weatherID }    from './credentials';
 // This will need to be rewritten to match the _addFromButton construction eventually
 const _addToStore = function() {
 
-  SimpleStore.get('all_moments')
-  .then((data) => {
-    let idx = data.length;
-    let newEntry = update(this.state.details, { $merge: {id: idx} });
-    data.unshift(newEntry);
-    SimpleStore.save('all_moments', data);
-    events.emit('refreshData');
-  })
-  .then(() => SimpleStore.get('all_moments'))
-  .then((data) => {
-    console.log('gotten', data[0]);
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
-}
-
-
-const _addFromButton = function(location){
-
-  let newEntry = new BaseMoment();
+  let newEntry = this.state ? _.cloneDeep(this.state.details) : new BaseMoment();
 
   Promise.all([newEntry.populate(), SimpleStore.get('all_moments')])
     .then(values => {

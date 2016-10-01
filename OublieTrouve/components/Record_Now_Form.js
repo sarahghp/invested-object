@@ -33,10 +33,11 @@ export default class MomentTextEdit extends Component {
   }
 
   componentWillMount() {
-    this._addToStore = _addToStore.bind(this);
+    this._addToStore = _addToStore.bind(this, this.state.details);
     events.addListener('newMomentSaved', this._addToStore);
   }
 
+  // Continue to get location when form is called up so it is as close to the moment as possible
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
       let alt = position.coords.altitude;

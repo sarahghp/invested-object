@@ -9,7 +9,7 @@ import { base } from './helpers/base_styles';
 // Datas
 import ts             from './helpers/test_and_save';
 import { seed, conx } from './helpers/data_seed';
-import { _addFromButton } from './helpers/data_actions';
+import { _addToStore } from './helpers/data_actions';
 import _              from 'lodash';
 
 _.each([{name: 'all_moments', data: seed}, {name: 'all_conx', data: conx}], 
@@ -25,7 +25,7 @@ const BLE_ON = true;
 export default class FrontPage extends Component {
 
   _getPosition(){
-    let _boundAdd = _addFromButton.bind(this);
+    let _boundAdd = _addToStore.bind(this);
     navigator.geolocation.getCurrentPosition((position) => {
       console.log('Position:', position);
       _boundAdd(position);

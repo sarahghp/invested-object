@@ -6,11 +6,15 @@ export default class BaseMoment {
   constructor(){
     // kick off api calls
     let date = new Date();
+    this.home = {
+      longitude: '-73.92112375618241',
+      latitude: '40.70915962617131',
+    };
 
     this.title = date.toString().split(' ').slice(0, 5).join(', ');
     this.description = '';
 
-    this.distance_from_home = _.random(2, 200);
+    this.distance_from_home = 9999;
     this.posted = date;
     this.id = 9999;
     this.complete = false;
@@ -19,11 +23,17 @@ export default class BaseMoment {
   populate() {
     return this._getLocation()
       .then((position) => {
-        console.log('locator', position.coords);
-        this.elevation = position.coords.altitude;
-        return position.coords;
+        // set position-revelant values
+        let coords   = position.coords,
+            longDiff = Math.abs(this.home.longitude - coords.longitude),
+            latDiff  = Math.abs(this.home.latitude - coords.latitude)
+        console.log('locator', coords);
+        this.elevation = this.elevation || coords.altitude; // only assign if not set before
+        this.distance_from_home = Math.sqrt(Math.pow(longDiff, 2) + Math.pow(latDiff, 2));
+        return coords;
       })
       .then((coords) => {
+        // get weather-related values and add them to the entry
         return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${weatherID}`)
           .then((response) => response.json())
           .then((responseJson) => {
