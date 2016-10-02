@@ -1,33 +1,10 @@
-import _ from 'lodash';
-import source from './source_text';
-import LibroIpsum from 'libroipsum';
+import _                    from 'lodash';
+import source               from './source_text';
+import LibroIpsum           from 'libroipsum';
+import tests                from './conx_tests';
 
 let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
-// let conxList = [
-//   {
-//     type: 'Elevation',
-//     modifier: 'Sea Level',
-//     members: [],
-//   },
-//   {
-//     type: 'Elevation',
-//     modifier: 'Up a Hill',
-//     members: [],
-//   },
-//   {
-//     type: 'Elevation',
-//     modifier: 'Up a Mountain',
-//     members: [],
-//   },
-//   {
-//     type: 'Elevation',
-//     modifier: 'In the Air',
-//     members: [],
-//   },
-// ];
 
-// Add more weathery ones as well using open weather codes, plus compound temp & humidity
-// Remember these don't have to be exhaustive
 let conxList = [
   // Elevation groups
   { 
@@ -205,25 +182,28 @@ let seed = (function(){
   return momentsArr;
 })();
 
-function populateMembers(moment, cxList){
-   
+function populateMembers(moment, cxList, testList){
+
    _.each(cxList, function(category){
 
-    if (category.test(moment)){
-      category.members.push(moment);
+    // Have to do it this way becasue JSON won't let us save functions
+    let test = testList[category.type][category.modifier];
+
+    if (test(moment)){
+      category.members.unshift(moment);
     }
 
   });
 }
 
-let conx = (function(cx, moments){
+let conx = (function(cx, moments, tests){
 
   _.each(moments, (moment) => {
-    populateMembers(moment, cx);
+    populateMembers(moment, cx, tests);
   });
 
   return cx;
 
-})(conxList, seed);
+})(conxList, seed, tests);
 
 export { seed, conx };
