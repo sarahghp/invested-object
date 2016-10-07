@@ -10,33 +10,21 @@ let conxList = [
   { 
     type: 'Elevation',
     modifier: 'Sea Level',
-    test: function(obj){
-      return obj.elevation <= 100;
-    },
     members: [],
   },
   { 
     type: 'Elevation',
     modifier: 'Up a Hill',
-    test: function(obj){
-      return obj.elevation > 100 && obj.elevation <= 1000;
-    },
     members: [],
   },
   { 
     type: 'Elevation',
     modifier: 'Up a Mountain',
-    test: function(obj){
-      return obj.elevation > 1000 && obj.elevation <= 10000;
-    },
     members: [],
   },
   { 
     type: 'Elevation',
     modifier: 'In the Air',
-    test: function(obj){
-      return obj.elevation > 10000;
-    },
     members: [],
   },
 
@@ -44,66 +32,42 @@ let conxList = [
   {
     type: 'Temp',
     modifier: 'Brrr',
-    test: function(obj){
-      return obj.temp <= 30;
-    },
     members: [],
   },
   {
     type: 'Temp',
     modifier: 'Meh',
-    test: function(obj){
-      return obj.temp > 30 && obj.temp <= 50;
-    },
     members: [],
   },
   {
     type: 'Temp',
     modifier: 'Ooooh',
-    test: function(obj){
-      return obj.temp > 50 && obj.temp <= 70;
-    },
     members: [],
   },
   {
     type: 'Temp',
     modifier: 'SoCal',
-    test: function(obj){
-      return obj.temp > 70 && obj.temp <= 90;
-    },
     members: [],
   },
   {
     type: 'Temp',
     modifier: 'Ugh, No',
-    test: function(obj){
-      return obj.temp > 90;
-    },
     members: [],
   },
   // Humidity groups
   {
     type: 'Humidity',
     modifier: 'Desert',
-    test: function(obj){
-      return obj.humidity <= 30;
-    },
     members: [],
   },
   {
     type: 'Humidity',
     modifier: 'Average',
-    test: function(obj){
-      return obj.humidity > 30 && obj.humidity <= 70;
-    },
     members: [],
   },
   {
     type: 'Humidity',
     modifier: 'Swamp',
-    test: function(obj){
-      return obj.humidity > 70;
-    },
     members: [],
   },
 
@@ -113,41 +77,26 @@ let conxList = [
   {
     type: 'Distance From Home',
     modifier: 'Home',
-    test: function(obj){
-      return obj.distance_from_home <= 0.005;
-    },
     members: [],
   },
   {
     type: 'Distance From Home',
     modifier: 'Neighborhood',
-    test: function(obj){
-      return obj.distance_from_home > 0.005 && obj.distance_from_home <= 0.01;
-    },
     members: [],
   },
   {
     type: 'Distance From Home',
     modifier: 'Local',
-    test: function(obj){
-      return obj.distance_from_home > 0.01 && obj.distance_from_home <= 0.05;
-    },
     members: [],
   },
   {
     type: 'Distance From Home',
     modifier: 'Kinda Far',
-    test: function(obj){
-      return obj.distance_from_home > 0.05 && obj.distance_from_home <= 0.1;
-    },
     members: [],
   },
   {
     type: 'Distance From Home',
     modifier: 'Traveling',
-    test: function(obj){
-      return obj.distance_from_home > 0.1;
-    },
     members: [],
   },
 ];
