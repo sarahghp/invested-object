@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {
+import Native, {
   StyleSheet,
   Text,
   TextInput, 
@@ -11,19 +11,25 @@ import {
 import update           from 'react-addons-update';
 import SimpleStore      from 'react-native-simple-store';
 import events           from '../Events';
+import DetailView       from '../Detail';
 import BaseMoment       from './base_moment';
 import tests            from './conx_tests';
 
 // Helper function to create conx
-const _populateMembers = function(moment, cxList, testList){
+const _populateMembers = function(moment, cxList, testList, addMoment){
 
-   _.each(cxList, function(category){
+  _.each(cxList, function(category){
 
     // Have to do it this way becasue JSON won't let us save functions
     let test = testList[category.type][category.modifier];
 
     if (test(moment)){
-      category.members.unshift(moment);
+      addMoment && category.members.unshift(moment);
+      
+      moment.conx.push({
+        type: category.type,
+        modifier: category.modifier,
+      });
     }
 
   });
@@ -46,11 +52,10 @@ const _addToStore = function() {
     .then((data) => {
       data.unshift(newEntry);
       SimpleStore.save('all_moments', data);
-      // events.emit('refreshData');
     })
     .then(() => SimpleStore.get('all_conx'))
     .then((data) => {
-      _populateMembers(newEntry, data, tests);
+      _populateMembers(newEntry, data, tests, true);
       SimpleStore.save('all_conx', data);
       events.emit('refreshData');
     })
@@ -88,4 +93,43 @@ const _updateDetailState = function(text, updateMe){
   this.setState({details: newDetail});
 }
 
-export {_addToStore, _saveToStore, _updateDetailState, _populateMembers }
+const _checkForConx = function(navigator, threshold){
+  
+  let go = Math.random() > threshold;
+
+  if (go) {
+    let thisMoment = new BaseMoment();
+
+    thisMoment.populate()
+      .then(() => SimpleStore.get('all_conx'))
+      .then((data) => {
+        _populateMembers(thisMoment, data, tests, false);
+        
+        let collection = _.sample(thisMoment.conx),
+            cx         = _.find(data, {type: collection.type, modifier: collection.modifier});
+        
+        if (cx.members.length > 0){
+          Native.NativeModules.Bean.buzzBean();
+          navigator.push({
+            name: 'Detail',
+            component: DetailView,
+            passProps: {
+              navigator: navigator,
+              title: collection.type + ': ' + collection.modifier,
+              detailKind: 'list',
+              filter: collection.modifier,
+            }
+          });
+        }
+
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  }
+
+
+  // show the conx as the default app page
+}
+
+export {_addToStore, _saveToStore, _updateDetailState, _populateMembers, _checkForConx }

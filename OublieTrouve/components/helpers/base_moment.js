@@ -18,6 +18,7 @@ export default class BaseMoment {
     this.posted = date;
     this.id = 9999;
     this.complete = false;
+    this.conx = [];
   }
 
   populate() {
@@ -27,7 +28,6 @@ export default class BaseMoment {
         let coords   = position.coords,
             longDiff = Math.abs(this.home.longitude - coords.longitude),
             latDiff  = Math.abs(this.home.latitude - coords.latitude)
-        console.log('locator', coords);
         this.elevation = this.elevation || coords.altitude; // only assign if not set before
         this.distance_from_home = Math.sqrt(Math.pow(longDiff, 2) + Math.pow(latDiff, 2));
         return coords;
@@ -37,12 +37,11 @@ export default class BaseMoment {
         return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${weatherID}`)
           .then((response) => response.json())
           .then((responseJson) => {
-              console.log('populate', responseJson);
               this.temp = responseJson.main.temp;
               this.humidity = responseJson.main.humidity;
               this.weather = responseJson.weather[0];
               this.complete = true;
-              return responseJson;
+              return this;
             })
           .catch((error) => {
             console.error(error);

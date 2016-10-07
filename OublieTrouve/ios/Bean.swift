@@ -99,7 +99,9 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   func bean(bean: PTDBean!, serialDataReceived data: NSData!) {
     let receivedMessage = NSString(data: data, encoding: NSUTF8StringEncoding)
     print("From serial: \(receivedMessage!)")
-    self.bridge.eventDispatcher().sendAppEventWithName("ButtonPushed", body: "true")
+    if (receivedMessage == "Button") {
+      self.bridge.eventDispatcher().sendAppEventWithName("ButtonPushed", body: "true")
+    }
   }
   
 }

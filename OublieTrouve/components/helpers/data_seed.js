@@ -5,6 +5,8 @@ import tests                from './conx_tests';
 
 let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
 
+// TODO: Add time of day conx, complex conx?
+
 let conxList = [
   // Elevation groups
   { 

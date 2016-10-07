@@ -9,8 +9,12 @@ import { base } from './helpers/base_styles';
 // Datas
 import ts             from './helpers/test_and_save';
 import { seed, conx } from './helpers/data_seed';
-import { _addToStore } from './helpers/data_actions';
 import _              from 'lodash';
+
+import { 
+  _addToStore, 
+  _checkForConx 
+} from './helpers/data_actions';
 
 _.each([{name: 'all_moments', data: seed}, {name: 'all_conx', data: conx}], 
   (e) => { ts(e.name, e.data) });
@@ -48,6 +52,10 @@ export default class FrontPage extends Component {
             _getPosition();
         }
     );
+
+    // this sets up the polling for conx; the third argument determines how likely 
+    // the conx check is to happen each iteration with 0 all the time and 1.0 as never
+    setInterval(_checkForConx.bind(this, this.props.navigator, 0), 30000);
   }
 
   render(){
