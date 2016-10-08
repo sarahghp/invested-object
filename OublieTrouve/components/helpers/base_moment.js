@@ -44,7 +44,12 @@ export default class BaseMoment {
               return this;
             })
           .catch((error) => {
-            console.error(error);
+            // set values presuming underground
+            this.elevation = -100;
+            this.distance_from_home = -100;
+            this.underground = true;
+            this.message = { msg: error }
+            return this;
           });
       });
   }

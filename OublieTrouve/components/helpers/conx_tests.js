@@ -1,7 +1,7 @@
 let tests = {
   'Elevation': {
     'Sea Level': function(obj){
-      return obj.elevation <= 100;
+      return obj.elevation => 0 && obj.elevation <= 100;
     },
 
     'Up a Hill': function(obj){
@@ -15,6 +15,10 @@ let tests = {
     'In the Air': function(obj){
       return obj.elevation > 10000;
     },
+
+    'Underground': function(obj){
+      return obj.elevation < 0;
+    }
   },
 
   'Temp': {
