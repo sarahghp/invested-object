@@ -10,6 +10,7 @@ import { base } from './helpers/base_styles';
 import ts             from './helpers/test_and_save';
 import { seed, conx } from './helpers/data_seed';
 import _              from 'lodash';
+import SimpleStore    from 'react-native-simple-store'; // for background testing, otherwise goes through ts
 
 import { 
   _addToStore, 
@@ -21,8 +22,10 @@ _.each([{name: 'all_moments', data: seed}, {name: 'all_conx', data: conx}],
 
 
 // Components
-import Title      from './Title_Screen';
-import ButtonBar  from './Button_Bar';
+import Title           from './Title_Screen';
+import ButtonBar       from './Button_Bar';
+import BackgroundFetch from 'react-native-background-fetch';
+
 
 const BLE_ON = true;
 
@@ -52,6 +55,21 @@ export default class FrontPage extends Component {
             _getPosition();
         }
     );
+
+    // Testing background actions
+    BackgroundFetch.configure({
+      stopOnTerminate: false
+    }, function() {
+      SimpleStore.save('background fetch success', {
+        success: new Date(),
+      });
+      BackgroundFetch.finish();
+    }, function(error) {
+      SimpleStore.save('background fetch fail', {
+        err: new Date(),
+        msg: error,
+      });
+    });
 
     // this sets up the polling for conx; the third argument determines how likely 
     // the conx check is to happen each iteration with 0 all the time and 1.0 as never

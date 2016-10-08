@@ -11,6 +11,7 @@
     "promised-location": "^1.0.1",
     "react": "15.2.0",
     "react-native": "0.29.0",
+    "react-native-background-fetch": "^1.0.0",
     "react-native-styles-shorthand": "^1.0.0",
     "react-native-svg": "^3.0.0-rc"
   },

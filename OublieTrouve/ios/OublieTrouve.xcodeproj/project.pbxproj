@@ -23,6 +23,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		17D70B055B91456EB2BA4665 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 256BA69127D8419EA7166040 /* libRNSVG.a */; };
+		2AB112D1BEE540B396844276 /* libRNBackgroundFetch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D351EEAB15DD4C4792DCFD7D /* libRNBackgroundFetch.a */; };
 		4F1AD1171D39D7C400859328 /* InputMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1161D39D7C400859328 /* InputMono-Regular.ttf */; };
 		4F1AD1271D39D8F500859328 /* InputMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1251D39D8F500859328 /* InputMono-Thin.ttf */; };
 		4F1AD1281D39D8F500859328 /* InputMono-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1AD1261D39D8F500859328 /* InputMono-ThinItalic.ttf */; };
@@ -31,6 +32,8 @@
 		4F7BB39C1D3573EB00E579E6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BB39B1D3573EB00E579E6 /* Media.xcassets */; };
 		4FF6D1671D39D4A4006A9C9E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		4FF821D71D3467A20054E837 /* PTSerif.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4FF821D61D3467A20054E837 /* PTSerif.ttc */; };
+		4FFF4FE91DA93D4A00C91FFF /* TSBackgroundFetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF4FE81DA93D4A00C91FFF /* TSBackgroundFetch.framework */; };
+		4FFF4FEB1DA9426F00C91FFF /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF4FEA1DA9426F00C91FFF /* RNBackgroundFetch+AppDelegate.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		EC68055DF3321AFBC09C0138 /* Pods_OublieTrouve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967E75FF063F9DDADDC2D828 /* Pods_OublieTrouve.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +109,13 @@
 			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
 			remoteInfo = RNSVG;
 		};
+		4FFF4FE51DA92E2100C91FFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2616004B3B8488093E9784D /* RNBackgroundFetch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 835318541D52293F005738CD;
+			remoteInfo = RNBackgroundFetch;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -153,10 +163,14 @@
 		4F6DC63A1D3E9CB0006ABF26 /* BeanBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeanBridge.m; sourceTree = "<group>"; };
 		4F7BB39B1D3573EB00E579E6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4FF821D61D3467A20054E837 /* PTSerif.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTSerif.ttc; path = ../../../../../../Library/Fonts/PTSerif.ttc; sourceTree = "<group>"; };
+		4FFF4FE81DA93D4A00C91FFF /* TSBackgroundFetch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSBackgroundFetch.framework; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/TSBackgroundFetch.framework"; sourceTree = "<group>"; };
+		4FFF4FEA1DA9426F00C91FFF /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		967E75FF063F9DDADDC2D828 /* Pods_OublieTrouve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OublieTrouve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A49909ED23290A0D2DC742 /* Pods-OublieTrouve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OublieTrouve.release.xcconfig"; path = "Pods/Target Support Files/Pods-OublieTrouve/Pods-OublieTrouve.release.xcconfig"; sourceTree = "<group>"; };
+		D351EEAB15DD4C4792DCFD7D /* libRNBackgroundFetch.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBackgroundFetch.a; sourceTree = "<group>"; };
+		E2616004B3B8488093E9784D /* RNBackgroundFetch.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundFetch.xcodeproj; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FFF4FE91DA93D4A00C91FFF /* TSBackgroundFetch.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -184,6 +199,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				17D70B055B91456EB2BA4665 /* libRNSVG.a in Frameworks */,
 				EC68055DF3321AFBC09C0138 /* Pods_OublieTrouve.framework in Frameworks */,
+				2AB112D1BEE540B396844276 /* libRNBackgroundFetch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +285,7 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				4FFF4FEA1DA9426F00C91FFF /* RNBackgroundFetch+AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -307,6 +324,14 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		4FFF4FD71DA92E2100C91FFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FFF4FE61DA92E2100C91FFF /* libRNBackgroundFetch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +354,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				44982C6519714B48AB72E06B /* RNSVG.xcodeproj */,
+				E2616004B3B8488093E9784D /* RNBackgroundFetch.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -369,6 +395,7 @@
 		CA2657F29EC451C65C15D69E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FFF4FE81DA93D4A00C91FFF /* TSBackgroundFetch.framework */,
 				967E75FF063F9DDADDC2D828 /* Pods_OublieTrouve.framework */,
 			);
 			name = Frameworks;
@@ -431,7 +458,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 720;
 				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -441,6 +468,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 6K9LL6R5HQ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -495,6 +527,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 4FFF4FD71DA92E2100C91FFF /* Products */;
+					ProjectRef = E2616004B3B8488093E9784D /* RNBackgroundFetch.xcodeproj */;
 				},
 				{
 					ProductGroup = 4F5EC26F1D349B8B002D600E /* Products */;
@@ -571,6 +607,13 @@
 			fileType = archive.ar;
 			path = libRNSVG.a;
 			remoteRef = 4F5EC27C1D349B8B002D600E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FFF4FE61DA92E2100C91FFF /* libRNBackgroundFetch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBackgroundFetch.a;
+			remoteRef = 4FFF4FE51DA92E2100C91FFF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
@@ -692,6 +735,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				4F6DC63B1D3E9CB0006ABF26 /* BeanBridge.m in Sources */,
+				4FFF4FEB1DA9426F00C91FFF /* RNBackgroundFetch+AppDelegate.m in Sources */,
 				4F6DC62E1D3E9C80006ABF26 /* Bean.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,6 +777,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OublieTrouve.app/OublieTrouve";
@@ -750,6 +795,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OublieTrouve.app/OublieTrouve";
@@ -764,14 +810,21 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bean-iOS-OSX-SDK\"",
+					"$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 				);
 				INFOPLIST_FILE = OublieTrouve/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -790,14 +843,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 				);
 				INFOPLIST_FILE = OublieTrouve/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -847,6 +903,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -888,6 +945,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
