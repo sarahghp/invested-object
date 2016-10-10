@@ -52,7 +52,7 @@ export default class MemoryList extends Component {
       // dummy conx
       SimpleStore.get('all_conx')
       .then((data) => {
-        let found = _.find(data,['modifier', this.props.filter]);
+        let found = _.find(data, { 'modifier': this.props.filter });
         let titles = _.map(found.members, 'title');
         this.setState({dataSource: ds.cloneWithRows(titles)});
 

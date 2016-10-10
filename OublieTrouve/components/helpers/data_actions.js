@@ -45,11 +45,9 @@ const _addToStore = function() {
 
   Promise.all([newEntry.populate(), SimpleStore.get('all_moments')])
     .then(values => {
-      console.log('values', values);
       // set ID now that we have the data length
       let data = values[1];
       newEntry.id = data.length;
-      console.log(newEntry);
       return data;
     })
     .then((data) => {
