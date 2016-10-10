@@ -8,6 +8,8 @@ import {
 import shorthand    from 'react-native-styles-shorthand';
 import SimpleStore  from 'react-native-simple-store';
 import events       from './Events';
+import _            from 'lodash';
+
 
 // Components
 import PlainText    from './Moment_Text_Plain';

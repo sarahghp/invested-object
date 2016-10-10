@@ -10,6 +10,8 @@ import {
 import shorthand    from 'react-native-styles-shorthand';
 import { base }     from './helpers/base_styles';
 import SimpleStore  from 'react-native-simple-store';
+import _            from 'lodash';
+
 
 // Components
 import DetailView   from './Detail';

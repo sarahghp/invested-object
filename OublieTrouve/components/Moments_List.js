@@ -13,6 +13,8 @@ import { base, groups } from './helpers/base_styles';
 import SimpleStore      from 'react-native-simple-store';
 import events           from './Events';
 import update           from 'react-addons-update';
+import _                from 'lodash';
+
 
 // Components
 import DetailView from './Detail.js';
