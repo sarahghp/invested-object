@@ -1,7 +1,7 @@
 import SimpleStore from 'react-native-simple-store';
 
 let ts = function(key, toSave) {
-  // SimpleStore.delete(key);
+  SimpleStore.delete(key);
 
   SimpleStore.get(key)
     .then((data) => {

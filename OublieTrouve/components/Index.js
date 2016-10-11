@@ -74,7 +74,7 @@ export default class FrontPage extends Component {
 
     // this sets up the polling for conx; the third argument determines how likely 
     // the conx check is to happen each iteration with 0 all the time and 1.0 as never
-    setInterval(_checkForConx.bind(this, this.props.navigator, 0), 120000);
+    setInterval(_checkForConx.bind(this, this.props.navigator, 0.7), 600000);
   }
 
   render(){

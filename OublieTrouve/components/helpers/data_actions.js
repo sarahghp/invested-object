@@ -111,7 +111,10 @@ const _checkForConx = function(navigator, threshold){
         
         if (cx.members.length > 0){
           Native.NativeModules.Bean.buzzBean();
-          navigator.push({
+
+          // Prevent a stack from accumulating
+          let method = navigator.getCurrentRoutes().length === 1 ? 'push' : 'replace'; 
+          navigator[method]({
             name: 'Detail',
             component: DetailView,
             passProps: {

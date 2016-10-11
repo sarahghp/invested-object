@@ -2,6 +2,7 @@ import _                    from 'lodash';
 import source               from './source_text';
 import LibroIpsum           from 'libroipsum';
 import tests                from './conx_tests';
+import seed                 from './seed_moments';
 
 let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
 
@@ -137,10 +138,6 @@ let conxList = [
 
 //   return momentsArr;
 // })();
-
-let seed = _.map(moments, function(m, i){
-  // might just be the import itself
-});
 
 function populateMembers(moment, cxList, testList){
 

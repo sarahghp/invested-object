@@ -22,7 +22,6 @@ export default class BaseMoment {
   }
 
   populate() {
-    console.log('in populate');
     return this._getLocation()
       .then((position) => {
         // set position-revelant values
