@@ -28,7 +28,7 @@ export default class BaseMoment {
         // set position-revelant values
         let coords   = position.coords,
             longDiff = Math.abs(this.home.longitude - coords.longitude),
-            latDiff  = Math.abs(this.home.latitude - coords.latitude)
+            latDiff  = Math.abs(this.home.latitude - coords.latitude);
         this.elevation = this.elevation || coords.altitude; // only assign if not set before
         this.distance_from_home = Math.sqrt(Math.pow(longDiff, 2) + Math.pow(latDiff, 2));
         return coords;

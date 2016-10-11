@@ -108,35 +108,39 @@ let conxList = [
   },
 ];
 
-function moreTitles() {
 
-  _.times(100, function(){
+// These functions generate mostly-nonsense seeds and have been retired in favor of 
+// more sensical seeds. Saved in case we need to return to generating more.
 
-    let date = new Date(_.random(0, Date.now())),
-        cleaned = date.toString().split(' ').slice(0, 5).join(', ');
+// function moreTitles() {
+//   _.times(100, function(){
+//     let date = new Date(_.random(0, Date.now())),
+//         cleaned = date.toString().split(' ').slice(0, 5).join(', ');
+//     titles.push(cleaned);
+//   });
+// }
 
-    titles.push(cleaned);
-  });
+// let seed = (function(){
+//   moreTitles();
+//   let momentsArr = _.map(titles, function(title, idx){
+//     let obj = {};
+//     obj.title = title;
+//     obj.description =  new LibroIpsum(source).generate(120);
+//     obj.elevation = _.random(1, 10) > 8 ? _.random(0, 1500) : _.random(0, 20000);
+//     obj.distance_from_home = _.random(.003, 1);
+//     obj.temp = _.random(0, 100, true);
+//     obj.humidity = _.random(0, 100, true);
+//     obj.posted = _.random(0, Date.now());
+//     obj.id = idx;
+//     return obj;
+//   });
 
-}
+//   return momentsArr;
+// })();
 
-let seed = (function(){
-  moreTitles();
-  let momentsArr = _.map(titles, function(title, idx){
-    let obj = {};
-    obj.title = title;
-    obj.description =  new LibroIpsum(source).generate(120);
-    obj.elevation = _.random(1, 10) > 8 ? _.random(0, 1500) : _.random(0, 20000);
-    obj.distance_from_home = _.random(.003, 1);
-    obj.temp = _.random(0, 100, true);
-    obj.humidity = _.random(0, 100, true);
-    obj.posted = _.random(0, Date.now());
-    obj.id = idx;
-    return obj;
-  });
-
-  return momentsArr;
-})();
+let seed = _.map(moments, function(m, i){
+  // might just be the import itself
+});
 
 function populateMembers(moment, cxList, testList){
 
