@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>O/t Vis Explorations</title>
+  <link rel="stylesheet" href="cluster.css">
+  <script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
+  <script src="../data.js"></script>
+</head>
+<body>
+  <div class="background">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="2400px">
+
+      <defs>
+        <!-- GRAY -->
+        <pattern id="g-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nMS41JyBjeT0nMS41JyByPScxLjUnIGZpbGw9JyM0YTRmNTQnLz4KPC9zdmc+Cg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nMicgY3k9JzInIHI9JzInIGZpbGw9JyM0YTRmNTQnLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzEnIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzInIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzQnIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-6" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzYnIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- PINK -->
+        <pattern id="p-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nMS41JyBjeT0nMS41JyByPScxLjUnIGZpbGw9JyNmZjAwNDgnLz4KPC9zdmc+Cg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="p-circles-8" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nNC41JyBjeT0nNC41JyByPSc0LjUnIGZpbGw9JyNmZjAwNDgnLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="p-dots-8" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzgnIGhlaWdodD0nOCcgZmlsbD0nI2ZmMDA0OCcgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="p-horizontal-stripe-7" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzcnIGZpbGw9JyNmZjAwNDgnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- PURPLE -->
+        <pattern id="pu-circles-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJoc2xhKDM2MCwgMCUsIDAlLCAwKSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iI0I5NzdEMyIvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="pu-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMicgZmlsbD0nI0I5NzdEMycvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="pu-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMScgZmlsbD0nI0I5NzdEMycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="pu-horizontal-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMycgZmlsbD0nI0I5NzdEMycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- ROSE -->
+        <pattern id="r-circles-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJoc2xhKDM2MCwgMCUsIDAlLCAwKSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iI0ZGODk5MyIvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScxLjUnIGN5PScxLjUnIHI9JzEuNScgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMicgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyLjUnIGN5PScyLjUnIHI9JzIuNScgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PSczJyBjeT0nMycgcj0nMycgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMScgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMicgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMycgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nNCcgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nNScgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- YELLOW -->
+        <pattern id="y-circles-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJoc2xhKDM2MCwgMCUsIDAlLCAwKSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iI0ZGRjA1NSIvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMicgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-circles-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PSczJyBjeT0nMycgcj0nMycgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMScgZmlsbD0nI0ZGRjA1NScgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-horizontal-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMycgZmlsbD0nI0ZGRjA1NScgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-horizontal-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nNScgZmlsbD0nI0ZGRjA1NScgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <clipPath id="screen-clip-left">
+          <rect x="0" y="0" width="320px" height="568px" />
+        </clipPath>
+        <clipPath id="screen-clip-mid">
+          <rect x="352" y="0" width="320px" height="568px" />
+        </clipPath>
+        <clipPath id="screen-clip-right">
+          <rect x="704" y="0" width="320px" height="568px" />
+        </clipPath>
+
+      </defs>
+
+      <g class="gems">
+
+        <!-- Just Weather Textures -->
+        <!-- <g class="row-001">
+          <g clip-path="url(#screen-clip-left)">
+            <rect x="0" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="a1" d="M92.0428016 0 183.878562 50.4263487 183.878562 151.279046 92.0428016 201.705395 0.207041521 151.279046 0.207041521 50.4263487z"/></g>
+          
+          <g clip-path="url(#screen-clip-mid)">
+            <rect x="352" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="b1" d="M103.5 0 186.407601 37.9720691 206.884087 123.294534 149.510247 191.717838 57.4897527 191.717838 0.115912866 123.294534 20.5923992 37.9720691z"/></g>
+          
+          <g clip-path="url(#screen-clip-right)">
+            <rect x="704" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="c1" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/></g>
+        </g>
+
+        <g class="row-002">
+          <g clip-path="url(#screen-clip-left)">
+            <rect x="0" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="a2" d="M92.0428016 0 183.878562 50.4263487 183.878562 151.279046 92.0428016 201.705395 0.207041521 151.279046 0.207041521 50.4263487z"/></g>
+          
+          <g clip-path="url(#screen-clip-mid)">
+            <rect x="352" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="b2" d="M103.5 0 186.407601 37.9720691 206.884087 123.294534 149.510247 191.717838 57.4897527 191.717838 0.115912866 123.294534 20.5923992 37.9720691z"/></g>
+          
+          <g clip-path="url(#screen-clip-right)">
+            <rect x="704" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="c2" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/></g>
+        </g> -->
+
+        <!-- Distance/Elevation -->
+        <g class="row-003">
+          <g clip-path="url(#screen-clip-left)">
+            <rect x="0" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="a3" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/>
+            <path id="d3" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+          
+          <g clip-path="url(#screen-clip-mid)">
+            <rect x="352" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="b3" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/>
+            <path id="e3" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+          
+          <g clip-path="url(#screen-clip-right)">
+            <rect x="704" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="c3" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/>
+            <path id="f3" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+        </g>
+
+        <g class="row-004">
+          <g clip-path="url(#screen-clip-left)">
+            <rect x="0" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="a4" d="M92.0428016 0 183.878562 50.4263487 183.878562 151.279046 92.0428016 201.705395 0.207041521 151.279046 0.207041521 50.4263487z"/>
+            <path id="d4" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+          
+          <g clip-path="url(#screen-clip-mid)">
+            <rect x="352" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="b4" d="M103.5 0 186.407601 37.9720691 206.884087 123.294534 149.510247 191.717838 57.4897527 191.717838 0.115912866 123.294534 20.5923992 37.9720691z"/>
+            <path id="e4" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+          
+          <g clip-path="url(#screen-clip-right)">
+            <rect x="704" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="c4" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/>
+            <path id="f4" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+        </g>
+
+        <g class="row-005">
+          <g clip-path="url(#screen-clip-left)">
+            <rect x="0" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="a5" d="M92.0428016 0 183.878562 50.4263487 183.878562 151.279046 92.0428016 201.705395 0.207041521 151.279046 0.207041521 50.4263487z"/>
+            <path id="d5" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+          
+          <g clip-path="url(#screen-clip-mid)">
+            <rect x="352" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="b5" d="M103.5 0 186.407601 37.9720691 206.884087 123.294534 149.510247 191.717838 57.4897527 191.717838 0.115912866 123.294534 20.5923992 37.9720691z"/>
+            <path id="e5" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+          
+          <g clip-path="url(#screen-clip-right)">
+            <rect x="704" y="0" width="320px" height="568px" fill="none" stroke="#53535c"/>
+            <path id="c5" d="M106.042802 0 181.026386 29.5390712 212.085603 100.852697 181.026386 172.166324 106.042802 201.705395 31.0592175 172.166324 0 100.852697 31.0592175 29.5390712z"/>
+            <path id="f5" class="triangle" d="M92.0428016 0 183.878562 151.279046 0.207041521 151.279046z"/>
+          </g>
+        </g>
+
+    
+
+      </g>
+    </svg> 
+  </div>
+</body>
+</html>
