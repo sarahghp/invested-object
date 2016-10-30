@@ -60,12 +60,16 @@ body {
   transform: translateX(704px) scale(5.5) rotate(0deg);
 }
 
-#d3, #d4, #d5 {
+#d4, #d5 {
   fill: url(#g-horizontal-stripe-1) #000;
 }
 
-#e3, #f3, #e4, #f4, #e5, #f5 {
+#e4, #f4, #e5, #f5 {
   fill: url(#g-horizontal-stripe-4) #000;
+}
+
+#d3, #e3, #f3 {
+  fill: url(#g-circles-3) #000;
 }
 
 #d3, #d4, #d5 {

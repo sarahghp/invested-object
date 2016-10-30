@@ -347,7 +347,6 @@ var moments = [
               description: 'overcast clouds',
               }],
   },
-
 ]
 
 var populated_moments = _.map(moments, function(m, i){
@@ -492,6 +491,37 @@ var conxList = [
     modifier: 'Clear',
     members: [],
   },
+
+  // Time of day groups
+  {
+    type: 'Time of Day',
+    modifier: 'Early',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Morning',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Day',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Evening',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Night',
+    members: [],
+  },  {
+    type: 'Time of Day',
+    modifier: 'Overnight',
+    members: [],
+  },
 ];
 
 var tests = {
@@ -585,6 +615,33 @@ var tests = {
     'Clear': function(obj){
       return obj.weather[0].main === 'clear';
     }
+  },
+
+  'Time of Day': {
+    'Early': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 4 && hours < 7;
+    } ,
+    'Morning': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 7 && hours < 11;
+    } ,
+    'Day': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 11 && hours < 16 ;
+    } ,
+    'Evening': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 16 && hours < 20;
+    } ,
+    'Night': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 20 && hours < 24 ;
+    } ,
+    'Overnight': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours < 4 ;
+    } ,
   }
 }
 
@@ -598,6 +655,7 @@ function populateMembers(moment, cxList, testList){
 
     if (test(moment)){
       category.members.unshift(moment);
+      moment.conx.push({type: category.type, modifier: category.modifier})
     }
 
   });
@@ -645,6 +703,7 @@ var threeMix = _.map(temps, (t) => {
 })
 
 // All the logging
-// console.log('moments:', populated_moments);
-console.log('conx:', conx);
-console.log(_.filter(_.flatten(threeMix), (t) => t.members.length > 0));
+console.log('moments:', populated_moments);
+// console.log('conx:', conx);
+console.log('populated conx:', _.filter(conx, (c) => c.members.length > 0));
+// console.log(_.filter(_.flatten(threeMix), (t) => t.members.length > 0));

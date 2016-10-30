@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>O/t Vis Explorations</title>
+  <link rel="stylesheet" href="cluster.css">
+  <script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
+  <script src="../data.js"></script>
+</head>
+<body>
+  <div class="background">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1400px">
+
+      <defs>
+        <!-- GRAY -->
+        <pattern id="g-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzEnIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzInIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzQnIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <pattern id="g-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nMS41JyBjeT0nMS41JyByPScxLjUnIGZpbGw9JyM0YTRmNTQnLz4KPC9zdmc+Cg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nMicgY3k9JzInIHI9JzInIGZpbGw9JyM0YTRmNTQnLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="g-horizontal-stripe-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzInIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        
+        <pattern id="g-horizontal-stripe-6" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzYnIGZpbGw9JyM0YTRmNTQnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- PINK -->
+        <pattern id="p-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nMS41JyBjeT0nMS41JyByPScxLjUnIGZpbGw9JyNmZjAwNDgnLz4KPC9zdmc+Cg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="p-circles-8" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPGNpcmNsZSBjeD0nNC41JyBjeT0nNC41JyByPSc0LjUnIGZpbGw9JyNmZjAwNDgnLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="p-dots-8" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzgnIGhlaWdodD0nOCcgZmlsbD0nI2ZmMDA0OCcgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="p-horizontal-stripe-7" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMTAwJSwgMTAwJSwgMCknIC8+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEwJyBoZWlnaHQ9JzcnIGZpbGw9JyNmZjAwNDgnIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- PURPLE -->
+        <pattern id="pu-circles-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJoc2xhKDM2MCwgMCUsIDAlLCAwKSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iI0I5NzdEMyIvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="pu-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMicgZmlsbD0nI0I5NzdEMycvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="pu-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMScgZmlsbD0nI0I5NzdEMycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="pu-horizontal-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMycgZmlsbD0nI0I5NzdEMycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- ROSE -->
+        <pattern id="r-vertical-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMScgaGVpZ2h0PScxMCcgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-vertical-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMycgaGVpZ2h0PScxMCcgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-vertical-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nNScgaGVpZ2h0PScxMCcgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+
+
+        <pattern id="r-circles-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJoc2xhKDM2MCwgMCUsIDAlLCAwKSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iI0ZGODk5MyIvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScxLjUnIGN5PScxLjUnIHI9JzEuNScgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMicgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyLjUnIGN5PScyLjUnIHI9JzIuNScgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-circles-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PSczJyBjeT0nMycgcj0nMycgZmlsbD0nI0ZGODk5MycvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMScgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMicgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMycgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nNCcgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="r-horizontal-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nNScgZmlsbD0nI0ZGODk5MycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <!-- YELLOW -->
+        <pattern id="y-circles-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJoc2xhKDM2MCwgMCUsIDAlLCAwKSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iI0ZGRjA1NSIvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-circles-2" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScxLjUnIGN5PScxLjUnIHI9JzEuNScgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-circles-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMicgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-circles-4" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PScyLjUnIGN5PScyLjUnIHI9JzIuNScgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4=" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-circles-6" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PSczLjUnIGN5PSczLjUnIHI9JzMuNScgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+
+        
+        <pattern id="y-circles-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8Y2lyY2xlIGN4PSczJyBjeT0nMycgcj0nMycgZmlsbD0nI0ZGRjA1NScvPgo8L3N2Zz4K" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-horizontal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMScgZmlsbD0nI0ZGRjA1NScgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-horizontal-stripe-3" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nMycgZmlsbD0nI0ZGRjA1NScgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+        <pattern id="y-horizontal-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSdoc2xhKDM2MCwgMCUsIDAlLCAwKScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMTAnIGhlaWdodD0nNScgZmlsbD0nI0ZGRjA1NScgLz4KPC9zdmc+" x="0" y="0" width="10" height="10">
+          </image>
+        </pattern>
+
+        <clipPath id="screen-clip-01">
+          <rect x="0" y="0" width="320px" height="187px" />
+        </clipPath>
+        <clipPath id="screen-clip-02">
+          <rect x="0" y="200" width="320px" height="187px" />
+        </clipPath>
+        <clipPath id="screen-clip-03">
+          <rect x="0" y="400" width="320px" height="187px" />
+        </clipPath>
+        <clipPath id="screen-clip-04">
+          <rect x="0" y="600" width="320px" height="187px" />
+        </clipPath>
+        <clipPath id="screen-clip-05">
+          <rect x="0" y="800" width="320px" height="187px" />
+        </clipPath>
+        <clipPath id="screen-clip-06">
+          <rect x="0" y="1000" width="320px" height="187px" />
+        </clipPath>
+
+      </defs>
+
+      <g class="gems">
+
+        <!-- Bean + Line -->
+        <g id="group-01" clip-path="url(#screen-clip-01)">
+          <rect x="0" y="0" width="320px" height="187px" fill="none" stroke="#53535c"/>
+            <g class="beans" id="beans-01">
+              <path class="temp" id="temp-01" d="M53.6030804,94.829719 C120.712451,9.72034275 292.173393,-16.4671575 342.376517,9.72034315 C392.57964,35.9078438 532.970268,199.626596 422.095267,278.650031 C311.220265,357.673465 274.751518,285.798471 196.509329,334.181281 C118.26714,382.56409 129.306205,510.235965 53.6030794,510.235968 C-22.1000467,510.235971 -13.5062905,179.939095 53.6030804,94.829719 Z" />
+              <path class="hum" id="hum-01" d="M17.9546804,30.1258588 C42.7694777,-2.6260035 51.5623779,0.0529521793 78.3358154,0.0529521793 C105.109253,0.0529521793 131.04553,-2.63044637 157.335815,40.3498272 C209.167302,125.085746 204.119181,108.491012 131.929565,115.54514 C59.7399501,122.599268 39.1561305,145.490452 39.1561305,145.490452 C39.1561305,145.490452 -32.4026937,96.5901449 17.9546804,30.1258588 L17.9546804,30.1258588 Z"/>
+              <path class="wea" id="wea-01" d="M35.6188634,28.7213441 C85.9762375,-37.742942 261.171725,20.8619855 313.003212,105.597904 C364.834699,190.333822 230.42145,197.804199 158.231835,204.858327 C86.0422195,211.912455 3.04826479,81.1145179 3.04826479,81.1145179 C3.04826479,81.1145179 -14.7385108,95.1856303 35.6188634,28.7213441 L35.6188634,28.7213441 Z" />
+            </g>
+          <line id="de-01" x1="20" y1="20" x2="40" y2="20"/>
+        </g>
+        <g id="group-02" clip-path="url(#screen-clip-02)">
+          <rect x="0" y="200" width="320px" height="187px" fill="none" stroke="#53535c"/>
+            <g class="beans" id="beans-02">
+              <path class="temp" id="temp-02" d="M53.6030804,94.829719 C120.712451,9.72034275 292.173393,-16.4671575 342.376517,9.72034315 C392.57964,35.9078438 532.970268,199.626596 422.095267,278.650031 C311.220265,357.673465 274.751518,285.798471 196.509329,334.181281 C118.26714,382.56409 129.306205,510.235965 53.6030794,510.235968 C-22.1000467,510.235971 -13.5062905,179.939095 53.6030804,94.829719 Z" />
+              <path class="hum" id="hum-02" d="M17.9546804,30.1258588 C42.7694777,-2.6260035 51.5623779,0.0529521793 78.3358154,0.0529521793 C105.109253,0.0529521793 131.04553,-2.63044637 157.335815,40.3498272 C209.167302,125.085746 204.119181,108.491012 131.929565,115.54514 C59.7399501,122.599268 39.1561305,145.490452 39.1561305,145.490452 C39.1561305,145.490452 -32.4026937,96.5901449 17.9546804,30.1258588 L17.9546804,30.1258588 Z"/>
+              <path class="wea" id="wea-02" d="M35.6188634,28.7213441 C85.9762375,-37.742942 261.171725,20.8619855 313.003212,105.597904 C364.834699,190.333822 230.42145,197.804199 158.231835,204.858327 C86.0422195,211.912455 3.04826479,81.1145179 3.04826479,81.1145179 C3.04826479,81.1145179 -14.7385108,95.1856303 35.6188634,28.7213441 L35.6188634,28.7213441 Z" />
+            </g>
+          <line id="de-02" x1="20" y1="20" x2="40" y2="20"></line>
+        </g>
+        <g id="group-03" clip-path="url(#screen-clip-03)">
+          <rect x="0" y="400" width="320px" height="187px" fill="none" stroke="#53535c"/>
+            <g class="beans" id="beans-03">
+              <path class="temp" id="temp-03" d="M53.6030804,94.829719 C120.712451,9.72034275 292.173393,-16.4671575 342.376517,9.72034315 C392.57964,35.9078438 532.970268,199.626596 422.095267,278.650031 C311.220265,357.673465 274.751518,285.798471 196.509329,334.181281 C118.26714,382.56409 129.306205,510.235965 53.6030794,510.235968 C-22.1000467,510.235971 -13.5062905,179.939095 53.6030804,94.829719 Z" />
+              <path class="hum" id="hum-03" d="M17.9546804,30.1258588 C42.7694777,-2.6260035 51.5623779,0.0529521793 78.3358154,0.0529521793 C105.109253,0.0529521793 131.04553,-2.63044637 157.335815,40.3498272 C209.167302,125.085746 204.119181,108.491012 131.929565,115.54514 C59.7399501,122.599268 39.1561305,145.490452 39.1561305,145.490452 C39.1561305,145.490452 -32.4026937,96.5901449 17.9546804,30.1258588 L17.9546804,30.1258588 Z"/>
+              <path class="wea" id="wea-03" d="M35.6188634,28.7213441 C85.9762375,-37.742942 261.171725,20.8619855 313.003212,105.597904 C364.834699,190.333822 230.42145,197.804199 158.231835,204.858327 C86.0422195,211.912455 3.04826479,81.1145179 3.04826479,81.1145179 C3.04826479,81.1145179 -14.7385108,95.1856303 35.6188634,28.7213441 L35.6188634,28.7213441 Z" />
+            </g>
+          <line id="de-03" x1="20" y1="20" x2="320" y2="20"></line>
+        </g>
+        <g id="group-04" clip-path="url(#screen-clip-04)">
+          <rect x="0" y="600" width="320px" height="187px" fill="none" stroke="#53535c"/>
+            <g class="beans" id="beans-04">
+              <path class="temp" id="temp-04" d="M53.6030804,94.829719 C120.712451,9.72034275 292.173393,-16.4671575 342.376517,9.72034315 C392.57964,35.9078438 532.970268,199.626596 422.095267,278.650031 C311.220265,357.673465 274.751518,285.798471 196.509329,334.181281 C118.26714,382.56409 129.306205,510.235965 53.6030794,510.235968 C-22.1000467,510.235971 -13.5062905,179.939095 53.6030804,94.829719 Z" />
+              <path class="hum" id="hum-04" d="M17.9546804,30.1258588 C42.7694777,-2.6260035 51.5623779,0.0529521793 78.3358154,0.0529521793 C105.109253,0.0529521793 131.04553,-2.63044637 157.335815,40.3498272 C209.167302,125.085746 204.119181,108.491012 131.929565,115.54514 C59.7399501,122.599268 39.1561305,145.490452 39.1561305,145.490452 C39.1561305,145.490452 -32.4026937,96.5901449 17.9546804,30.1258588 L17.9546804,30.1258588 Z"/>
+              <path class="wea" id="wea-04" d="M35.6188634,28.7213441 C85.9762375,-37.742942 261.171725,20.8619855 313.003212,105.597904 C364.834699,190.333822 230.42145,197.804199 158.231835,204.858327 C86.0422195,211.912455 3.04826479,81.1145179 3.04826479,81.1145179 C3.04826479,81.1145179 -14.7385108,95.1856303 35.6188634,28.7213441 L35.6188634,28.7213441 Z" />
+            </g>
+          <line id="de-04" x1="20" y1="20" x2="40" y2="20"></line>
+        </g>
+        <g id="group-05" clip-path="url(#screen-clip-05)">
+          <rect x="0" y="800" width="320px" height="187px" fill="none" stroke="#53535c"/>
+            <g class="beans" id="beans-05">
+              <path class="temp" id="temp-05" d="M53.6030804,94.829719 C120.712451,9.72034275 292.173393,-16.4671575 342.376517,9.72034315 C392.57964,35.9078438 532.970268,199.626596 422.095267,278.650031 C311.220265,357.673465 274.751518,285.798471 196.509329,334.181281 C118.26714,382.56409 129.306205,510.235965 53.6030794,510.235968 C-22.1000467,510.235971 -13.5062905,179.939095 53.6030804,94.829719 Z" />
+              <path class="hum" id="hum-05" d="M17.9546804,30.1258588 C42.7694777,-2.6260035 51.5623779,0.0529521793 78.3358154,0.0529521793 C105.109253,0.0529521793 131.04553,-2.63044637 157.335815,40.3498272 C209.167302,125.085746 204.119181,108.491012 131.929565,115.54514 C59.7399501,122.599268 39.1561305,145.490452 39.1561305,145.490452 C39.1561305,145.490452 -32.4026937,96.5901449 17.9546804,30.1258588 L17.9546804,30.1258588 Z"/>
+              <path class="wea" id="wea-05" d="M35.6188634,28.7213441 C85.9762375,-37.742942 261.171725,20.8619855 313.003212,105.597904 C364.834699,190.333822 230.42145,197.804199 158.231835,204.858327 C86.0422195,211.912455 3.04826479,81.1145179 3.04826479,81.1145179 C3.04826479,81.1145179 -14.7385108,95.1856303 35.6188634,28.7213441 L35.6188634,28.7213441 Z" />
+            </g>
+          <line id="de-05" x1="20" y1="20" x2="200" y2="20"></line>
+        </g>
+        <g id="group-06" clip-path="url(#screen-clip-06)">
+          <rect x="0" y="1000" width="320px" height="187px" fill="none" stroke="#53535c"/>
+            <g class="beans" id="beans-06">
+              <path class="temp" id="temp-06" d="M53.6030804,94.829719 C120.712451,9.72034275 292.173393,-16.4671575 342.376517,9.72034315 C392.57964,35.9078438 532.970268,199.626596 422.095267,278.650031 C311.220265,357.673465 274.751518,285.798471 196.509329,334.181281 C118.26714,382.56409 129.306205,510.235965 53.6030794,510.235968 C-22.1000467,510.235971 -13.5062905,179.939095 53.6030804,94.829719 Z" />
+              <path class="hum" id="hum-06" d="M17.9546804,30.1258588 C42.7694777,-2.6260035 51.5623779,0.0529521793 78.3358154,0.0529521793 C105.109253,0.0529521793 131.04553,-2.63044637 157.335815,40.3498272 C209.167302,125.085746 204.119181,108.491012 131.929565,115.54514 C59.7399501,122.599268 39.1561305,145.490452 39.1561305,145.490452 C39.1561305,145.490452 -32.4026937,96.5901449 17.9546804,30.1258588 L17.9546804,30.1258588 Z"/>
+              <path class="wea" id="wea-06" d="M35.6188634,28.7213441 C85.9762375,-37.742942 261.171725,20.8619855 313.003212,105.597904 C364.834699,190.333822 230.42145,197.804199 158.231835,204.858327 C86.0422195,211.912455 3.04826479,81.1145179 3.04826479,81.1145179 C3.04826479,81.1145179 -14.7385108,95.1856303 35.6188634,28.7213441 L35.6188634,28.7213441 Z" />
+            </g>
+          <line id="de-06" x1="20" y1="20" x2="40" y2="20"></line>
+        </g>
+
+      </g>
+    </svg> 
+  </div>
+</body>
+</html>
