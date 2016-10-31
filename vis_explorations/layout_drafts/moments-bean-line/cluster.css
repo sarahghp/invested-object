@@ -15,23 +15,38 @@ line {
 }
 
 #beans-01 {
-  transform: rotate(14deg);
+  /*transform: rotate(14deg);*/
 }
 
 #temp-01 {
- fill: url(#y-circles-3) #fff; 
+ /*fill: url(#y-circles-3) #fff; */
+ /*fill: url(#y-horizontal-stripe-3) #fff;*/
+ fill: url(#y-diagonal-stripe-3) #fff;
 }
 
-#temp-01 {
- fill: url(#y-circles-3) #fff; 
-}
 
 #wea-01 {
  fill: url(#g-horizontal-stripe-2) #fff; 
 }
 
 #hum-01 {
- fill: url(#r-vertical-stripe-5) #fff; 
+ /*fill: url(#r-vertical-stripe-5) #fff;*/ 
+ fill: url(#r-horizontal-stripe-5) #fff;
+}
+
+
+#elev-01 {
+ /*fill: url(#y-circles-3) #fff; */
+ fill: url(#y-horizontal-stripe-3) #fff;
+}
+
+#dist-01 {
+ fill: url(#g-horizontal-stripe-2) #fff; 
+}
+
+#tod-01 {
+ /*fill: url(#r-vertical-stripe-5) #fff;*/ 
+ fill: url(#r-horizontal-stripe-5) #fff;
 }
 
 #de-01 {
@@ -43,11 +58,13 @@ line {
 }
 
 #temp-02 {
- fill: url(#y-circles-3) #fff; 
+ /*fill: url(#y-circles-3) #fff; */
+ fill: url(#y-horizontal-stripe-3) #fff;
 }
 
 #hum-02 {
- fill: url(#r-vertical-stripe-1) #fff; 
+ /*fill: url(#r-vertical-stripe-1) #fff; */
+ fill: url(#r-horizontal-stripe-1) #fff;
 }
 
 #wea-02 {
@@ -63,11 +80,13 @@ line {
 }
 
 #temp-03 {
- fill: url(#y-circles-1) #fff; 
+ /*fill: url(#y-circles-1) #fff; */
+ fill: url(#y-horizontal-stripe-1) #fff;
 }
 
 #hum-03 {
- fill: url(#r-vertical-stripe-1) #fff; 
+ /*fill: url(#r-vertical-stripe-1) #fff; */
+ fill: url(#r-horizontal-stripe-1) #fff;
 }
 
 #wea-03 {
@@ -83,11 +102,13 @@ line {
 }
 
 #temp-04 {
- fill: url(#y-circles-3) #fff;  
+ /*fill: url(#y-circles-3) #fff;*/
+ fill: url(#y-horizontal-stripe-1) #fff;  
 }
 
 #hum-04 {
- fill: url(#r-vertical-stripe-5) #fff; 
+ /*fill: url(#r-vertical-stripe-5) #fff; */
+ fill: url(#r-horizontal-stripe-5) #fff;
 }
 
 #wea-04 {
@@ -103,11 +124,13 @@ line {
 }
 
 #temp-05 {
- fill: url(#y-circles-6) #fff;  
+ /*fill: url(#y-circles-6) #fff;  */
+ fill: url(#y-horizontal-stripe-6) #fff;
 }
 
 #hum-05 {
- fill: url(#r-vertical-stripe-3) #fff; 
+ /*fill: url(#r-vertical-stripe-3) #fff; */
+ fill: url(#r-horizontal-stripe-3) #fff;
 }
 
 #wea-05 {
@@ -123,11 +146,13 @@ line {
 }
 
 #temp-06 {
- fill: url(#y-circles-4) #fff;  
+ /*fill: url(#y-circles-4) #fff;  */
+ fill: url(#y-horizontal-stripe-4) #fff;
 }
 
 #hum-06 {
- fill: url(#r-vertical-stripe-3) #fff; 
+ /*fill: url(#r-vertical-stripe-3) #fff; */
+ fill: url(#r-horizontal-stripe-3) #fff;
 }
 
 #wea-06 {
