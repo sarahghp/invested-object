@@ -48,6 +48,6 @@ export default class ListSelector extends Component {
 
 const styles = StyleSheet.create(shorthand({
   navControl: {
-    width: 220,  
+    width: 190,  
   },
 }));

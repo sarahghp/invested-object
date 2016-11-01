@@ -19,7 +19,7 @@ export default class Lists extends Component {
 
   static defaultProps = {
     ...Component.defaultProps,
-    values: ['Concordances', 'All Moments'],
+    values: ['Conx', 'All Moments'],
   }
 
   constructor(props) {
