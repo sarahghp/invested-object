@@ -31,7 +31,7 @@ export default class Card extends Component {
           <Image style={styles.image} source={require('./img/fake-graph.png')} />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{this.props.card.type}: {this.props.card.modifier}</Text>
+          <Text style={styles.text}>{this.props.card.modifier}</Text>
           <Text style={[styles.text, styles.small]}>{this.props.card.members.length} entries</Text>
         </View>
       </View>
