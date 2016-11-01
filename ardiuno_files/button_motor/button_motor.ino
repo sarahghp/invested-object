@@ -32,11 +32,12 @@ void loop() {
  if (connected) {
    wakeUpBean();
    button = !digitalRead(0);
+   // Serial.println(!digitalRead(0));
 
  if (Serial.available() > 0){
     incomingByte = Serial.read();
-    Serial.print("Bite received: ");
-    Serial.print(incomingByte);
+     // Serial.print("Bite received: ");
+     // Serial.println(incomingByte);
     motor = true;
   }
 
