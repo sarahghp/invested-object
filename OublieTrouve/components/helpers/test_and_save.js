@@ -2,9 +2,9 @@ import SimpleStore from 'react-native-simple-store';
 
 let ts = function({key, dataBlob}) {
   
-  if (key === 'all_conx' || key === 'comp_conx') {
-    SimpleStore.delete(key);
-  }
+  // if (key === 'all_conx' || key === 'comp_conx') {
+  //   SimpleStore.delete(key);
+  // }
   
   SimpleStore.get(key)
     .then((data) => {
