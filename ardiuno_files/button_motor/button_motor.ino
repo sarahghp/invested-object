@@ -29,30 +29,27 @@ void setup() {
 void loop() {
   connected = Bean.getConnectionState();
  
- if(connected) {
+ if (connected) {
    wakeUpBean();
    button = !digitalRead(0);
+   // Serial.println(!digitalRead(0));
 
-  if(Serial.available() > 0){
+ if (Serial.available() > 0){
     incomingByte = Serial.read();
-    Serial.print("Bite received: ");
-    Serial.println(incomingByte);
-
-    if (incomingByte == 66 || incomingByte == 98 || incomingByte == 90 || incomingByte == 122) {
-      motor = true;
-    }
-
+     // Serial.print("Bite received: ");
+     // Serial.println(incomingByte);
+    motor = true;
   }
 
-  if(motor){
+  if (motor){
     buzzMotor();
   }
 
   if (button){
-    Serial.println("Button");
+    Serial.print("Button");
   }
    
- }else{
+ } else {
    putBeanToSleep();
  }
 }
@@ -71,10 +68,10 @@ void wakeUpBean(){
 }
 
 void buzzMotor(){
-    Serial.println("Motor");
+    Bean.setLed(0, 0, 255);
     digitalWrite(motorPin, HIGH);
     delay(1000);
     digitalWrite(motorPin, LOW);
+    Bean.setLed(0, 255, 0);
     motor = false;
 }
-

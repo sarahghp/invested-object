@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+line {
+  stroke: #0cb691;
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: .5;
+}
+
+.gems {
+  transform: translate(100px, 100px);
+}
+
+#beans-01 {
+  transform: rotate(-14deg);
+  /*opacity: 0.7;*/
+}
+
+#temp-01 {
+  fill: url(#y-horizontal-stripe-3) #fff;
+ /*fill: url(#y-diagonal-stripe-3) #fff;*/
+ transform: translate(0px, -110px) scale(5);
+ /*transform: translateY(2px);*/
+}
+
+#wea-01 {
+ fill: url(#p-horizontal-stripe-2) #fff;
+ transform: translate(20px, -120px) scale(5); 
+ /*transform: translateY(4px);*/
+}
+
+#hum-01 {
+ fill: url(#r-horizontal-stripe-5) #fff;
+ /*fill: url(#r-vertical-stripe-5) #fff;*/
+ transform: translate(40px, -130px) scale(5);
+ /*transform: translateY(6px);*/
+}
+
+#elev-01 {
+ fill: url(#g-circles-2) #fff;
+ transform: translate(60px, -140px) scale(5) rotate(2deg);
+}
+
+#dist-01 {
+ fill: url(#pu-circles-1) #fff;
+ transform: translate(80px, -150px) scale(5); 
+}
+
+#tod-01 {
+ fill: url(#y-horizontal-stripe-4) #fff;
+ transform: translate(100px, -140px) scale(5);
+}
+
+#beans-02 {
+  transform: translateY(200px) rotate(-14deg);
+}
+
+#temp-02 {
+ fill: url(#y-horizontal-stripe-3) #fff;
+ /*transform: translateY(2px);*/
+ transform: translate(0px, -110px) scale(5);
+}
+
+#hum-02 {
+ fill: url(#r-horizontal-stripe-1) #fff;
+ /*transform: translateY(4px);*/
+ transform: translate(20px, -120px) scale(5);
+}
+
+#wea-02 {
+ fill: url(#p-horizontal-stripe-2) #fff; 
+ /*transform: translateY(6px);*/
+ transform: translate(40px, -130px) scale(5);
+}
+
+#elev-02 {
+ fill: url(#g-circles-2) #fff;
+ transform: translate(60px, -140px) scale(5) rotate(2deg);
+}
+
+#dist-02 {
+ fill: url(#pu-circles-5) #fff;
+ transform: translate(80px, -150px) scale(5); 
+}
+
+#tod-02 {
+ fill: url(#y-horizontal-stripe-2) #fff;
+ transform: translate(100px, -140px) scale(5);
+}
+
+#beans-03 {
+  transform: translateY(400px) rotate(-14deg);
+}
+
+#temp-03 {
+ fill: url(#y-horizontal-stripe-1) #fff;
+ /*transform: translateY(2px);*/
+ transform: translate(0px, -110px) scale(5);
+}
+
+#hum-03 {
+ fill: url(#p-horizontal-stripe-1) #fff;
+ /*transform: translateY(4px);*/
+ transform: translate(20px, -120px) scale(5);
+}
+
+#wea-03 {
+ fill: url(#r-horizontal-stripe-4) #fff; 
+ /*transform: translateY(6px);*/
+ transform: translate(40px, -130px) scale(5);
+}
+
+#elev-03 {
+ fill: url(#g-circles-6) #fff;
+ transform: translate(60px, -140px) scale(5) rotate(2deg);
+}
+
+#dist-03 {
+ fill: url(#pu-circles-7) #fff;
+ transform: translate(80px, -150px) scale(5); 
+}
+
+#tod-03 {
+ fill: url(#y-horizontal-stripe-6) #fff;
+ transform: translate(100px, -140px) scale(5);
+}
+
+#beans-04 {
+  transform: translateY(600px) rotate(-14deg);
+}
+
+#temp-04 {
+ fill: url(#y-horizontal-stripe-1) #fff;
+ /*transform: translateY(2px);*/
+ transform: translate(0px, -110px) scale(5);
+}
+
+#hum-04 {
+ fill: url(#p-horizontal-stripe-4) #fff;
+ /*transform: translateY(4px);*/
+ transform: translate(20px, -120px) scale(5);
+}
+
+#wea-04 {
+ fill: url(#r-horizontal-stripe-1) #fff;
+ /*transform: translateY(6px); */
+ transform: translate(40px, -130px) scale(5);;
+}
+
+#elev-04 {
+ fill: url(#g-circles-2) #fff;
+ transform: translate(60px, -140px) scale(5) rotate(2deg);
+}
+
+#dist-04 {
+ fill: url(#pu-circles-5) #fff;
+ transform: translate(80px, -150px) scale(5); 
+}
+
+#tod-04 {
+ fill: url(#y-horizontal-stripe-2) #fff;
+ transform: translate(100px, -140px) scale(5);
+}
+
+#beans-05 {
+  transform: translateY(800px) rotate(-14deg);
+}
+
+#temp-05 {
+ fill: url(#y-horizontal-stripe-6) #fff;
+ /*transform: translateY(2px);*/
+ transform: translate(0px, -110px) scale(5);
+}
+
+#hum-05 {
+ fill: url(#p-horizontal-stripe-2) #fff;
+ /*transform: translateY(4px);*/
+ transform: translate(20px, -120px) scale(5);
+}
+
+#wea-05 {
+ fill: url(#r-horizontal-stripe-3) #fff;
+ /*transform: translateY(6px); */
+ transform: translate(40px, -130px) scale(5);
+}
+
+#elev-05 {
+ fill: url(#g-circles-4) #fff;
+ transform: translate(60px, -140px) scale(5) rotate(2deg);
+}
+
+#dist-05 {
+ fill: url(#pu-circles-7) #fff;
+ transform: translate(80px, -150px) scale(5); 
+}
+
+#tod-05 {
+ fill: url(#y-horizontal-stripe-4) #fff;
+ transform: translate(100px, -140px) scale(5);
+}
+
+#beans-06 {
+  transform: translateY(1000px) rotate(-14deg);
+}
+
+#temp-06 {
+ fill: url(#y-horizontal-stripe-4) #fff;
+ /*transform: translateY(2px);*/
+ transform: translate(0px, -110px) scale(5);
+}
+
+#hum-06 {
+ fill: url(#p-horizontal-stripe-2) #fff;
+ /*transform: translateY(4px);*/
+ transform: translate(20px, -120px) scale(5);
+}
+
+#wea-06 {
+ fill: url(#r-horizontal-stripe-4) #fff;
+ /*transform: translateY(6px); */
+ transform: translate(40px, -130px) scale(5);
+}
+
+#elev-06 {
+ fill: url(#g-circles-2) #fff;
+ transform: translate(60px, -140px) scale(5) rotate(2deg);
+}
+
+#dist-06 {
+ fill: url(#pu-circles-3) #fff;
+ transform: translate(80px, -150px) scale(5); 
+}
+
+#tod-06 {
+ fill: url(#y-horizontal-stripe-4) #fff;
+ transform: translate(100px, -140px) scale(5);
+}

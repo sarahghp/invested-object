@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+line {
+  stroke: #0cb691;
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: .5;
+}
+
+.gems {
+  transform: translate(100px, 100px);
+}
+
+#beans-01 {
+  /*transform: rotate(14deg);*/
+}
+
+#temp-01 {
+ /*fill: url(#y-circles-3) #fff; */
+ /*fill: url(#y-horizontal-stripe-3) #fff;*/
+ fill: url(#y-diagonal-stripe-3) #fff;
+}
+
+
+#wea-01 {
+ fill: url(#g-horizontal-stripe-2) #fff; 
+}
+
+#hum-01 {
+ /*fill: url(#r-vertical-stripe-5) #fff;*/ 
+ fill: url(#r-horizontal-stripe-5) #fff;
+}
+
+
+#elev-01 {
+ /*fill: url(#y-circles-3) #fff; */
+ fill: url(#y-horizontal-stripe-3) #fff;
+}
+
+#dist-01 {
+ fill: url(#g-horizontal-stripe-2) #fff; 
+}
+
+#tod-01 {
+ /*fill: url(#r-vertical-stripe-5) #fff;*/ 
+ fill: url(#r-horizontal-stripe-5) #fff;
+}
+
+#de-01 {
+  transform: translateY(150px);
+}
+
+#beans-02 {
+  transform: translateY(200px) rotate(28deg);
+}
+
+#temp-02 {
+ /*fill: url(#y-circles-3) #fff; */
+ fill: url(#y-horizontal-stripe-3) #fff;
+}
+
+#hum-02 {
+ /*fill: url(#r-vertical-stripe-1) #fff; */
+ fill: url(#r-horizontal-stripe-1) #fff;
+}
+
+#wea-02 {
+ fill: url(#g-horizontal-stripe-2) #fff; 
+}
+
+#de-02 {
+  transform: translateY(250px);
+}
+
+#beans-03 {
+  transform: translateY(400px) rotate(0deg);
+}
+
+#temp-03 {
+ /*fill: url(#y-circles-1) #fff; */
+ fill: url(#y-horizontal-stripe-1) #fff;
+}
+
+#hum-03 {
+ /*fill: url(#r-vertical-stripe-1) #fff; */
+ fill: url(#r-horizontal-stripe-1) #fff;
+}
+
+#wea-03 {
+ fill: url(#g-horizontal-stripe-4) #fff; 
+}
+
+#de-03 {
+  transform: translateY(400px);
+}
+
+#beans-04 {
+  transform: translateY(600px) rotate(-14deg);
+}
+
+#temp-04 {
+ /*fill: url(#y-circles-3) #fff;*/
+ fill: url(#y-horizontal-stripe-1) #fff;  
+}
+
+#hum-04 {
+ /*fill: url(#r-vertical-stripe-5) #fff; */
+ fill: url(#r-horizontal-stripe-5) #fff;
+}
+
+#wea-04 {
+ fill: url(#g-horizontal-stripe-1) #fff; 
+}
+
+#de-04 {
+  transform: translateY(620px);
+}
+
+#beans-05 {
+  transform: translateY(800px) rotate(28deg);
+}
+
+#temp-05 {
+ /*fill: url(#y-circles-6) #fff;  */
+ fill: url(#y-horizontal-stripe-6) #fff;
+}
+
+#hum-05 {
+ /*fill: url(#r-vertical-stripe-3) #fff; */
+ fill: url(#r-horizontal-stripe-3) #fff;
+}
+
+#wea-05 {
+ fill: url(#g-horizontal-stripe-2) #fff; 
+}
+
+#de-05 {
+  transform: translateY(800px);
+}
+
+#beans-06 {
+  transform: translateY(1000px) rotate(28deg);
+}
+
+#temp-06 {
+ /*fill: url(#y-circles-4) #fff;  */
+ fill: url(#y-horizontal-stripe-4) #fff;
+}
+
+#hum-06 {
+ /*fill: url(#r-vertical-stripe-3) #fff; */
+ fill: url(#r-horizontal-stripe-3) #fff;
+}
+
+#wea-06 {
+ fill: url(#g-horizontal-stripe-4) #fff; 
+}
+
+#de-06 {
+  transform: translateY(1120px);
+}

@@ -10,6 +10,8 @@ import {
 import shorthand    from 'react-native-styles-shorthand';
 import { base }     from './helpers/base_styles';
 import SimpleStore  from 'react-native-simple-store';
+import _            from 'lodash';
+
 
 // Components
 import DetailView   from './Detail';
@@ -45,8 +47,12 @@ export default class MemoryList extends Component {
   componentWillMount() {
     SimpleStore.get('all_conx')
       .then((data) => {
+        let list = _.remove(data, (d) => {
+          return d.members.length > 0;
+        });
+
         this.setState({
-          cards: data
+          cards: list
         })
       })
       .catch(error => {
@@ -64,7 +70,6 @@ export default class MemoryList extends Component {
           onPress={this._toDetail.bind(this, card.type, card.modifier)}>
           
           <Card card={card} />  
-            
             
         </TouchableHighlight>
         </View>

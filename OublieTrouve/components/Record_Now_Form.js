@@ -18,34 +18,32 @@ import events           from './Events';
 
 // Component
 import TopNav           from './TopNav';
+import BaseMoment       from './helpers/base_moment';
 
 export default class MomentTextEdit extends Component {
 
   constructor(props) {
     super(props);
 
-    let date = new Date();
-
     this.state = {
-      details: {
-        title: date.toString().split(' ').slice(0, 5).join(', '),
-        description: '',
-        elevation: _.random(1, 10) > 8 ? _.random(0, 1500) : _.random(0, 20000),
-        distance_from_home: _.random(2, 200),
-        temp:  _.random(0, 100, true),
-        humidity: _.random(0, 100, true),
-        posted: date,
-        id: 1000, 
-      },
-
+      details: new BaseMoment(),
       titleHeight: 0,
       paraHeight: 0,
     }
   }
 
   componentWillMount() {
-    this._addToStore = this._addToStore.bind(this);
+    this._addToStore = _addToStore.bind(this, this.state.details);
     events.addListener('newMomentSaved', this._addToStore);
+  }
+
+  // Continue to get location when form is called up so it is as close to the moment as possible
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let alt = position.coords.altitude;
+      let newDetail = update(this.state.details,  {$merge: {elevation: alt} });
+      this.setState({details: newDetail});
+    });
   }
 
   componentWillUnmount() {

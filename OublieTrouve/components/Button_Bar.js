@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {
+import Native, {
   StyleSheet,
   TouchableOpacity,
   View
@@ -34,6 +34,10 @@ export default class ButtonBar extends Component {
     })
   }
 
+  sendBuzz(){
+    Native.NativeModules.Bean.buzzBean();
+  }
+
   setNativeProps (nativeProps) {
     this._root.setNativeProps(nativeProps);
   }
@@ -41,7 +45,9 @@ export default class ButtonBar extends Component {
   render() {
     return (
       <View style={styles.buttonContainer} ref={component => this._root = component} >
-        <Button icon='moment' />
+        <TouchableOpacity onPress={this.sendBuzz.bind(this)}>
+          <Button icon='moment' />
+        </TouchableOpacity>
         <TouchableOpacity onPress={this._toForm.bind(this)}>
           <Button size='large' icon='report' />
         </TouchableOpacity>

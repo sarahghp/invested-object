@@ -13,6 +13,8 @@ import { base, groups } from './helpers/base_styles';
 import SimpleStore      from 'react-native-simple-store';
 import events           from './Events';
 import update           from 'react-addons-update';
+import _                from 'lodash';
+
 
 // Components
 import DetailView from './Detail.js';
@@ -50,7 +52,7 @@ export default class MemoryList extends Component {
       // dummy conx
       SimpleStore.get('all_conx')
       .then((data) => {
-        let found = _.find(data,['modifier', this.props.filter]);
+        let found = _.find(data, { 'modifier': this.props.filter });
         let titles = _.map(found.members, 'title');
         this.setState({dataSource: ds.cloneWithRows(titles)});
 
