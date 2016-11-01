@@ -30,14 +30,13 @@ export default class MemoryList extends Component {
 
 
   _toDetail(type, modifier) {
-    console.log("You tapped the link!");
     
     this.props.navigator.push({
       name: 'Detail',
       component: DetailView,
       passProps: {
         navigator: this.props.navigator.pop,
-        title: modifier,
+        title: type,
         detailKind: 'list',
         filter: modifier,
       }
@@ -45,14 +44,11 @@ export default class MemoryList extends Component {
   }
 
   componentWillMount() {
-    SimpleStore.get('all_conx')
+    SimpleStore.get('comp_conx')
       .then((data) => {
-        let list = _.remove(data, (d) => {
-          return d.members.length > 0;
-        });
 
         this.setState({
-          cards: list
+          cards: data
         })
       })
       .catch(error => {

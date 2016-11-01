@@ -49,6 +49,4 @@ let conx = (function(cx, moments, tests){
 
 let compConx = _complexConx(conxList);
 
-console.log('compConx', compConx);
-
 export { seed, conx, compConx };

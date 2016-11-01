@@ -48,9 +48,7 @@ export default class MemoryList extends Component {
   _getAndSetData(){
 
     if (this.props.filter !== null) { 
-      // TBD: Update conx when moments update ... take care of when implementing more than
-      // dummy conx
-      SimpleStore.get('all_conx')
+      SimpleStore.get('comp_conx')
       .then((data) => {
         let found = _.find(data, { 'modifier': this.props.filter });
         let titles = _.map(found.members, 'title');

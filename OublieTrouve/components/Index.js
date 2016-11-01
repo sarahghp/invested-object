@@ -21,7 +21,7 @@ import {
   _checkForConx 
 } from './helpers/data_actions';
 
-_.each([{key: 'all_moments', dataBlob: seed}, {key: 'all_conx', dataBlob: conx}, {key: 'compConx', dataBlob: compConx}], 
+_.each([{key: 'all_moments', dataBlob: seed}, {key: 'all_conx', dataBlob: conx}, {key: 'comp_conx', dataBlob: compConx}], 
   (e) => { ts(e) });
 
 

@@ -54,7 +54,8 @@ const _complexConx = function(list){
       return _.map(b, (second) => {
         let intersected = _.intersectionBy(first.members, second.members, 'title');
         return { 
-          mix: first.modifier + '-' + second.modifier, 
+          type: 'Compound',
+          modifier: first.modifier + '-' + second.modifier, 
           members: intersected
         }
       })
@@ -69,7 +70,8 @@ const _complexConx = function(list){
         return _.map(c, (third) => {
           let intersected = _.intersectionBy(first.members, second.members, third.members, 'title');
           return { 
-            mix: first.modifier + '-' + second.modifier + '-' + third.modifier, 
+            type: 'Compound',
+            modifier: first.modifier + '-' + second.modifier + '-' + third.modifier, 
             members: intersected
           }
         })
@@ -89,7 +91,8 @@ const _complexConx = function(list){
       let flat = _.flatten(members);
       to = _.map(flat, (f) => {
               return {
-                mix: f.modifier,
+                type: 'Compound',
+                modifier: f.modifier,
                 members: f.members
               } 
             });
