@@ -77,8 +77,48 @@ let tests = {
     'Traveling': function(obj){
       return obj.distance_from_home > 0.1;
     }
+  },
+
+  'Weather': {
+    'Rain': function(obj){
+      return obj.weather[0].main === 'rain';
+    },
+    'Clouds': function(obj){
+      return obj.weather[0].main === 'clouds';
+    },
+    'Clear': function(obj){
+      return obj.weather[0].main === 'clear';
+    }
+  },
+
+  'Time of Day': {
+    'Early': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 4 && hours < 7;
+    } ,
+    'Morning': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 7 && hours < 11;
+    } ,
+    'Day': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 11 && hours < 16 ;
+    } ,
+    'Evening': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 16 && hours < 20;
+    } ,
+    'Night': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours >= 20 && hours < 24 ;
+    } ,
+    'Overnight': function(obj) {
+      var hours = obj.posted.getHours();
+      return hours < 4 ;
+    } ,
   }
 }
+
 
 
 export default tests;

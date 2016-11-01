@@ -4,7 +4,7 @@ import LibroIpsum           from 'libroipsum';
 import tests                from './conx_tests';
 import seed                 from './seed_moments';
 
-let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
+// let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
 
 // TODO: Add time of day conx, complex conx?
 
@@ -107,6 +107,54 @@ let conxList = [
     modifier: 'Traveling',
     members: [],
   },
+
+  // Weather groups
+  {
+    type: 'Weather',
+    modifier: 'Rain',
+    members: [],
+  },
+  {
+    type: 'Weather',
+    modifier: 'Clouds',
+    members: [],
+  },
+  {
+    type: 'Weather',
+    modifier: 'Clear',
+    members: [],
+  },
+
+  // Time of day groups
+  {
+    type: 'Time of Day',
+    modifier: 'Early',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Morning',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Day',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Evening',
+    members: [],
+  },
+  {
+    type: 'Time of Day',
+    modifier: 'Night',
+    members: [],
+  },  {
+    type: 'Time of Day',
+    modifier: 'Overnight',
+    members: [],
+  },
 ];
 
 
@@ -148,6 +196,11 @@ function populateMembers(moment, cxList, testList){
 
     if (test(moment)){
       category.members.unshift(moment);
+
+      moment.conx.push({
+        type: category.type,
+        modifier: category.modifier,
+      });
     }
 
   });
