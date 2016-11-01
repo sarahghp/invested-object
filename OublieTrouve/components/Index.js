@@ -8,16 +8,20 @@ import { base } from './helpers/base_styles';
 
 // Datas
 import ts             from './helpers/test_and_save';
-import { seed, conx } from './helpers/data_seed';
 import _              from 'lodash';
 import SimpleStore    from 'react-native-simple-store'; // for background testing, otherwise goes through ts
+
+import { 
+      seed, 
+      conx,
+      compConx } from './helpers/data_seed';
 
 import { 
   _addToStore, 
   _checkForConx 
 } from './helpers/data_actions';
 
-_.each([{key: 'all_moments', dataBlob: seed}, {key: 'all_conx', dataBlob: conx}], 
+_.each([{key: 'all_moments', dataBlob: seed}, {key: 'all_conx', dataBlob: conx}, {key: 'compConx', dataBlob: compConx}], 
   (e) => { ts(e) });
 
 
@@ -58,19 +62,19 @@ export default class FrontPage extends Component {
     );
 
     // Testing background actions
-    BackgroundFetch.configure({
-      stopOnTerminate: false
-    }, function() {
-      SimpleStore.save('background fetch success', {
-        success: new Date(),
-      });
-      BackgroundFetch.finish();
-    }, function(error) {
-      SimpleStore.save('background fetch fail', {
-        err: new Date(),
-        msg: error,
-      });
-    });
+    // BackgroundFetch.configure({
+    //   stopOnTerminate: false
+    // }, function() {
+    //   SimpleStore.save('background fetch success', {
+    //     success: new Date(),
+    //   });
+    //   BackgroundFetch.finish();
+    // }, function(error) {
+    //   SimpleStore.save('background fetch fail', {
+    //     err: new Date(),
+    //     msg: error,
+    //   });
+    // });
 
     // this sets up the polling for conx; the third argument determines how likely 
     // the conx check is to happen each iteration with 0 all the time and 1.0 as never

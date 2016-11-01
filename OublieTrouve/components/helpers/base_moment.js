@@ -65,7 +65,7 @@ export default class BaseMoment {
 
     locator
       .catch(function (err) {
-        console.error('Position Error ', err.toString());
+        console.error('Position Error ', err);
       });
 
     return locator;

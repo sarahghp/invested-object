@@ -705,5 +705,6 @@ var threeMix = _.map(temps, (t) => {
 // All the logging
 console.log('moments:', populated_moments);
 // console.log('conx:', conx);
-console.log('populated conx:', _.filter(conx, (c) => c.members.length > 0));
-// console.log(_.filter(_.flatten(threeMix), (t) => t.members.length > 0));
+// console.log('populated conx:', _.filter(conx, (c) => c.members.length > 0));
+console.log(_.filter(_.flatten(threeMix), (t) => t.members.length > 0));
+console.log(_.filter(_.flatten(mix), (t) => t.members.length > 0));

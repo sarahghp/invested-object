@@ -1,165 +1,15 @@
 import _                    from 'lodash';
 import source               from './source_text';
 import LibroIpsum           from 'libroipsum';
-import tests                from './conx_tests';
+import { tests, conxList }  from './conx';
 import seed                 from './seed_moments';
-
-// let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
-
-// TODO: Add time of day conx, complex conx?
-
-let conxList = [
-  // Elevation groups
-  { 
-    type: 'Elevation',
-    modifier: 'Sea Level',
-    members: [],
-  },
-  { 
-    type: 'Elevation',
-    modifier: 'Up a Hill',
-    members: [],
-  },
-  { 
-    type: 'Elevation',
-    modifier: 'Up a Mountain',
-    members: [],
-  },
-  { 
-    type: 'Elevation',
-    modifier: 'In the Air',
-    members: [],
-  },
-  { 
-    type: 'Elevation',
-    modifier: 'Underground',
-    members: [],
-  },
-
-  // Temp groups
-  {
-    type: 'Temp',
-    modifier: 'Brrr',
-    members: [],
-  },
-  {
-    type: 'Temp',
-    modifier: 'Meh',
-    members: [],
-  },
-  {
-    type: 'Temp',
-    modifier: 'Ooooh',
-    members: [],
-  },
-  {
-    type: 'Temp',
-    modifier: 'SoCal',
-    members: [],
-  },
-  {
-    type: 'Temp',
-    modifier: 'Ugh, No',
-    members: [],
-  },
-  // Humidity groups
-  {
-    type: 'Humidity',
-    modifier: 'Desert',
-    members: [],
-  },
-  {
-    type: 'Humidity',
-    modifier: 'Average',
-    members: [],
-  },
-  {
-    type: 'Humidity',
-    modifier: 'Swamp',
-    members: [],
-  },
-
-  // Distance groups
-  // These may be garbage categories and I should probably use a distance API instead of just
-  // differences in degrees ... what with the rounch globe distorting thngs like a jerk
-  {
-    type: 'Distance From Home',
-    modifier: 'Home',
-    members: [],
-  },
-  {
-    type: 'Distance From Home',
-    modifier: 'Neighborhood',
-    members: [],
-  },
-  {
-    type: 'Distance From Home',
-    modifier: 'Local',
-    members: [],
-  },
-  {
-    type: 'Distance From Home',
-    modifier: 'Kinda Far',
-    members: [],
-  },
-  {
-    type: 'Distance From Home',
-    modifier: 'Traveling',
-    members: [],
-  },
-
-  // Weather groups
-  {
-    type: 'Weather',
-    modifier: 'Rain',
-    members: [],
-  },
-  {
-    type: 'Weather',
-    modifier: 'Clouds',
-    members: [],
-  },
-  {
-    type: 'Weather',
-    modifier: 'Clear',
-    members: [],
-  },
-
-  // Time of day groups
-  {
-    type: 'Time of Day',
-    modifier: 'Early',
-    members: [],
-  },
-  {
-    type: 'Time of Day',
-    modifier: 'Morning',
-    members: [],
-  },
-  {
-    type: 'Time of Day',
-    modifier: 'Day',
-    members: [],
-  },
-  {
-    type: 'Time of Day',
-    modifier: 'Evening',
-    members: [],
-  },
-  {
-    type: 'Time of Day',
-    modifier: 'Night',
-    members: [],
-  },  {
-    type: 'Time of Day',
-    modifier: 'Overnight',
-    members: [],
-  },
-];
-
+import {_populateMembers,
+        _complexConx  }      from './data_actions';
 
 // These functions generate mostly-nonsense seeds and have been retired in favor of 
 // more sensical seeds. Saved in case we need to return to generating more.
+
+// let titles = ['Mon, Apr 10, 10 a.m.', '********', 'Fri, Apr 7, 11:54 p.m.', 'Kate’s Place', 'Thu, Dec 20, 2015, 2:10 p.m.',];
 
 // function moreTitles() {
 //   _.times(100, function(){
@@ -187,33 +37,18 @@ let conxList = [
 //   return momentsArr;
 // })();
 
-function populateMembers(moment, cxList, testList){
-
-   _.each(cxList, function(category){
-
-    // Have to do it this way becasue JSON won't let us save functions
-    let test = testList[category.type][category.modifier];
-
-    if (test(moment)){
-      category.members.unshift(moment);
-
-      moment.conx.push({
-        type: category.type,
-        modifier: category.modifier,
-      });
-    }
-
-  });
-}
-
 let conx = (function(cx, moments, tests){
 
   _.each(moments, (moment) => {
-    populateMembers(moment, cx, tests);
+    _populateMembers(moment, cx, tests, true);
   });
 
   return cx;
 
 })(conxList, seed, tests);
 
-export { seed, conx };
+let compConx = _complexConx(conxList);
+
+console.log('compConx', compConx);
+
+export { seed, conx, compConx };
