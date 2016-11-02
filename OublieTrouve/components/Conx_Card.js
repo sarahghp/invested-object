@@ -28,7 +28,7 @@ export default class Card extends Component {
     return (
       <View style={styles.container} ref={component => this._root = component}>
         <View style={styles.imageWrapper}>
-          <Image style={styles.image} source={require('./img/fake-graph.png')} />
+          <Image style={[styles.image, {height: 100}]} source={require('./img/fake-graph.png')} />
         </View>
         <View style={styles.textContainer}>
           {/* Or is it too much mystification? */}
