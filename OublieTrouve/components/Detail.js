@@ -12,7 +12,8 @@ import { base }   from './helpers/base_styles';
 import TopNav     from './TopNav';
 import Button     from './Record_Now_Button';
 import TextDetail from './Text_Detail';
-import ListDetail from './Conx_Detail';
+import ListDetail from './Conx_Filtered_List';
+import ConxImage  from './Conx_Full_Image';
 
 export default class Detail extends Component {
 
@@ -33,7 +34,8 @@ export default class Detail extends Component {
       section = 'Moment';
       edit = { eventName: 'makeDetailTextEditable' };
     } else if (this.props.detailKind === 'list') {
-      lower = <ListDetail navigator={this.props.navigator} filter={this.props.filter ? this.props.filter : null}/>;
+      lower = <ConxImage navigator={this.props.navigator } {...this.props}/>
+      {/*lower = <ListDetail navigator={this.props.navigator} filter={this.props.filter ? this.props.filter : null}/>;*/}
       section = this.props.title;
     }
 

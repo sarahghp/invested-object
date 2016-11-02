@@ -7,9 +7,11 @@ import {
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
+import { base }   from './helpers/base_styles';
 
 // Components
 import MomentList from './Moments_List';
+import TopNav     from './TopNav';
 
 export default class Detail extends Component {
 
@@ -18,15 +20,10 @@ export default class Detail extends Component {
   }
 
   render() {
-
     return (
       <View style={styles.container}>
-        <View style={styles.imageWrapper}>
-          <Image source={require('./img/fake-graph.png')} />
-        </View>
-
+        <TopNav navigator={this.props.navigator} sectionTitle={this.props.title} edit={null} />
         <MomentList navigator={this.props.navigator} filter={this.props.filter}/> 
-        
       </View>
     )
   }
@@ -35,12 +32,8 @@ export default class Detail extends Component {
 
 const styles = StyleSheet.create(shorthand({
   container: {
-    flex: 4,
-    backgroundColor: '#fff',
-  },
-  imageWrapper: {
-    alignItems: 'center',
-    flex: 2,
-    backgroundColor: '#fff',
+    paddingTop: base.rowSpacing(1),
+    flex: 1,
+    backgroundColor: base.lightSeafoam,
   },
 }));
