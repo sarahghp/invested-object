@@ -12,6 +12,7 @@ import { base }   from './helpers/base_styles';
 // Components
 import MomentList from './Moments_List';
 import TopNav     from './TopNav';
+import Button     from './Record_Now_Button';
 
 export default class Detail extends Component {
 
@@ -24,6 +25,7 @@ export default class Detail extends Component {
       <View style={styles.container}>
         <TopNav navigator={this.props.navigator} sectionTitle={this.props.title} edit={null} />
         <MomentList navigator={this.props.navigator} filter={this.props.filter}/> 
+        <Button navigator={this.props.navigator} />
       </View>
     )
   }
