@@ -49,14 +49,26 @@ const _complexConx = function(list){
     ['Temp', 'Humidity', 'Weather'],
   ];
 
-  let getTwo = function(a, b){
+  let getOne = function(a){
+    return _.map(a, (first) => {
+                  return {
+                    type: 'Compound',
+                    modifier: first.modifier,
+                    members: first.members,
+                    images: [first.imageTitle],
+                  } 
+                });
+  }
+
+  let getTwo = function([a, b]){
     let flat = _.flatten(_.map(a, (first) => {
       return _.map(b, (second) => {
         let intersected = _.intersectionBy(first.members, second.members, 'title');
         return { 
           type: 'Compound',
           modifier: first.modifier + '-' + second.modifier, 
-          members: intersected
+          members: intersected,
+          images: [first.imageTitle, second.imageTitle],
         }
       })
     }));
@@ -72,7 +84,8 @@ const _complexConx = function(list){
           return { 
             type: 'Compound',
             modifier: first.modifier + '-' + second.modifier + '-' + third.modifier, 
-            members: intersected
+            members: intersected,
+            images: [first.imageTitle, second.imageTitle, third.imageTitle],
           }
         })
       }))
@@ -89,15 +102,9 @@ const _complexConx = function(list){
 
     if (complex.length === 1){
       let flat = _.flatten(members);
-      to = _.map(flat, (f) => {
-              return {
-                type: 'Compound',
-                modifier: f.modifier,
-                members: f.members
-              } 
-            });
+      to = getOne(flat);
     } else if (complex.length === 2){
-      to = getTwo(members[0], members[1]);
+      to = getTwo(members);
     } else if (complex.length === 3){
       to = getThree(members);
     }

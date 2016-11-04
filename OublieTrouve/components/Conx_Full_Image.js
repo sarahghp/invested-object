@@ -35,7 +35,7 @@ export default class Detail extends Component {
       <TouchableOpacity onPress={this._toList.bind(this)}>
         <View style={styles.imageWrapper}>
           <Image 
-          style={{ height: 100, transform: [{scale: 0.5, translateY:100}] }}
+          style={{ height: 700, transform: [{scale: 1, translateY:100}] }}
           source={require('./img/path-3.png')} />
         </View>
       </TouchableOpacity>

@@ -59,6 +59,7 @@ export default class MemoryList extends Component {
   render() {
 
     let cardsList = this.state.cards.map((card, idx) => {
+      // console.log('card info', card);
       return (
         <View key={idx}>
         <TouchableHighlight 

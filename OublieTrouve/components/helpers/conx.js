@@ -125,26 +125,31 @@ let conxList = [
     type: 'Elevation',
     modifier: 'Sea Level',
     members: [],
+    imageTitle: 'sea-level.png',
   },
   { 
     type: 'Elevation',
     modifier: 'Up a Hill',
     members: [],
+    imageTitle: 'hill.png',
   },
   { 
     type: 'Elevation',
     modifier: 'Up a Mountain',
     members: [],
+    imageTitle: 'mountain.png',
   },
   { 
     type: 'Elevation',
     modifier: 'In the Air',
     members: [],
+    imageTitle: 'air.png',
   },
   { 
     type: 'Elevation',
     modifier: 'Underground',
     members: [],
+    imageTitle: 'underground.png',
   },
 
   // Temp groups
@@ -152,42 +157,50 @@ let conxList = [
     type: 'Temp',
     modifier: 'Brrr',
     members: [],
+    imageTitle: 'brrr.png',
   },
   {
     type: 'Temp',
     modifier: 'Meh',
     members: [],
+    imageTitle: 'meh.png',
   },
   {
     type: 'Temp',
     modifier: 'Ooooh',
     members: [],
+    imageTitle: 'ooooh.png',
   },
   {
     type: 'Temp',
     modifier: 'SoCal',
     members: [],
+    imageTitle: 'so-cal.png',
   },
   {
     type: 'Temp',
     modifier: 'Ugh, No',
     members: [],
+    imageTitle: 'ugh-no.png',
   },
   // Humidity groups
   {
     type: 'Humidity',
     modifier: 'Desert',
     members: [],
+    imageTitle: 'desert.png',
   },
   {
     type: 'Humidity',
     modifier: 'Average',
     members: [],
+    imageTitle: 'average.png',
   },
   {
     type: 'Humidity',
     modifier: 'Swamp',
     members: [],
+    imageTitle: 'swamp.png',
   },
 
   // Distance groups
@@ -197,26 +210,31 @@ let conxList = [
     type: 'Distance From Home',
     modifier: 'Home',
     members: [],
+    imageTitle: 'home.png',
   },
   {
     type: 'Distance From Home',
     modifier: 'Neighborhood',
     members: [],
+    imageTitle: 'neighborhood.png',
   },
   {
     type: 'Distance From Home',
     modifier: 'Local',
     members: [],
+    imageTitle: 'local.png',
   },
   {
     type: 'Distance From Home',
     modifier: 'Kinda Far',
     members: [],
+    imageTitle: 'kinda-far.png',
   },
   {
     type: 'Distance From Home',
     modifier: 'Traveling',
     members: [],
+    imageTitle: 'traveling.png',
   },
 
   // Weather groups
@@ -224,16 +242,19 @@ let conxList = [
     type: 'Weather',
     modifier: 'Rain',
     members: [],
+    imageTitle: 'rain.png',
   },
   {
     type: 'Weather',
     modifier: 'Clouds',
     members: [],
+    imageTitle: 'clouds.png',
   },
   {
     type: 'Weather',
     modifier: 'Clear',
     members: [],
+    imageTitle: 'clear.png',
   },
 
   // Time of day groups
@@ -241,30 +262,36 @@ let conxList = [
     type: 'Time of Day',
     modifier: 'Early',
     members: [],
+    imageTitle: 'early.png',
   },
   {
     type: 'Time of Day',
     modifier: 'Morning',
     members: [],
+    imageTitle: 'morning.png',
   },
   {
     type: 'Time of Day',
     modifier: 'Day',
     members: [],
+    imageTitle: 'day.png',
   },
   {
     type: 'Time of Day',
     modifier: 'Evening',
     members: [],
+    imageTitle: 'evening.png',
   },
   {
     type: 'Time of Day',
     modifier: 'Night',
     members: [],
+    imageTitle: 'night.png',
   },  {
     type: 'Time of Day',
     modifier: 'Overnight',
     members: [],
+    imageTitle: 'overnight.png',
   },
 ];
 
