@@ -1,3 +1,5 @@
+import _  from 'lodash';
+
 let tests = {
   'Elevation': {
     'Sea Level': function(obj){

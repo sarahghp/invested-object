@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 
 import shorthand  from 'react-native-styles-shorthand';
+import _          from 'lodash';
+
 
 // Components
 import ListDetail from './Conx_Filtered_List';

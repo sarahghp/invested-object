@@ -9,6 +9,8 @@ import {
   View
 } from 'react-native';
 
+import _                from 'lodash';
+
 import shorthand        from 'react-native-styles-shorthand';
 import { base, groups } from './helpers/base_styles';
 
