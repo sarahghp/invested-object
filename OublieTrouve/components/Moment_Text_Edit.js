@@ -56,7 +56,7 @@ export default class MomentTextEdit extends Component {
     let date = new Date(this.state.details.posted);
 
     return (
-      <View>
+      <View style={{backgroundColor: "#fff"}}>
         <TextInput
            style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
            onChangeText={(text) => _updateDetailState.call(this, text, 'title')}
@@ -65,7 +65,7 @@ export default class MomentTextEdit extends Component {
            editable={editOn}
            />
         <TextInput
-           style={[styles.text, styles.para, {height: Math.max(260, this.state.titleHeight)}]}
+           style={[styles.text, styles.para, {height: Math.max(260, this.state.paraHeight)}]}
            onChangeText={(text) => _updateDetailState.call(this, text, 'description')}
            value={this.state.details.description}
            multiline={true}

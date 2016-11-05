@@ -146,25 +146,20 @@ export default class MomentText extends Component {
         <Image source={name} key={idx}
           style={[styles.image, 
                   {
-                    transform: [{translateX: Math.random() * 200}, ]
+                    transform: [{translateX: (idx + 1) * -10}, {translateY: (idx + 1) * -20}]
                   } ]} />
       )
     });
 
     return (
       <ScrollView style={styles.scrollContainer}>
-
-        <View style={[styles.imageWrapper, {width: 300, height: 200}]}>
+        <View style={[styles.imageWrapper, {width: 320, height: 187}]}>
           {images}
         </View>
-        <View>
+        <View style={styles.textWrapper}>
           {editOn ? edit : plain}
         </View>
-        {/*<MomentText title={this.props.title} id={this.props.id}/>*/}
-
       </ScrollView>
-
-
 
     )
   }
@@ -173,18 +168,21 @@ export default class MomentText extends Component {
 const styles = StyleSheet.create(shorthand({
   scrollContainer: {
     paddingTop: base.rowSpacing(2),
-    flex: 4,
+    flex: 1,
     backgroundColor: '#fff',
   },
   imageWrapper: {
     alignItems: 'center',
-    flex: 2,
+    // flex: 2,
     backgroundColor: '#fff',
   },
   image: { 
     position: 'absolute', 
-    width: 300, 
-    height: 200,
-    resizeMode: 'cover'
+    width: 1000, 
+    height: 1000,
+  },
+  textWrapper: {
+    // height: 600,
+    // flex: 2,
   }  
 }));

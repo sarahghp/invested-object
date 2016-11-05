@@ -17,7 +17,7 @@ export default class MomentTextPlain extends Component {
     return (
       <View>
         <Text style={[styles.text, styles.title]}>{this.props.details.title} </Text>
-        <Text style={[styles.text, styles.para]}>{this.props.details.description || 'No notes.'} </Text>
+        <Text style={[styles.text, styles.para, {height: 180}]}>{this.props.details.description || 'No notes.'} </Text>
         <Text style={[styles.text, styles.small]}>posted at: {this.props.date} </Text>
       </View>
     )
