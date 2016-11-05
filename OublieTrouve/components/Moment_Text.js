@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
 import { 
+  Image,
+  ScrollView,
   StyleSheet,
+  Text, 
   View
 } from 'react-native';
 
-import shorthand    from 'react-native-styles-shorthand';
-import SimpleStore  from 'react-native-simple-store';
-import events       from './Events';
-import _            from 'lodash';
+import shorthand        from 'react-native-styles-shorthand';
+import { base, groups } from './helpers/base_styles';
+import SimpleStore      from 'react-native-simple-store';
+import events           from './Events';
+import _                from 'lodash';
 
 
 // Components
@@ -83,13 +87,33 @@ export default class MomentText extends Component {
         edit = <EditText details={this.state.details} date={date.toString()} />;
 
     return (
-      <View>
-        {editOn ? edit : plain}
-      </View>
+      <ScrollView style={styles.scrollContainer}>
+
+        <View style={styles.imageWrapper}>
+          <Image style={styles.image} source={require('./img/icon-buddies.png')} />
+        </View>
+        <View>
+          {editOn ? edit : plain}
+        </View>
+        {/*<MomentText title={this.props.title} id={this.props.id}/>*/}
+
+      </ScrollView>
+
+
+
     )
   }
 }
 
 const styles = StyleSheet.create(shorthand({
-  // Styles go here or delete in the end
+  scrollContainer: {
+    paddingTop: base.rowSpacing(2),
+    flex: 4,
+    backgroundColor: '#fff',
+  },
+  imageWrapper: {
+    alignItems: 'center',
+    flex: 2,
+    backgroundColor: '#fff',
+  },
 }));

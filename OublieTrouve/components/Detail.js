@@ -11,7 +11,7 @@ import { base }   from './helpers/base_styles';
 // Components
 import TopNav     from './TopNav';
 import Button     from './Record_Now_Button';
-import TextDetail from './Text_Detail';
+import TextDetail from './Moment_Text';
 import ListDetail from './Conx_Filtered_List';
 import ConxImage  from './Conx_Full_Image';
 
