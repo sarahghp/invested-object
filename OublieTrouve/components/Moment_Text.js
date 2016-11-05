@@ -141,7 +141,6 @@ export default class MomentText extends Component {
 
     let images = _.map(this.state.details.conx, (elem, idx) => {
       let name = this.imageSwitch(elem.imageTitle);
-      console.log(idx, rotations[idx]);
 
       return (
         <Image source={name} key={idx}
