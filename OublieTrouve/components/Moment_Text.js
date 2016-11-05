@@ -139,7 +139,6 @@ export default class MomentText extends Component {
         plain     = <PlainText details={this.state.details} date={date.toString()} />,
         edit      = <EditText details={this.state.details} date={date.toString()} />;
 
-
     let images = _.map(this.state.details.conx, (elem, idx) => {
       let name = this.imageSwitch(elem.imageTitle);
       console.log(idx, rotations[idx]);

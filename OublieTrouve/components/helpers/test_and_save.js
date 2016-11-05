@@ -13,7 +13,7 @@ let ts = function({key, dataBlob}) {
         SimpleStore.save(key, dataBlob)
           .then(() => SimpleStore.get(key))
           .then(data => {
-            console.log(data);
+            // console.log(data);
           })
           .catch(error => {
             console.error(error.message);

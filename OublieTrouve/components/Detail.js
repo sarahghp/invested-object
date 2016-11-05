@@ -30,7 +30,6 @@ export default class Detail extends Component {
     let lower, section, edit;
 
     if (this.props.detailKind === 'text') {
-      console.log('text props:', this.props);
       lower = <TextDetail title={this.props.title} id={this.props.id} />;
       section = 'Moment';
       edit = { eventName: 'makeDetailTextEditable' };
