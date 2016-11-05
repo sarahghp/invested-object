@@ -216,14 +216,17 @@ export default class Detail extends Component {
   }
 
   render() {
-    console.log(this.props);
+
+    let rotations    = ['10deg', '14deg', '-14deg'],
+        translations = [110, 48, -10];
+
     let images = _.map(this.props.images, (image, idx) => {
       let name = this.imageSwitch(2.5, image);
       return (
         <Image source={name} key={idx}
           style={[styles.image, 
                   {
-                    transform: [{rotate: `${Math.random() * 24}deg`}, {translateX: Math.random() * 200}, ]
+                    transform: [{rotate: rotations[idx]}, {translateX: translations[idx]}, {translateY: ++idx * -2} ]
                   } ]} />
       )
     });

@@ -218,7 +218,7 @@ export default class Card extends Component {
         <Image source={name} key={idx}
           style={[styles.image, 
                   {
-                    transform: [{rotate: `${Math.random() * 24}deg`}, {translateX: Math.random() * 200}, ]
+                    transform: [{translateX: Math.random() * 100}, {translateY: idx * -4}]
                   } ]} />
       )
     });
