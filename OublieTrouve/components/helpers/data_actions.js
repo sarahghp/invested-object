@@ -31,6 +31,7 @@ const _populateMembers = function(moment, cxList, testList, addMoment){
       moment.conx.push({
         type: category.type,
         modifier: category.modifier,
+        imageTitle: category.imageTitle,
       });
     }
 

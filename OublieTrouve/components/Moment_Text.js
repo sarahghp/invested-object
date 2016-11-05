@@ -16,6 +16,7 @@ import _                from 'lodash';
 
 
 // Components
+import BaseMoment   from './helpers/base_moment';
 import PlainText    from './Moment_Text_Plain';
 import EditText     from './Moment_Text_Edit';
 
@@ -25,16 +26,7 @@ export default class MomentText extends Component {
     super(props);
 
     this.state = {
-      details: {
-        title: '',
-        description: '',
-        elevation: 0,
-        distance_from_home: 0,
-        temp: 75,
-        humidity: 22.5,
-        posted: 0,
-        id: 0, 
-      },
+      details: new BaseMoment(),
       editable: false,
       titleHeight: 0,
       paraHeight: 0,
@@ -77,7 +69,68 @@ export default class MomentText extends Component {
   _makePlain(){
     this.setState({editable: false});
   }
-          
+
+  imageSwitch(title){
+    switch(title) {
+        case 'air.png': 
+          return require('./img/moments/air.png');
+        case 'average.png': 
+          return require('./img/moments/average.png');
+        case 'brrr.png': 
+          return require('./img/moments/brrr.png');
+        case 'clear.png': 
+          return require('./img/moments/clear.png');
+        case 'clouds.png': 
+          return require('./img/moments/clouds.png');
+        case 'day.png': 
+          return require('./img/moments/day.png');
+        case 'desert.png': 
+          return require('./img/moments/desert.png');
+        case 'early.png': 
+          return require('./img/moments/early.png');
+        case 'evening.png': 
+          return require('./img/moments/evening.png');
+        case 'hill.png': 
+          return require('./img/moments/hill.png');
+        case 'home.png': 
+          return require('./img/moments/home.png');
+        case 'kinda-far.png': 
+          return require('./img/moments/kinda-far.png');
+        case 'local.png': 
+          return require('./img/moments/local.png');
+        case 'meh.png': 
+          return require('./img/moments/meh.png');
+        case 'morning.png': 
+          return require('./img/moments/morning.png');
+        case 'mountain.png': 
+          return require('./img/moments/mountain.png');
+        case 'neighborhood.png': 
+          return require('./img/moments/neighborhood.png');
+        case 'night.png': 
+          return require('./img/moments/night.png');
+        case 'ooooh.png': 
+          return require('./img/moments/ooooh.png');
+        case 'overnight.png': 
+          return require('./img/moments/overnight.png');
+        case 'rain.png': 
+          return require('./img/moments/rain.png');
+        case 'sea-level.png': 
+          return require('./img/moments/sea-level.png');
+        case 'so-cal.png': 
+          return require('./img/moments/so-cal.png');
+        case 'swamp.png': 
+          return require('./img/moments/swamp.png');
+        case 'traveling.png': 
+          return require('./img/moments/traveling.png');
+        case 'ugh-no.png': 
+          return require('./img/moments/ugh-no.png');
+        case 'underground.png': 
+          return require('./img/moments/underground.png');
+        default:
+          console.log('Image without title called for:', title);
+    }
+  }
+
 
   render() {
     
@@ -86,11 +139,23 @@ export default class MomentText extends Component {
         plain = <PlainText details={this.state.details} date={date.toString()} />,
         edit = <EditText details={this.state.details} date={date.toString()} />;
 
+    let images = _.map(this.state.details.conx, (elem, idx) => {
+      let name = this.imageSwitch(elem.imageTitle);
+
+      return (
+        <Image source={name} key={idx}
+          style={[styles.image, 
+                  {
+                    transform: [{translateX: Math.random() * 200}, ]
+                  } ]} />
+      )
+    });
+
     return (
       <ScrollView style={styles.scrollContainer}>
 
-        <View style={styles.imageWrapper}>
-          <Image style={styles.image} source={require('./img/icon-buddies.png')} />
+        <View style={[styles.imageWrapper, {width: 300, height: 200}]}>
+          {images}
         </View>
         <View>
           {editOn ? edit : plain}
@@ -116,4 +181,10 @@ const styles = StyleSheet.create(shorthand({
     flex: 2,
     backgroundColor: '#fff',
   },
+  image: { 
+    position: 'absolute', 
+    width: 300, 
+    height: 200,
+    resizeMode: 'cover'
+  }  
 }));
