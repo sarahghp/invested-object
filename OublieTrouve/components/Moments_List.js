@@ -17,7 +17,7 @@ import _                from 'lodash';
 
 
 // Components
-import DetailView from './Detail.js';
+import DetailView from './Detail';
 
 // Data
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
