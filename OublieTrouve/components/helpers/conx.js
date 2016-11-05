@@ -81,13 +81,16 @@ let tests = {
 
   'Weather': {
     'Rain': function(obj){
-      return obj.weather[0].main === 'rain';
+      let weather = _.isArray(obj.weather) ? obj.weather[0] : obj.weather;
+      return weather.main === 'rain';
     },
     'Clouds': function(obj){
-      return obj.weather[0].main === 'clouds';
+      let weather = _.isArray(obj.weather) ? obj.weather[0] : obj.weather;
+      return weather.main === 'clouds';
     },
     'Clear': function(obj){
-      return obj.weather[0].main === 'clear';
+      let weather = _.isArray(obj.weather) ? obj.weather[0] : obj.weather;
+      return weather.main === 'clear';
     }
   },
 

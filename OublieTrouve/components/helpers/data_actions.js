@@ -36,6 +36,8 @@ const _populateMembers = function(moment, cxList, testList, addMoment){
     }
 
   });
+
+  return cxList;
 }
 
 // Helper function to create complex conx
@@ -124,31 +126,50 @@ const _complexConx = function(list){
 const _addToStore = function() {
 
   // how should this function if called from position
-  let newEntry = this.state ? Object.assign(new BaseMoment(), _.cloneDeep(this.state.details)) : new BaseMoment();
+  let newEntry = this.state ? Object.assign(new BaseMoment(), _.cloneDeep(this.state.details)) : new BaseMoment(),
+      updatedMoments, updatedCxList, updatedCompCx;
 
-  Promise.all([newEntry.populate(), SimpleStore.get('all_moments')])
-    .then(values => {
+  Promise.all([newEntry.populate(), SimpleStore.get('all_moments'), SimpleStore.get('all_conx'), SimpleStore.get('comp_conx')])
+    .then(([populatedEntry, moments, conx, compConx]) => {
       // set ID now that we have the data length
-      let data = values[1];
-      newEntry.id = data.length;
-      return data;
+      // let data = values[1];
+      populatedEntry.id = moments.length;
+      moments.unshift(populatedEntry);
+      conx = _populateMembers(populatedEntry, conx, tests, true);
+      compConx = _complexConx(conx);
+
+      Promise.all([SimpleStore.save('all_moments', moments),
+                   SimpleStore.save('all_conx', conx),
+                   SimpleStore.save('comp_conx', compConx)])
+      .then(() => events.emit('refreshData'))
+      
+      return [populatedEntry, moments, conx, compConx];
     })
+    // .then((data) => {
+    //   // data.unshift(newEntry);
+    //   SimpleStore.save('all_moments', data);
+    // })
+    // .then(() => SimpleStore.get('all_conx'))
+    // .then((data) => {
+    //   // updatedCxList = _populateMembers(newEntry, data, tests, true);
+    //   SimpleStore.save('all_conx', updatedCxList);
+    // })
+    // .then(() => SimpleStore.get('comp_conx'))
+    // .then((data) => {
+    //   updatedCompCx = _complexConx(updatedCxList);
+    //   SimpleStore.save('comp_conx', updatedCompCx);
+    //   events.emit('refreshData');
+    // })
+    .then(() => SimpleStore.get('comp_conx'))
     .then((data) => {
-      data.unshift(newEntry);
-      SimpleStore.save('all_moments', data);
-    })
-    .then(() => SimpleStore.get('all_conx'))
-    .then((data) => {
-      _populateMembers(newEntry, data, tests, true);
-      SimpleStore.save('all_conx', data);
-      events.emit('refreshData');
+      console.log('gotten compConx', data);
     })
     .then(() => SimpleStore.get('all_moments'))
     .then((data) => {
       console.log('gotten', data[0]);
     })
     .catch(error => {
-      console.error(error.message);
+      console.error(error);
     });
 }
 
