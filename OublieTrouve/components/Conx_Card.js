@@ -209,8 +209,20 @@ export default class Card extends Component {
 
   }
 
+  getListScale(memberLength){
+    if (memberLength > 5){
+      return 3.5;
+      // return 5; // uncomment when size 5 is available
+    } else if (memberLength > 3) {
+      return 3.5;
+    } else {
+      return 2.5;
+    }
+  }
+
 
   render(){
+    let listScale = this.getListScale(this.props.card.members.length);
 
     let images = _.map(this.props.card.images, (image, idx) => {
       let name = this.imageSwitch(2.5, image);
