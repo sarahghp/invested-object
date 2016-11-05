@@ -145,21 +145,6 @@ const _addToStore = function() {
       
       return [populatedEntry, moments, conx, compConx];
     })
-    // .then((data) => {
-    //   // data.unshift(newEntry);
-    //   SimpleStore.save('all_moments', data);
-    // })
-    // .then(() => SimpleStore.get('all_conx'))
-    // .then((data) => {
-    //   // updatedCxList = _populateMembers(newEntry, data, tests, true);
-    //   SimpleStore.save('all_conx', updatedCxList);
-    // })
-    // .then(() => SimpleStore.get('comp_conx'))
-    // .then((data) => {
-    //   updatedCompCx = _complexConx(updatedCxList);
-    //   SimpleStore.save('comp_conx', updatedCompCx);
-    //   events.emit('refreshData');
-    // })
     .then(() => SimpleStore.get('comp_conx'))
     .then((data) => {
       console.log('gotten compConx', data);
@@ -206,14 +191,18 @@ const _checkForConx = function(navigator, threshold){
     let thisMoment = new BaseMoment();
 
     thisMoment.populate()
-      .then(() => SimpleStore.get('all_conx'))
-      .then((data) => {
-        _populateMembers(thisMoment, data, tests, false);
+      .then(() => Promise.all([SimpleStore.get('all_conx'), SimpleStore.get('comp_conx')]))
+      .then(([conx, compConx]) => {
+
+        // We do this to get the list of conx added to our current moment
+        _populateMembers(thisMoment, conx, tests, false);
+
+        let num        = _.random(1, 3),
+            collection = _.map(_.sampleSize(thisMoment.conx, num), 'modifier').join('-'),
+            cx         = _.find(compConx, {modifier: collection});
+
         
-        let collection = _.sample(thisMoment.conx),
-            cx         = _.find(data, {type: collection.type, modifier: collection.modifier});
-        
-        if (cx.members.length > 0){
+        if (cx && cx.members.length > 0){
           Native.NativeModules.Bean.buzzBean();
 
           // Prevent a stack from accumulating

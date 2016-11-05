@@ -35,14 +35,12 @@ const BLE_ON = true;
 
 export default class FrontPage extends Component {
 
-  // why is this getting called from form page?
   _getPosition(){
     let _boundAdd = _addToStore.bind(this);
     navigator.geolocation.getCurrentPosition((position) => {
       console.log('Position:', position);
       _boundAdd(position);
     });
-    // _addToStore.call(this);
   }
 
   componentDidMount(){
@@ -79,6 +77,7 @@ export default class FrontPage extends Component {
     // this sets up the polling for conx; the third argument determines how likely 
     // the conx check is to happen each iteration with 0 all the time and 1.0 as never
     setInterval(_checkForConx.bind(this, this.props.navigator, 0.7), 600000);
+    // setInterval(_checkForConx.bind(this, this.props.navigator, 0), 10000);
   }
 
   render(){
