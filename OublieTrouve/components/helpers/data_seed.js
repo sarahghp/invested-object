@@ -2,9 +2,10 @@ import _                    from 'lodash';
 import source               from './source_text';
 import LibroIpsum           from 'libroipsum';
 import { tests, conxList }  from './conx';
-import seed                 from './seed_moments';
+import raw                  from './seed_moments';
+import { savedMoments }     from './test_and_save'; 
 import {_populateMembers,
-        _complexConx  }      from './data_actions';
+        _complexConx  }     from './data_actions';
 
 // These functions generate mostly-nonsense seeds and have been retired in favor of 
 // more sensical seeds. Saved in case we need to return to generating more.
@@ -36,6 +37,14 @@ import {_populateMembers,
 
 //   return momentsArr;
 // })();
+
+
+
+let dateRestored = _.map(savedMoments, (moment) => {
+  moment.posted = new Date(moment.posted);
+})
+
+let seed = _.uniqBy(_.concat(savedMoments, raw), 'title');
 
 let conx = (function(cx, moments, tests){
 

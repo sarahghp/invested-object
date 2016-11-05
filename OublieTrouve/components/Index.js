@@ -7,7 +7,7 @@ import shorthand from 'react-native-styles-shorthand';
 import { base } from './helpers/base_styles';
 
 // Datas
-import ts             from './helpers/test_and_save';
+import { ts }         from './helpers/test_and_save';
 import _              from 'lodash';
 import SimpleStore    from 'react-native-simple-store'; // for background testing, otherwise goes through ts
 
