@@ -29,7 +29,7 @@ export default class MemoryList extends Component {
   }
 
 
-  _toDetail(type, modifier, images) {
+  _toDetail(type, modifier, images, length) {
     
     this.props.navigator.push({
       name: 'Detail',
@@ -39,7 +39,8 @@ export default class MemoryList extends Component {
         title: type,
         detailKind: 'list',
         filter: modifier,
-        images: images
+        images: images,
+        memberLength: length,
       }
     })
   }
@@ -65,7 +66,7 @@ export default class MemoryList extends Component {
         <View key={idx}>
         <TouchableHighlight 
           underlayColor={base.lightSeafoam}
-          onPress={this._toDetail.bind(this, card.type, card.modifier, card.images)}>
+          onPress={this._toDetail.bind(this, card.type, card.modifier, card.images, card.members.length)}>
           
           <Card card={card} />  
             

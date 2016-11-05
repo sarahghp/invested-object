@@ -143,66 +143,65 @@ export default class Card extends Component {
           default:
             console.log('Image without title called for:', title);
       }
-    // } else if (scale == 5) {
-    //   switch(title) {
-    //     case 'air.png': 
-    //       return require('./img/conx/scale-5/air.png');
-    //     case 'average.png': 
-    //       return require('./img/conx/scale-5/average.png');
-    //     case 'brrr.png': 
-    //       return require('./img/conx/scale-5/brrr.png');
-    //     case 'clear.png': 
-    //       return require('./img/conx/scale-5/clear.png');
-    //     case 'clouds.png': 
-    //       return require('./img/conx/scale-5/clouds.png');
-    //     case 'day.png': 
-    //       return require('./img/conx/scale-5/day.png');
-    //     case 'desert.png': 
-    //       return require('./img/conx/scale-5/desert.png');
-    //     case 'early.png': 
-    //       return require('./img/conx/scale-5/early.png');
-    //     case 'evening.png': 
-    //       return require('./img/conx/scale-5/evening.png');
-    //     case 'hill.png': 
-    //       return require('./img/conx/scale-5/hill.png');
-    //     case 'home.png': 
-    //       return require('./img/conx/scale-5/home.png');
-    //     case 'kinda-far.png': 
-    //       return require('./img/conx/scale-5/kinda-far.png');
-    //     case 'local.png': 
-    //       return require('./img/conx/scale-5/local.png');
-    //     case 'meh.png': 
-    //       return require('./img/conx/scale-5/meh.png');
-    //     case 'morning.png': 
-    //       return require('./img/conx/scale-5/morning.png');
-    //     case 'mountain.png': 
-    //       return require('./img/conx/scale-5/mountain.png');
-    //     case 'neighborhood.png': 
-    //       return require('./img/conx/scale-5/neighborhood.png');
-    //     case 'night.png': 
-    //       return require('./img/conx/scale-5/night.png');
-    //     case 'ooooh.png': 
-    //       return require('./img/conx/scale-5/ooooh.png');
-    //     case 'overnight.png': 
-    //       return require('./img/conx/scale-5/overnight.png');
-    //     case 'rain.png': 
-    //       return require('./img/conx/scale-5/rain.png');
-    //     case 'sea-level.png': 
-    //       return require('./img/conx/scale-5/sea-level.png');
-    //     case 'so-cal.png': 
-    //       return require('./img/conx/scale-5/so-cal.png');
-    //     case 'swamp.png': 
-    //       return require('./img/conx/scale-5/swamp.png');
-    //     case 'traveling.png': 
-    //       return require('./img/conx/scale-5/traveling.png');
-    //     case 'ugh-no.png': 
-    //       return require('./img/conx/scale-5/ugh-no.png');
-    //     case 'underground.png': 
-    //       return require('./img/conx/scale-5/underground.png');
-    //     default:
-    //       console.log('Image without title called for:', title);
-    //   }
-    // } 
+    } else if (scale == 5) {
+      switch(title) {
+        case 'air.png': 
+          return require('./img/conx/scale-5/air.png');
+        case 'average.png': 
+          return require('./img/conx/scale-5/average.png');
+        case 'brrr.png': 
+          return require('./img/conx/scale-5/brrr.png');
+        case 'clear.png': 
+          return require('./img/conx/scale-5/clear.png');
+        case 'clouds.png': 
+          return require('./img/conx/scale-5/clouds.png');
+        case 'day.png': 
+          return require('./img/conx/scale-5/day.png');
+        case 'desert.png': 
+          return require('./img/conx/scale-5/desert.png');
+        case 'early.png': 
+          return require('./img/conx/scale-5/early.png');
+        case 'evening.png': 
+          return require('./img/conx/scale-5/evening.png');
+        case 'hill.png': 
+          return require('./img/conx/scale-5/hill.png');
+        case 'home.png': 
+          return require('./img/conx/scale-5/home.png');
+        case 'kinda-far.png': 
+          return require('./img/conx/scale-5/kinda-far.png');
+        case 'local.png': 
+          return require('./img/conx/scale-5/local.png');
+        case 'meh.png': 
+          return require('./img/conx/scale-5/meh.png');
+        case 'morning.png': 
+          return require('./img/conx/scale-5/morning.png');
+        case 'mountain.png': 
+          return require('./img/conx/scale-5/mountain.png');
+        case 'neighborhood.png': 
+          return require('./img/conx/scale-5/neighborhood.png');
+        case 'night.png': 
+          return require('./img/conx/scale-5/night.png');
+        case 'ooooh.png': 
+          return require('./img/conx/scale-5/ooooh.png');
+        case 'overnight.png': 
+          return require('./img/conx/scale-5/overnight.png');
+        case 'rain.png': 
+          return require('./img/conx/scale-5/rain.png');
+        case 'sea-level.png': 
+          return require('./img/conx/scale-5/sea-level.png');
+        case 'so-cal.png': 
+          return require('./img/conx/scale-5/so-cal.png');
+        case 'swamp.png': 
+          return require('./img/conx/scale-5/swamp.png');
+        case 'traveling.png': 
+          return require('./img/conx/scale-5/traveling.png');
+        case 'ugh-no.png': 
+          return require('./img/conx/scale-5/ugh-no.png');
+        case 'underground.png': 
+          return require('./img/conx/scale-5/underground.png');
+        default:
+          console.log('Image without title called for:', title);
+      } 
     } else {
       console.log('Image called with unknown scale.')
     }
@@ -211,8 +210,7 @@ export default class Card extends Component {
 
   getListScale(memberLength){
     if (memberLength > 5){
-      return 3.5;
-      // return 5; // uncomment when size 5 is available
+      return 5;
     } else if (memberLength > 3) {
       return 3.5;
     } else {
@@ -225,7 +223,7 @@ export default class Card extends Component {
     let listScale = this.getListScale(this.props.card.members.length);
 
     let images = _.map(this.props.card.images, (image, idx) => {
-      let name = this.imageSwitch(2.5, image);
+      let name = this.imageSwitch(listScale, image);
       return (
         <Image source={name} key={idx}
           style={[styles.image, 
