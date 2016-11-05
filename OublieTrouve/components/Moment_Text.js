@@ -134,19 +134,21 @@ export default class MomentText extends Component {
 
   render() {
     
-    let date = new Date(this.state.details.posted)
-        editOn = this.state.editable,
-        plain = <PlainText details={this.state.details} date={date.toString()} />,
-        edit = <EditText details={this.state.details} date={date.toString()} />;
+    let date      = new Date(this.state.details.posted)
+        editOn    = this.state.editable,
+        plain     = <PlainText details={this.state.details} date={date.toString()} />,
+        edit      = <EditText details={this.state.details} date={date.toString()} />;
+
 
     let images = _.map(this.state.details.conx, (elem, idx) => {
       let name = this.imageSwitch(elem.imageTitle);
+      console.log(idx, rotations[idx]);
 
       return (
         <Image source={name} key={idx}
           style={[styles.image, 
                   {
-                    transform: [{translateX: (idx + 1) * -10}, {translateY: (idx + 1) * -20}]
+                    transform: [{translateX: 80 + (idx + 1)}, {translateY: (idx + 1) * -140}, {rotate: '-14deg'} ]
                   } ]} />
       )
     });
