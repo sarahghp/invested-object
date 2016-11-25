@@ -49,8 +49,12 @@ export default class MemoryList extends Component {
     SimpleStore.get('comp_conx')
       .then((data) => {
 
+        let shorterList = _.filter(data, (c) => {
+          return c.members.length > 1
+        });
+
         this.setState({
-          cards: data
+          cards: shorterList
         })
       })
       .catch(error => {
