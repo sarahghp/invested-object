@@ -293,8 +293,8 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				4F6DC62D1D3E9C80006ABF26 /* Bean.swift */,
-				4F6DC62C1D3E9C80006ABF26 /* OublieTrouve-Bridging-Header.h */,
 				4F6DC63A1D3E9CB0006ABF26 /* BeanBridge.m */,
+				4F6DC62C1D3E9C80006ABF26 /* OublieTrouve-Bridging-Header.h */,
 			);
 			name = OublieTrouve;
 			sourceTree = "<group>";

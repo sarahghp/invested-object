@@ -78,22 +78,39 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     beanManager?.connectToBean(bean, error: &error)
   }
   
+  @objc func disconnectFromBean() {
+    var error: NSError?
+    beanManager?.disconnectFromAllBeans(&error)
+  }
+  
 
   
   @objc func buzzBean(){
     print("Buzz called")
     var state: Bool = true;
     let data = NSData(bytes: &state, length: sizeof(Bool))
+    yourBean?.readBatteryVoltage()
     
     dispatch_async(dispatch_get_main_queue()){
       self.sendSerialData(data)
     }
-    
+  }
+  
+  
+  @objc func checkBattery(){
+    yourBean?.readBatteryVoltage()
   }
 
   func sendSerialData(message: NSData) {
     print("Send serial data \(message)")
     yourBean?.sendSerialData(message)
+  }
+  
+  func beanDidUpdateBatteryVoltage(bean: PTDBean!, error: NSError!){
+    let connected = beanManager!.state == BeanManagerState.PoweredOn
+    print("Connected?", connected)
+    print("Battery Voltage? \(bean.batteryVoltage)")
+    self.bridge.eventDispatcher().sendAppEventWithName("BatteryLevel", body: bean.batteryVoltage)
   }
   
   func bean(bean: PTDBean!, serialDataReceived data: NSData!) {

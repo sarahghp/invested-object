@@ -10,6 +10,7 @@ import shorthand from 'react-native-styles-shorthand';
 // Components
 import Button      from './Button';
 import ListPage    from './Lists';
+import BeanPage    from './Bean_Page';
 import Form        from './Record_Now_Form';
 
 export default class ButtonBar extends Component {
@@ -34,6 +35,16 @@ export default class ButtonBar extends Component {
     })
   }
 
+  _toBean(){
+    this.props.navigator.push({
+      name: 'Bean Page',
+      component: BeanPage,
+      passProps: {
+        navigator: this.props.navigator
+      }
+    })
+  }
+
   sendBuzz(){
     Native.NativeModules.Bean.buzzBean();
   }
@@ -45,7 +56,7 @@ export default class ButtonBar extends Component {
   render() {
     return (
       <View style={styles.buttonContainer} ref={component => this._root = component} >
-        <TouchableOpacity onPress={this.sendBuzz.bind(this)}>
+        <TouchableOpacity onPress={this._toBean.bind(this)}>
           <Button icon='moment' />
         </TouchableOpacity>
         <TouchableOpacity onPress={this._toForm.bind(this)}>

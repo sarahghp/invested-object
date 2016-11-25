@@ -11,6 +11,8 @@
 
 RCT_EXTERN_METHOD(initBean);
 RCT_EXTERN_METHOD(buzzBean);
+RCT_EXTERN_METHOD(checkBattery);
+RCT_EXTERN_METHOD(disconnectFromBean);
 
 @end
 
