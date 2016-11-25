@@ -56,7 +56,7 @@ export default class MomentTextEdit extends Component {
     let date = new Date(this.state.details.posted);
 
     return (
-      <View style={{backgroundColor: "#fff"}}>
+      <View style={{backgroundColor: "#fff", marginTop: 0}}>
         <TextInput
            style={[styles.text, styles.title, {height: Math.max(88, this.state.titleHeight)}]}
            onChangeText={(text) => _updateDetailState.call(this, text, 'title')}
@@ -65,13 +65,13 @@ export default class MomentTextEdit extends Component {
            editable={editOn}
            />
         <TextInput
-           style={[styles.text, styles.para, {height: Math.max(260, this.state.paraHeight)}]}
+           style={[styles.text, styles.para, {height: 180}]}
            onChangeText={(text) => _updateDetailState.call(this, text, 'description')}
+           placeholder={'Add notes here.'}
            value={this.state.details.description}
            multiline={true}
            editable={editOn}
            />
-        <Text style={[styles.text, styles.small]}>posted at: {this.props.date} </Text>
       </View>
     )
   }
@@ -81,10 +81,12 @@ const styles = StyleSheet.create(shorthand({
   text: groups.bodyFontGroup,
   title: {
     fontSize: 22,
+    flex: 1,
   },
   para: {
-    flex: 1,
+    flex: 10,
     lineHeight: 21,
+    flex: 1,
   },
   small: {
     fontSize: 12,

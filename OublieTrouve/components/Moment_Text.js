@@ -153,9 +153,11 @@ export default class MomentText extends Component {
 
     return (
       <ScrollView style={styles.scrollContainer}>
-        <View style={[styles.imageWrapper, {width: 320, height: 187}]}>
-          {images}
-        </View>
+        { !editOn &&
+          <View style={[styles.imageWrapper, {width: 320, height: 187}]}>
+            {images}
+          </View>
+        }
         <View style={styles.textWrapper}>
           {editOn ? edit : plain}
         </View>
@@ -167,13 +169,11 @@ export default class MomentText extends Component {
 
 const styles = StyleSheet.create(shorthand({
   scrollContainer: {
-    paddingTop: base.rowSpacing(2),
     flex: 1,
     backgroundColor: '#fff',
   },
   imageWrapper: {
     alignItems: 'center',
-    // flex: 2,
     backgroundColor: '#fff',
   },
   image: { 
@@ -182,7 +182,6 @@ const styles = StyleSheet.create(shorthand({
     height: 1000,
   },
   textWrapper: {
-    // height: 600,
-    // flex: 2,
+
   }  
 }));
