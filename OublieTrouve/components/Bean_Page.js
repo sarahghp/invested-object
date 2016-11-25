@@ -69,7 +69,8 @@ export default class BeanPage extends Component {
   }
 
   render() {
-    let connectedButtons =  
+    let connected = this.state.beanConnected === 'connected',
+      connectedButtons =  
       <View>
           {Button('Disconnect', this._disconnectBean)}
           {Button('Buzz!', this._buzzBean)}
@@ -87,8 +88,11 @@ export default class BeanPage extends Component {
           <Text style={[groups.bodyFontGroup, {textAlign: 'center'}]}>
             <Text>Talisbean is</Text>
             <Text style={[groups.bodyFontGroup, {fontSize: 30, lineHeight: 60}]}>{'\n' + this.state.beanConnected.toUpperCase()}</Text>
-          </Text>
-          {this.state.beanConnected === 'connected' ? connectedButtons : disconnectedButtons}          
+            {connected && 
+              <Text>{'\n'}The battery level is {this.state.batteryLevel}</Text>
+            }
+            </Text>
+          {connected ? connectedButtons : disconnectedButtons}          
         </View>
       </View>
 
