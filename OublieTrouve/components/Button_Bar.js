@@ -45,10 +45,6 @@ export default class ButtonBar extends Component {
     })
   }
 
-  sendBuzz(){
-    Native.NativeModules.Bean.buzzBean();
-  }
-
   setNativeProps (nativeProps) {
     this._root.setNativeProps(nativeProps);
   }
