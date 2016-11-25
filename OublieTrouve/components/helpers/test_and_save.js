@@ -103,11 +103,11 @@ let ts = function({key, dataBlob}) {
 
   // Block used to reset date in development; saves current data before deleting
   // if (key === 'all_conx' || key === 'comp_conx') {
-  //   SimpleStore.get(key)
-  //     .then((data) => {
-  //       savedMoments = data;
-  //     })
-  //     .then(SimpleStore.delete(key))
+    // SimpleStore.get(key)
+    //   .then((data) => {
+    //     savedMoments = data;
+    //   })
+    //   .then(SimpleStore.delete(key))
   // }
   
   SimpleStore.get(key)
@@ -117,7 +117,7 @@ let ts = function({key, dataBlob}) {
         SimpleStore.save(key, dataBlob)
           .then(() => SimpleStore.get(key))
           .then(data => {
-            // console.log(data);
+            console.log(data);
           })
           .catch(error => {
             console.error(error.message);
