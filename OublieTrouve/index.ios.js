@@ -30,6 +30,8 @@ class OublieTrouve extends Component {
         configureScene={(route) => {
           if (route.name === 'Moments Form') {
             return Navigator.SceneConfigs.FloatFromBottom;
+          } else if (route.name === 'Bean Page') {
+            return Navigator.SceneConfigs.FloatFromLeft;
           } else {
             return Navigator.SceneConfigs.FloatFromRight;
           }
