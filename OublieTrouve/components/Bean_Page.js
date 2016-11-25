@@ -20,7 +20,8 @@ export default class BeanPage extends Component {
     super(props);
 
     this.state = {
-      batteryLevel: 'unknown',
+      batteryLevel: 0,
+      beanConnected: false,
     }
   }
 
@@ -29,21 +30,25 @@ export default class BeanPage extends Component {
   }
 
   _initBean(){
-    Native.NativeModules.Bean.initBean()
+    Native.NativeModules.Bean.initBean();
   }
 
   _disconnectBean(){
-    Native.NativeModules.Bean.disconnectFromBean()
+    Native.NativeModules.Bean.disconnectFromBean();
+  }
+
+  _buzzBean(){
+    Native.NativeModules.Bean.buzzBean();
   }
 
   componentDidMount() {
     Native.NativeAppEventEmitter.addListener(
-        'BatteryLevel',
-        (level) => {
-          this.setState({batteryLevel: level})
+        'BeanStatus',
+        ({voltage, status}) => {
+          this.setState({batteryLevel: voltage, beanConnected: status})
         }
     );
-    Native.NativeModules.Bean.checkBattery(); 
+    Native.NativeModules.Bean.checkBeanStatus(); 
   }
 
   render() {
@@ -52,8 +57,10 @@ export default class BeanPage extends Component {
       <View style={styles.container}>
         <TopNav navigator={this.props.navigator} sectionTitle='Bean Infos' edit={null} />
         <Text>Battery: {this.state.batteryLevel}</Text>
+        <Text>Connected? {this.state.beanConnected}</Text>
         <TouchableHighlight onPress={this._initBean.bind(this)}><Text>Reconnect</Text></TouchableHighlight>
         <TouchableHighlight onPress={this._disconnectBean.bind(this)}><Text>Disconnect</Text></TouchableHighlight>
+        <TouchableHighlight onPress={this._buzzBean.bind(this)}><Text>Buzz!</Text></TouchableHighlight>
 
       </View>
 

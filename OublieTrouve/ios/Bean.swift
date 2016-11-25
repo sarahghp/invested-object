@@ -16,6 +16,10 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   // Set up Bean classes
   var beanManager: PTDBeanManager?
   var yourBean: PTDBean?
+  
+  func delay(delay:Double, closure:()->()) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
+  }
 
   // Call from JS when app is opened to begin looking for Bean
   @objc func initBean() {
@@ -30,9 +34,6 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     print("Bean init called.")
   }
   
-  func delay(delay:Double, closure:()->()) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
-  }
   
   func beanManager(beanManager: PTDBeanManager!, didConnectBean bean: PTDBean!, error: NSError!) {
     print("did connect")
@@ -76,20 +77,20 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   func connectToBean(bean: PTDBean) {
     var error: NSError?
     beanManager?.connectToBean(bean, error: &error)
+    checkBeanStatus()
   }
   
   @objc func disconnectFromBean() {
     var error: NSError?
     beanManager?.disconnectFromAllBeans(&error)
+    self.bridge.eventDispatcher().sendAppEventWithName("BeanStatus", body: ["voltage": 0, "status": "disconnected"])
   }
   
-
   
   @objc func buzzBean(){
     print("Buzz called")
     var state: Bool = true;
     let data = NSData(bytes: &state, length: sizeof(Bool))
-    yourBean?.readBatteryVoltage()
     
     dispatch_async(dispatch_get_main_queue()){
       self.sendSerialData(data)
@@ -97,8 +98,17 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   }
   
   
-  @objc func checkBattery(){
-    yourBean?.readBatteryVoltage()
+  @objc func checkBeanStatus(){
+    let connected = beanManager!.state == BeanManagerState.PoweredOn
+    
+    print("Bean status called")
+    
+    if connected {
+      yourBean?.readBatteryVoltage()
+    } else {
+      self.bridge.eventDispatcher().sendAppEventWithName("BeanStatus", body: ["voltage": 0, "status": "disconnected"])
+    }
+    
   }
 
   func sendSerialData(message: NSData) {
@@ -110,7 +120,7 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
     let connected = beanManager!.state == BeanManagerState.PoweredOn
     print("Connected?", connected)
     print("Battery Voltage? \(bean.batteryVoltage)")
-    self.bridge.eventDispatcher().sendAppEventWithName("BatteryLevel", body: bean.batteryVoltage)
+    self.bridge.eventDispatcher().sendAppEventWithName("BeanStatus", body: ["voltage": bean.batteryVoltage, "status": "connected"])
   }
   
   func bean(bean: PTDBean!, serialDataReceived data: NSData!) {
