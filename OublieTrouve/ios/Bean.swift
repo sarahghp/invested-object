@@ -118,8 +118,8 @@ class Bean: NSObject, PTDBeanManagerDelegate, PTDBeanDelegate {
   
   func beanDidUpdateBatteryVoltage(bean: PTDBean!, error: NSError!){
     let connected = beanManager!.state == BeanManagerState.PoweredOn
-    print("Connected?", connected)
-    print("Battery Voltage? \(bean.batteryVoltage)")
+//    print("Connected?", connected)
+//    print("Battery Voltage? \(bean.batteryVoltage)")
     self.bridge.eventDispatcher().sendAppEventWithName("BeanStatus", body: ["voltage": bean.batteryVoltage, "status": "connected"])
   }
   
