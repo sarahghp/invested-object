@@ -230,7 +230,7 @@ export default class Card extends Component {
         <Image source={name} key={idx}
           style={[styles.image, 
                   {
-                    transform: [{translateX: Math.random() * 100}, {translateY: idx * -4}]
+                    transform: [{translateX: 100 + idx%4}, {translateY: idx * -4}]
                   } ]} />
       )
     });
