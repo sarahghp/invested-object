@@ -64,8 +64,8 @@ export default class BaseMoment {
     let locator = new PromisedLocation(options);
 
     locator
-      .catch(function (err) {
-        console.error('Position Error ', err);
+      .catch((error) => {
+        console.log('Position Error ', error);
       });
 
     return locator;

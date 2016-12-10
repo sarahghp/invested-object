@@ -12,7 +12,6 @@ import { base }   from './helpers/base_styles';
 import TopNav     from './TopNav';
 import Button     from './Record_Now_Button';
 import TextDetail from './Moment_Text';
-import ListDetail from './Conx_Filtered_List';
 import ConxImage  from './Conx_Full_Image';
 
 export default class Detail extends Component {

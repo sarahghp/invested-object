@@ -124,7 +124,7 @@ let ts = function({key, dataBlob}) {
           });
       } else {
         console.log(key + ' data was already loaded.');
-        // console.log(data);
+        console.log(data);
       }
     })
     .catch(error => {

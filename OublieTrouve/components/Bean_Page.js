@@ -71,14 +71,14 @@ export default class BeanPage extends Component {
   render() {
     let connected = this.state.beanConnected === 'connected',
       connectedButtons =  
-      <View>
-          {Button('Disconnect', this._disconnectBean)}
-          {Button('Buzz!', this._buzzBean)}
-      </View>,
-        disconnectedButtons = 
-      <View>
-        {Button('Reconnect', this._initBean)}                              
-      </View>;
+        <View>
+            {Button('Disconnect', this._disconnectBean)}
+            {Button('Buzz!', this._buzzBean)}
+        </View>,
+      disconnectedButtons = 
+        <View>
+          {Button('Reconnect', this._initBean)}                              
+        </View>;
     
 
     return (

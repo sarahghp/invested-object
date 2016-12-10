@@ -221,7 +221,7 @@ const _checkForConx = function(navigator, threshold){
 
       })
       .catch(error => {
-        console.error(error.message);
+        console.log(error.message);
       });
   }
 
